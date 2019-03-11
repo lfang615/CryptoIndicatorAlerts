@@ -1,0 +1,39 @@
+<div class="row mt-5">
+  <div class="col-sm-3">
+    <h2>BTC Pairs</h2>
+  </div>
+  <div class="col-sm-1"></div>
+  <div class="col-sm-1">
+    <button class="btn btn-danger" type="button" (click)="onRemove()">Remove</button>
+  </div>
+  <div class="col-sm-1">
+    <button class="btn btn-success" type="button">View</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <input [(ngModel)]="searchText" class="form-control" id="assetSearch" type="text" placeholder="Search.." />
+    <div class="list-group" id="assetList">
+      <button type="button"
+              class="list-group-item list-group-item-action"
+              *ngFor="let i = index; let asset of filteredList | filter: searchText"
+              (click)="addToTrack($event)">
+        {{ asset }}
+      </button>
+    </div>
+  </div>
+ <div class="col-sm-1"></div>
+  <div class="col-sm-3">
+    <div id="trackedList" class="list-group">
+      <button type="button"
+         (click)="setIndex(i)"
+         *ngFor="let asset of personalList; let even = even; let odd = odd; let i = index"
+         class="list-group-item list-group-item-action"
+         [ngClass]="{'list-group-item-secondary': even,
+                     'list-group-item-primary': odd}">{{ asset }}</button>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,21 @@
+div.list-group{
+  max-height: 400px;
+  margin-bottom: 10px;
+  overflow-y:scroll;
+}
+
+button.list-group-item{
+  height: 40px;
+}
+
+.list-group-item {
+  padding: 1.50rem 1.25rem;
+}
+
+#trackedList{
+  height:auto;
+  overflow:visible
+}
+
+
+
