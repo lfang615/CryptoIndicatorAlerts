@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using CryptoIndicatorAlerts.Models;
+using CryptoIndicatorAlerts.Models.Repository;
 using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,10 +17,12 @@ namespace CryptoIndicatorAlerts
   public class ValuesController : Controller
   {
     private readonly IHttpClientFactory _clientFactory;
+    private IAssetPairRepository _assetPairRepo;
 
-    public ValuesController(IHttpClientFactory clientFactory)
+    public ValuesController(IHttpClientFactory clientFactory, IAssetPairRepository assetPairRepo)
     {
       _clientFactory = clientFactory;
+      _assetPairRepo = assetPairRepo;
     }
 
     // GET: api/<controller>
