@@ -1,5 +1,5 @@
 div.list-group{
-  max-height: 400px;
+  max-height: 200px;
   margin-bottom: 10px;
   overflow-y:scroll;
 }
@@ -16,6 +16,12 @@ button.list-group-item{
   height:auto;
   overflow:visible
 }
+
+ul.nav.nav-tabs:hover{
+  cursor: pointer;
+}
+
+
 
 
 

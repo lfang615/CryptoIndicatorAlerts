@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <None Remove="src\app\asset-pairs\asset-pair.model.ts" />
+    <None Remove="src\app\asset-pairs\asset-pairs.component.ts" />
     <None Remove="src\app\asset-pairs\asset-pairs.service.ts" />
-    <None Remove="src\app\shared\filter.pipe.ts" />
+    <None Remove="src\app\asset-pairs\filter.pipe.ts" />
+    <None Remove="src\app\shared\websocket.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,14 +24,17 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
     <PackageReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.2" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\asset-pairs\asset-pairs.component.ts" />
     <TypeScriptCompile Include="src\app\asset-pairs\asset-pairs.service.ts" />
     <TypeScriptCompile Include="src\app\asset-pairs\asset-pair.model.ts" />
-    <TypeScriptCompile Include="src\app\shared\filter.pipe.ts" />
+    <TypeScriptCompile Include="src\app\asset-pairs\filter.pipe.ts" />
+    <TypeScriptCompile Include="src\app\shared\websocket.service.ts" />
   </ItemGroup>
 
 </Project>

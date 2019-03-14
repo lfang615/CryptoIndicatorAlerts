@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AssetPairsService } from '../asset-pairs.service';
 import { AssetPair } from '../asset-pair.model';
-
+import { Subscription } from 'rxjs';
+import { webSocket } from 'rxjs/webSocket';
 import { map } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-assets',
@@ -10,13 +12,18 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./asset-list.component.css']
 })
 export class AssetListComponent implements OnInit {
+  private subscription: Subscription;
   assetList: AssetPair[];
-  filteredList: any[];
+  socket: any;
   personalList = [];
   itemPosition: number;
-  selectedAsset: number;
+  selectedAsset: AssetPair;
+  viewSelected = false;
+  btnSelected = false;
 
-  constructor(private assetPairsService: AssetPairsService) { }
+  constructor(private assetPairsService: AssetPairsService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.assetPairsService
@@ -24,28 +31,49 @@ export class AssetListComponent implements OnInit {
       .subscribe((response) =>
       {
         this.assetList = response;
-        this.filteredList = this.assetList.map((x) => { return x.baseName })
-        //for (let item of this.assetList) {
-        //  this.filteredList.push(item.baseName);
-        //}
       });
+
+    this.assetPairsService.selectionChange
+      .subscribe((response) => {
+        this.assetList = response;
+      });
+
+    //this.socket = webSocket('wss://stream.binance.com:9443/ws/bnbbtc@kline_1m');
+    //this.socket.subscribe(
+    //  msg => console.log(msg), // Called whenever there is a message from the server.
+    //  err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
+    //  () => console.log('complete') // Called when connection is closed (for whatever reason).
+    //);
   }
 
-  addToTrack(event) {
-    this.personalList.push(event.target.innerText);
+  addToTrack(asset) {
+    if (this.isSelected(asset) === undefined) {
+      this.personalList.push(asset);
+      this.assetPairsService.onChange(asset);
+    } 
+    
+  }
+
+  isSelected(item: AssetPair) {
+    let isSelected = this.assetList.find((x) => { return x.baseName === item.baseName && x.isSelected == true });
+    return isSelected;
   }
 
   onRemove() {
     this.personalList.splice(this.itemPosition, 1);
+    this.assetPairsService.onChange(this.selectedAsset);
   }
 
   setIndex(index) {
     this.itemPosition = index;
   }
 
-  onSelect(index) {
-    this.selectedAsset = index;
-    this.personalList.push(this.filteredList[index]);
+  onSelectPersonal(asset) {
+    this.selectedAsset = asset;
+  }
+
+  navigateToDetail(item: AssetPair) {
+    this.router.navigate(['detail', item.baseName], {relativeTo: this.route});
   }
 
 }
