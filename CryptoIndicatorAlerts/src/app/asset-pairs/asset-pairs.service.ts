@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { webSocket } from 'rxjs/webSocket';
@@ -14,7 +14,7 @@ export class AssetPairsService {
   selectionChange = new Subject<AssetPair[]>();
 
   constructor(private httpClient: HttpClient) {
-    this.getAssetPairs();
+    
   }
 
   getAssetPairs() {
@@ -26,7 +26,7 @@ export class AssetPairsService {
       (response: any[]) => {
         const assetList = [];
         for (let item of response) {
-          assetList.push(new AssetPair(String(item).split("BTC")[0], 'BTC'));
+          assetList.push(new AssetPair(item.Id, item.BaseName, item.QuoteName, item.IsSelected));
         }
         this.assetList = assetList;
         return this.assetList;
@@ -45,7 +45,15 @@ export class AssetPairsService {
     this.selectionChange.next(this.assetList);
   }
 
-  getItem(item: string) {
-    return this.assetList.find(x => x.baseName === item);
+  getItem(id: number) {
+    return this.httpClient.get('api/getpair/' + id, {
+      observe: 'body',
+      responseType: 'json'
+    })
+      .pipe(map(
+        (response: any) => {
+          return new AssetPair(response.Id, response.BaseName, response.QuoteName, response.IsSelected);
+      }));
+    
   }
 }

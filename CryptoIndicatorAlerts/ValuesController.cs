@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace CryptoIndicatorAlerts
 {
-  
+
   public class ValuesController : Controller
   {
     private readonly IHttpClientFactory _clientFactory;
@@ -25,19 +25,12 @@ namespace CryptoIndicatorAlerts
       _assetPairRepo = assetPairRepo;
     }
 
-    // GET: api/<controller>
-    [HttpGet("api/test")]
-    public IEnumerable<string> Get()
-    {
-      return new string[] { "test1", "test2" };
-    }
-
     [HttpGet("api/binancepairs")]
-    public async Task<IEnumerable<string>> GetBinancePairs()
+    public async Task<string> GetBinancePairs()
     {
       var request = new HttpRequestMessage(HttpMethod.Get,
          "https://api.binance.com/api/v3/ticker/price");
-      
+
       var client = _clientFactory.CreateClient();
 
       var response = await client.SendAsync(request);
@@ -48,13 +41,39 @@ namespace CryptoIndicatorAlerts
 
         List<Dictionary<string, string>> assetPairsList = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(result);
 
-        return assetPairsList.Select(x => x["symbol"]).Where(x => x.ToString().EndsWith("BTC"));
+        if (_assetPairRepo.FindAll().Count() == 0)
+        {
+          foreach (var item in assetPairsList)
+          {
+            if (item["symbol"].EndsWith("BTC"))
+            {
+              AssetPair pair = new AssetPair()
+              {
+                BaseName = item["symbol"].Split("BTC")[0],
+                QuoteName = "BTC"
+              };
+              _assetPairRepo.Create(pair);
+            }
+
+          }
+
+          _assetPairRepo.Save();
+        }
+
+        //return assetPairsList.Select(x => x["symbol"]).Where(x => x.ToString().EndsWith("BTC"));
+        return JsonConvert.SerializeObject(_assetPairRepo.FindAll());
       }
       else
       {
         return null;
       }
 
+    }
+
+    [HttpGet("api/getpair/{id}")]
+    public AssetPair GetPair(int id)
+    {
+      return _assetPairRepo.FindByCondition(x => x.Id == id).First();
     }
 
     //// GET api/<controller>/5

@@ -73,7 +73,7 @@ export class AssetListComponent implements OnInit {
   }
 
   navigateToDetail(item: AssetPair) {
-    this.router.navigate(['detail', item.baseName], {relativeTo: this.route});
+    this.router.navigate(['detail', item.id], {relativeTo: this.route});
   }
 
 }

@@ -9,7 +9,7 @@ import { AssetPairsService } from '../asset-pairs.service';
   styleUrls: ['./asset-detail.component.css']
 })
 export class AssetDetailComponent implements OnInit {
-  id: string;
+  id: number;
   asset: AssetPair;
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -21,8 +21,11 @@ export class AssetDetailComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = params['id'];
-          this.asset = this.assetPairsService.getItem(this.id);
+          this.id = +params['id'];
+          this.assetPairsService.getItem(this.id)
+            .subscribe((response) => {
+              this.asset = response;
+            });
         }
     );
 
