@@ -9,17 +9,17 @@ import { AssetPairsComponent } from './asset-pairs/asset-pairs.component';
 import { AssetListComponent } from './asset-pairs/asset-list/asset-list.component';
 import { HeaderComponent } from './core/header/header.component';
 import { AssetPairsService } from './asset-pairs/asset-pairs.service';
+import { WebsocketService } from './asset-pairs/websocket.service';
 import { FilterPipe } from './asset-pairs/filter.pipe';
+import { SelectedFilterPipe } from './asset-pairs/selected-filter.pipe';
 import { AssetDetailComponent } from './asset-pairs/asset-detail/asset-detail.component';
 import { AssetEditComponent } from './asset-pairs/asset-edit/asset-edit.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/assetpairs', pathMatch: 'full'},
-  {
-    path: 'assetpairs', component: AssetPairsComponent, children: [
-      { path: 'detail/:id', component: AssetDetailComponent }
-    ]
-  }
+  { path: '', redirectTo: '/assetpairs', pathMatch: 'full' },
+  { path: 'assetpairs/view', component: AssetPairsComponent },
+  { path: 'detail/:id', component: AssetDetailComponent},
+  { path: 'assetpairs', component: AssetPairsComponent}
   
 ];
 
@@ -30,6 +30,7 @@ const appRoutes: Routes = [
     AssetListComponent,
     HeaderComponent,
     FilterPipe,
+    SelectedFilterPipe,
     AssetDetailComponent,
     AssetEditComponent
   ],
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AssetPairsService],
+  providers: [AssetPairsService, WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

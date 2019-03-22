@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { webSocket } from 'rxjs/webSocket';
 import { map } from 'rxjs/operators';
@@ -45,15 +45,21 @@ export class AssetPairsService {
     this.selectionChange.next(this.assetList);
   }
 
-  getItem(id: number) {
+  getItem(id: number) : Observable<AssetPair> {
     return this.httpClient.get('api/getpair/' + id, {
       observe: 'body',
       responseType: 'json'
     })
       .pipe(map(
         (response: any) => {
-          return new AssetPair(response.Id, response.BaseName, response.QuoteName, response.IsSelected);
+          return new AssetPair(response.id, response.baseName, response.quoteName, response.isSelected);
       }));
     
+  }
+
+  saveItems() {
+    const header = new HttpHeaders().set('content-type', 'application/json');
+    const req = new HttpRequest('PUT', 'api/saveitems', this.assetList, {headers: header, reportProgress: true });
+    return this.httpClient.request(req);
   }
 }

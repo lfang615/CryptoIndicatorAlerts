@@ -76,6 +76,23 @@ namespace CryptoIndicatorAlerts
       return _assetPairRepo.FindByCondition(x => x.Id == id).First();
     }
 
+    [HttpPut("api/saveitems")]
+    public void SaveItems([FromBody]AssetPair[] items)
+    {
+      foreach (var pair in items)
+      {
+        if(pair.IsSelected == true)
+        {
+          AssetPair assetPair = _assetPairRepo.FindByCondition(x => x.Id == pair.Id).FirstOrDefault();
+          assetPair.IsSelected = true;
+          _assetPairRepo.Update(assetPair);
+        }
+      }
+
+      _assetPairRepo.Save();
+      
+    }
+
     //// GET api/<controller>/5
     //[HttpGet("{id}")]
     //public string Get(int id)

@@ -1,6 +1,35 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
   <span class="navbar-brand mb-0 h1">Indicator Alerts</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLink="assetpairs"
+           [queryParams]="{view: '0'}"
+           routerLinkActive="active">Select Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLink="assetpairs"
+           [queryParams]="{view: '1'}"
+           routerLinkActive="active">View Assets</a>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-success"
+                [ngStyle]="{'visibility': saveVisible ? 'visible' : 'hidden'}"
+                type="button">Save</button>
+      </li>
+    </ul>
+  </div>
+
+  
+
 </nav>
+
 
 
 

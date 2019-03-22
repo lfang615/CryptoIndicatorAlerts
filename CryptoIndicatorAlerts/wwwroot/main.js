@@ -103,9 +103,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _asset_pairs_asset_list_asset_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./asset-pairs/asset-list/asset-list.component */ "./src/app/asset-pairs/asset-list/asset-list.component.ts");
 /* harmony import */ var _core_header_header_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./core/header/header.component */ "./src/app/core/header/header.component.ts");
 /* harmony import */ var _asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./asset-pairs/asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
-/* harmony import */ var _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./asset-pairs/filter.pipe */ "./src/app/asset-pairs/filter.pipe.ts");
-/* harmony import */ var _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./asset-pairs/asset-detail/asset-detail.component */ "./src/app/asset-pairs/asset-detail/asset-detail.component.ts");
-/* harmony import */ var _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./asset-pairs/asset-edit/asset-edit.component */ "./src/app/asset-pairs/asset-edit/asset-edit.component.ts");
+/* harmony import */ var _asset_pairs_websocket_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./asset-pairs/websocket.service */ "./src/app/asset-pairs/websocket.service.ts");
+/* harmony import */ var _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./asset-pairs/filter.pipe */ "./src/app/asset-pairs/filter.pipe.ts");
+/* harmony import */ var _asset_pairs_selected_filter_pipe__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./asset-pairs/selected-filter.pipe */ "./src/app/asset-pairs/selected-filter.pipe.ts");
+/* harmony import */ var _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./asset-pairs/asset-detail/asset-detail.component */ "./src/app/asset-pairs/asset-detail/asset-detail.component.ts");
+/* harmony import */ var _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./asset-pairs/asset-edit/asset-edit.component */ "./src/app/asset-pairs/asset-edit/asset-edit.component.ts");
+
+
 
 
 
@@ -122,11 +126,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var appRoutes = [
     { path: '', redirectTo: '/assetpairs', pathMatch: 'full' },
-    {
-        path: 'assetpairs', component: _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__["AssetPairsComponent"], children: [
-            { path: 'detail/:id', component: _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_12__["AssetDetailComponent"] }
-        ]
-    }
+    { path: 'assetpairs/view', component: _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__["AssetPairsComponent"] },
+    { path: 'detail/:id', component: _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_14__["AssetDetailComponent"] },
+    { path: 'assetpairs', component: _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__["AssetPairsComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -138,9 +140,10 @@ var AppModule = /** @class */ (function () {
                 _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__["AssetPairsComponent"],
                 _asset_pairs_asset_list_asset_list_component__WEBPACK_IMPORTED_MODULE_8__["AssetListComponent"],
                 _core_header_header_component__WEBPACK_IMPORTED_MODULE_9__["HeaderComponent"],
-                _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_11__["FilterPipe"],
-                _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_12__["AssetDetailComponent"],
-                _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_13__["AssetEditComponent"]
+                _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_12__["FilterPipe"],
+                _asset_pairs_selected_filter_pipe__WEBPACK_IMPORTED_MODULE_13__["SelectedFilterPipe"],
+                _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_14__["AssetDetailComponent"],
+                _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_15__["AssetEditComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -148,7 +151,7 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(appRoutes)
             ],
-            providers: [_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_10__["AssetPairsService"]],
+            providers: [_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_10__["AssetPairsService"], _asset_pairs_websocket_service__WEBPACK_IMPORTED_MODULE_11__["WebsocketService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
@@ -177,7 +180,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row mt-5\">\r\n\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <h2>{{ asset.baseName + asset.quoteName}}</h2>\r\n  </div>\r\n</div>\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12\">\r\n          <div>\r\n            <button class=\"btn btn-primary\" data-toggle=\"collapse\" data-target=\"#collapseMA\">Moving Average</button>\r\n          </div>\r\n          <div class=\"collapse\" id=\"collapseMA\">\r\n            <div class=\"card card-body\">\r\n              <input type=\"text\" class=\"form-control\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"row mt-2\">\r\n        <div class=\"col-xs-12\">\r\n          <div>\r\n            <button class=\"btn btn-primary\" data-toggle=\"collapse\" data-target=\"#collapseEMA\">EMA</button>\r\n          </div>\r\n          <div class=\"collapse\" id=\"collapseEMA\">\r\n            <div class=\"card card-body\">\r\n              <input type=\"text\" class=\"form-control\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"row mt-2\">\r\n        <div class=\"col-xs-12\">\r\n          <button class=\"btn btn-primary\" data-toggle=\"collapse\" data-target=\"#collapseRSI\">RSI</button>\r\n          <div class=\"collapse\" id=\"collapseRSI\">\r\n            <div class=\"card card-body\">\r\n              <input type=\"text\" class=\"form-control\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!--<div class=\"row\">\r\n        <div class=\"col-xs-12\">\r\n          <div class=\"form-group\">\r\n            <div>RSI</div>\r\n            <div class=\"form-check\">\r\n              <input type=\"checkbox\" id=\"rsi30M\" class=\"form-check-input\" />\r\n              <label class=\"form-check-label\" for=\"rsi30M\">\r\n                30M\r\n              </label>\r\n            </div>\r\n            <div class=\"form-check\">\r\n              <input type=\"checkbox\" id=\"rsi1HR\" class=\"form-check-input\" />\r\n              <label class=\"form-check-label\" for=\"rsi1HR\">\r\n                1HR\r\n              </label>\r\n            </div>\r\n            <div class=\"form-check\">\r\n              <input type=\"checkbox\" id=\"rsi4HR\" class=\"form-check-input\" />\r\n              <label class=\"form-check-label\" for=\"rsi4HR\">\r\n                4HR\r\n              </label>\r\n            </div>\r\n            <div class=\"form-check\">\r\n              <input type=\"checkbox\" id=\"rsi1D\" class=\"form-check-input\" />\r\n              <label class=\"form-check-label\" for=\"rsi1D\">\r\n                1D\r\n              </label>\r\n            </div>\r\n          </div>\r\n\r\n          <div>Moving Average</div>\r\n          <div class=\"form-check\">\r\n            <input type=\"checkbox\" id=\"rsi30M\" class=\"form-check-input\" />\r\n            <label class=\"form-check-label\" for=\"rsi30M\">\r\n              30M\r\n            </label>\r\n          </div>\r\n          <div class=\"form-check\">\r\n            <input type=\"checkbox\" id=\"rsi1HR\" class=\"form-check-input\" />\r\n            <label class=\"form-check-label\" for=\"rsi1HR\">\r\n              1HR\r\n            </label>\r\n          </div>\r\n          <div class=\"form-check\">\r\n            <input type=\"checkbox\" id=\"rsi4HR\" class=\"form-check-input\" />\r\n            <label class=\"form-check-label\" for=\"rsi4HR\">\r\n              4HR\r\n            </label>\r\n          </div>\r\n          <div class=\"form-check\">\r\n            <input type=\"checkbox\" id=\"rsi1D\" class=\"form-check-input\" />\r\n            <label class=\"form-check-label\" for=\"rsi1D\">\r\n              1D\r\n            </label>\r\n          </div>\r\n        </div>\r\n      </div>-->\r\n    </form>\r\n  </div>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <h2>{{ asset.baseName + asset.quoteName}}</h2>\r\n  </div>\r\n</div>\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <h4>Last Closing Price: </h4>{{priceMessage}}\r\n        <input type=\"text\" class=\"form-control\" id=\"lastClose\" readonly value=\"{{priceMessage}}\" />\r\n      </div>\r\n      <br />\r\n     <h4>Volume</h4>\r\n     <div class=\"form-group\">\r\n       <label for=\"vol24\">Current 24HR Vol</label>\r\n       <input type=\"text\" class=\"form-control\" id=\"vol24\" />\r\n       <label for=\"volAvg24\">Avg 20 Period</label>\r\n       <input type=\"text\" class=\"form-control\" id=\"volAvg24\" />\r\n     </div>\r\n    </form>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -195,25 +198,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _asset_pairs_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
+/* harmony import */ var _websocket_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../websocket.service */ "./src/app/asset-pairs/websocket.service.ts");
+
 
 
 
 
 var AssetDetailComponent = /** @class */ (function () {
-    function AssetDetailComponent(route, router, assetPairsService) {
+    function AssetDetailComponent(route, assetPairsService, websocketService) {
         this.route = route;
-        this.router = router;
         this.assetPairsService = assetPairsService;
+        this.websocketService = websocketService;
     }
     AssetDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //this.id = this.route.snapshot.params["id"];
-        //this.asset = this.assetPairsService.getItem(this.id);
         this.route.params
             .subscribe(function (params) {
-            _this.id = params['id'];
-            _this.asset = _this.assetPairsService.getItem(_this.id);
+            _this.id = +params['id'];
+            _this.assetPairsService.getItem(_this.id)
+                .subscribe(function (response) {
+                _this.asset = response;
+                _this.connectPriceMessage();
+            });
         });
+    };
+    AssetDetailComponent.prototype.connectPriceMessage = function () {
+        var _this = this;
+        this.websocketService
+            .connectPrice((String(this.asset.baseName + this.asset.quoteName).toLowerCase()))
+            .subscribe(function (response) {
+            _this.priceBTC = JSON.parse(response.data)['k']['c'];
+        });
+    };
+    AssetDetailComponent.prototype.ngOnDestroy = function () {
+        this.websocketService.close();
     };
     AssetDetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -222,8 +240,8 @@ var AssetDetailComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./asset-detail.component.css */ "./src/app/asset-pairs/asset-detail/asset-detail.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _asset_pairs_service__WEBPACK_IMPORTED_MODULE_3__["AssetPairsService"]])
+            _asset_pairs_service__WEBPACK_IMPORTED_MODULE_3__["AssetPairsService"],
+            _websocket_service__WEBPACK_IMPORTED_MODULE_4__["WebsocketService"]])
     ], AssetDetailComponent);
     return AssetDetailComponent;
 }());
@@ -306,7 +324,7 @@ module.exports = "div.list-group{\r\n  max-height: 200px;\r\n  margin-bottom: 10
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n  <div class=\"row\">\r\n    <ul class=\"nav nav-tabs\">\r\n      <li class=\"nav-item nav-link active\" [ngClass]=\"{'active': !viewSelected}\">\r\n        <a (click)=\"viewSelected = !viewSelected\">Select Assets</a>\r\n      </li>\r\n      <li class=\"nav-item nav-link\" [ngClass]=\"{'active': viewSelected }\">\r\n        <a (click)=\"viewSelected = !viewSelected\">View Assets</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  <div class=\"row mt-3\">\r\n    <div class=\"col-xs-12\" *ngIf=\"!viewSelected\">\r\n      <h2>BTC Pairs</h2>\r\n      <input [(ngModel)]=\"searchText\" class=\"form-control\" id=\"assetSearch\" type=\"text\" placeholder=\"Search..\" />\r\n      <div class=\"list-group\" id=\"assetList\">\r\n        <button type=\"button\"\r\n                class=\"list-group-item list-group-item-action\"\r\n                [ngClass]=\"{'list-group-item-primary': asset.isSelected }\"\r\n                *ngFor=\"let i = index; let asset of assetList | filter: searchText\"\r\n                (click)=\"addToTrack(asset)\">\r\n          {{ asset.baseName }}\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"viewSelected && personalList\">\r\n    <!--<div id=\"trackedList\">-->\r\n    <!--<div class=\"list-group\" *ngFor=\"let asset of personalList; let even = even; let odd = odd; let i = index\">-->\r\n    <div class=\"col-xs-12\">\r\n      <ul class=\"list-group\">\r\n        <li class=\"list-group-item list-group-item-action\"\r\n            *ngFor=\"let asset of personalList; let even = even; let odd = odd; let i = index\"\r\n            (click)=\"onSelectPersonal(asset); setIndex(i)\">\r\n          {{asset.baseName}}\r\n          <div style=\"display: inline\"\r\n               [ngStyle]=\"{'visibility': asset == selectedAsset ? 'visible' : 'hidden' }\"\r\n               class=\"ml-2\">\r\n            <button class=\"btn btn-success\" type=\"button\" (click)=\"navigateToDetail(asset)\">View</button>\r\n            <button class=\"btn btn-danger mr-1\" type=\"button\" (click)=\"onRemove()\">Remove</button>\r\n          </div>\r\n\r\n        </li>\r\n      </ul>\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+module.exports = "\r\n\r\n  <!--<div class=\"row\">\r\n    <ul class=\"nav nav-tabs\">\r\n      <li class=\"nav-item nav-link active\" [ngClass]=\"{'active': !viewSelected}\">\r\n        <a (click)=\"viewSelected = !viewSelected\">Select Assets</a>\r\n      </li>\r\n      <li class=\"nav-item nav-link\" [ngClass]=\"{'active': viewSelected }\">\r\n        <a (click)=\"viewSelected = !viewSelected\">View Assets</a>\r\n      </li>\r\n    </ul>\r\n  </div>-->\r\n\r\n  <div class=\"row mt-3\">\r\n    <div class=\"col-xs-12\" *ngIf=\"!viewSelected\">\r\n      <h2>BTC Pairs</h2>\r\n      <input [(ngModel)]=\"searchText\" class=\"form-control\" id=\"assetSearch\" type=\"text\" placeholder=\"Search..\" />\r\n      <div class=\"list-group\" id=\"assetList\">\r\n        <button type=\"button\"\r\n                class=\"list-group-item list-group-item-action\"\r\n                [ngClass]=\"{'list-group-item-primary': asset.isSelected }\"\r\n                *ngFor=\"let i = index; let asset of assetList | filter: searchText\"\r\n                (click)=\"addToTrack(asset)\">\r\n          {{ asset.baseName }}\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"viewSelected && personalList\">\r\n    <!--<div id=\"trackedList\">-->\r\n    <!--<div class=\"list-group\" *ngFor=\"let asset of personalList; let even = even; let odd = odd; let i = index\">-->\r\n    <div class=\"col-xs-12\">\r\n      <h2>Tracked Assets</h2> \r\n      <ul class=\"list-group\">\r\n        <li class=\"list-group-item list-group-item-action\" style=\"padding: 5px\"\r\n            *ngFor=\"let asset of (assetList | selectedFilter); let even = even; let odd = odd; let i = index\"\r\n            (click)=\"onSelectPersonal(asset); setIndex(i)\">\r\n          <div class=\"btn-group dropright\">\r\n            <button type=\"button\"\r\n                    class=\"btn btn-seconday dropdown-toggle\"\r\n                    data-toggle=\"dropdown\">\r\n              {{asset.baseName}}\r\n            </button>\r\n            <div class=\"dropdown-menu\">\r\n              <a class=\"dropdown-item\" [routerLink]=\"['/detail', asset.id]\">View</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Remove</a>\r\n            </div>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -336,6 +354,7 @@ var AssetListComponent = /** @class */ (function () {
         this.personalList = [];
         this.viewSelected = false;
         this.btnSelected = false;
+        this.showSave = false;
     }
     AssetListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -347,6 +366,11 @@ var AssetListComponent = /** @class */ (function () {
         this.assetPairsService.selectionChange
             .subscribe(function (response) {
             _this.assetList = response;
+            _this.showSave = true;
+        });
+        this.route.queryParams
+            .subscribe(function (queryParams) {
+            _this.viewSelected = queryParams["view"] === "1" ? true : false;
         });
         //this.socket = webSocket('wss://stream.binance.com:9443/ws/bnbbtc@kline_1m');
         //this.socket.subscribe(
@@ -376,7 +400,13 @@ var AssetListComponent = /** @class */ (function () {
         this.selectedAsset = asset;
     };
     AssetListComponent.prototype.navigateToDetail = function (item) {
-        this.router.navigate(['detail', item.baseName], { relativeTo: this.route });
+        this.router.navigate(['detail', item.id], { relativeTo: this.route });
+    };
+    AssetListComponent.prototype.onSave = function () {
+        this.assetPairsService.saveItems()
+            .subscribe(function (response) {
+            console.log(response);
+        });
     };
     AssetListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -406,10 +436,11 @@ var AssetListComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AssetPair", function() { return AssetPair; });
 var AssetPair = /** @class */ (function () {
-    function AssetPair(baseName, quoteName) {
+    function AssetPair(id, baseName, quoteName, isSelected) {
+        this.id = id;
         this.baseName = baseName;
         this.quoteName = quoteName;
-        this.isSelected = false;
+        this.isSelected = isSelected;
     }
     return AssetPair;
 }());
@@ -500,7 +531,6 @@ var AssetPairsService = /** @class */ (function () {
     function AssetPairsService(httpClient) {
         this.httpClient = httpClient;
         this.selectionChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-        this.getAssetPairs();
     }
     AssetPairsService.prototype.getAssetPairs = function () {
         var _this = this;
@@ -512,7 +542,7 @@ var AssetPairsService = /** @class */ (function () {
             var assetList = [];
             for (var _i = 0, response_1 = response; _i < response_1.length; _i++) {
                 var item = response_1[_i];
-                assetList.push(new _asset_pair_model__WEBPACK_IMPORTED_MODULE_5__["AssetPair"](String(item).split("BTC")[0], 'BTC'));
+                assetList.push(new _asset_pair_model__WEBPACK_IMPORTED_MODULE_5__["AssetPair"](item.Id, item.BaseName, item.QuoteName, item.IsSelected));
             }
             _this.assetList = assetList;
             return _this.assetList;
@@ -527,8 +557,19 @@ var AssetPairsService = /** @class */ (function () {
         //});
         this.selectionChange.next(this.assetList);
     };
-    AssetPairsService.prototype.getItem = function (item) {
-        return this.assetList.find(function (x) { return x.baseName === item; });
+    AssetPairsService.prototype.getItem = function (id) {
+        return this.httpClient.get('api/getpair/' + id, {
+            observe: 'body',
+            responseType: 'json'
+        })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
+            return new _asset_pair_model__WEBPACK_IMPORTED_MODULE_5__["AssetPair"](response.id, response.baseName, response.quoteName, response.isSelected);
+        }));
+    };
+    AssetPairsService.prototype.saveItems = function () {
+        var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('content-type', 'application/json');
+        var req = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpRequest"]('PUT', 'api/saveitems', this.assetList, { headers: header, reportProgress: true });
+        return this.httpClient.request(req);
     };
     AssetPairsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
@@ -580,6 +621,98 @@ var FilterPipe = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/asset-pairs/selected-filter.pipe.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/asset-pairs/selected-filter.pipe.ts ***!
+  \*****************************************************/
+/*! exports provided: SelectedFilterPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectedFilterPipe", function() { return SelectedFilterPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var SelectedFilterPipe = /** @class */ (function () {
+    function SelectedFilterPipe() {
+    }
+    SelectedFilterPipe.prototype.transform = function (items) {
+        //if (!items) return [];
+        //if (!searchText) return items;
+        //searchText = searchText.toLowerCase();
+        //return items.filter(it => {
+        //  return it.baseName.toLowerCase().includes(searchText);
+        //});
+        return items.filter(function (x) { return x.isSelected; });
+    };
+    SelectedFilterPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+            name: 'selectedFilter'
+        })
+    ], SelectedFilterPipe);
+    return SelectedFilterPipe;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/asset-pairs/websocket.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/asset-pairs/websocket.service.ts ***!
+  \**************************************************/
+/*! exports provided: WebsocketService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebsocketService", function() { return WebsocketService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
+
+
+var WebsocketService = /** @class */ (function () {
+    function WebsocketService() {
+    }
+    WebsocketService.prototype.connectPrice = function (symbol) {
+        var _this = this;
+        if (!this.priceSubject) {
+            this.wsPrice = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol + '@kline_1d');
+            var observable = rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (obs) {
+                _this.wsPrice.onmessage = obs.next.bind(obs);
+                _this.wsPrice.onerror = obs.error.bind(obs);
+                _this.wsPrice.onclose = obs.complete.bind(obs);
+                return _this.wsPrice.close.bind(_this.wsPrice);
+            });
+            var observer = {
+                next: function (data) {
+                    if (_this.wsPrice.readyState == WebSocket.OPEN) {
+                        console.log('on open WS');
+                    }
+                }
+            };
+            return rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+        }
+    };
+    WebsocketService.prototype.close = function () {
+        console.log('on closing WS');
+        this.wsPrice.close();
+        this.priceSubject = null;
+    };
+    WebsocketService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+    ], WebsocketService);
+    return WebsocketService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/core/header/header.component.css":
 /*!**************************************************!*\
   !*** ./src/app/core/header/header.component.css ***!
@@ -598,7 +731,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\r\n  <span class=\"navbar-brand mb-0 h1\">Indicator Alerts</span>\r\n</nav>\r\n\r\n\r\n\r\n\r\n"
+module.exports = "<nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\r\n  <span class=\"navbar-brand mb-0 h1\">Indicator Alerts</span>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n  \r\n  <div class=\"collapse navbar-collapse\" id=\"navbarText\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"assetpairs\"\r\n           [queryParams]=\"{view: '0'}\"\r\n           routerLinkActive=\"active\">Select Assets</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"assetpairs\"\r\n           [queryParams]=\"{view: '1'}\"\r\n           routerLinkActive=\"active\">View Assets</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <button class=\"btn btn-success\"\r\n                [ngStyle]=\"{'visibility': saveVisible ? 'visible' : 'hidden'}\"\r\n                type=\"button\">Save</button>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  \r\n\r\n</nav>\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -614,12 +747,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/asset-pairs/asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
+
 
 
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent() {
+    function HeaderComponent(assetPairsService) {
+        this.assetPairsService = assetPairsService;
+        this.saveVisible = false;
     }
     HeaderComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.assetPairsService.selectionChange
+            .subscribe(function (response) {
+            _this.saveVisible = true;
+        });
     };
     HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -627,7 +769,7 @@ var HeaderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./header.component.html */ "./src/app/core/header/header.component.html"),
             styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/core/header/header.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_2__["AssetPairsService"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());

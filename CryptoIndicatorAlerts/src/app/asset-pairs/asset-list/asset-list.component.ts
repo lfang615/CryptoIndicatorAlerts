@@ -4,7 +4,7 @@ import { AssetPair } from '../asset-pair.model';
 import { Subscription } from 'rxjs';
 import { webSocket } from 'rxjs/webSocket';
 import { map } from 'rxjs/operators';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-assets',
@@ -20,6 +20,7 @@ export class AssetListComponent implements OnInit {
   selectedAsset: AssetPair;
   viewSelected = false;
   btnSelected = false;
+  showSave = false;
 
   constructor(private assetPairsService: AssetPairsService,
               private route: ActivatedRoute,
@@ -36,8 +37,13 @@ export class AssetListComponent implements OnInit {
     this.assetPairsService.selectionChange
       .subscribe((response) => {
         this.assetList = response;
+        this.showSave = true;
       });
 
+    this.route.queryParams
+      .subscribe((queryParams: Params) => {
+        this.viewSelected = queryParams["view"] === "1" ? true : false;
+      })
     //this.socket = webSocket('wss://stream.binance.com:9443/ws/bnbbtc@kline_1m');
     //this.socket.subscribe(
     //  msg => console.log(msg), // Called whenever there is a message from the server.
@@ -74,6 +80,14 @@ export class AssetListComponent implements OnInit {
 
   navigateToDetail(item: AssetPair) {
     this.router.navigate(['detail', item.id], {relativeTo: this.route});
+  }
+
+  onSave() {
+    this.assetPairsService.saveItems()
+      .subscribe(
+      (response) => {
+        console.log(response);
+      });
   }
 
 }

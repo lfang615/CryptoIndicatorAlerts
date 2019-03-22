@@ -1,6 +1,6 @@
 
 
-  <div class="row">
+  <!--<div class="row">
     <ul class="nav nav-tabs">
       <li class="nav-item nav-link active" [ngClass]="{'active': !viewSelected}">
         <a (click)="viewSelected = !viewSelected">Select Assets</a>
@@ -9,7 +9,7 @@
         <a (click)="viewSelected = !viewSelected">View Assets</a>
       </li>
     </ul>
-  </div>
+  </div>-->
 
   <div class="row mt-3">
     <div class="col-xs-12" *ngIf="!viewSelected">
@@ -32,18 +32,22 @@
     <!--<div id="trackedList">-->
     <!--<div class="list-group" *ngFor="let asset of personalList; let even = even; let odd = odd; let i = index">-->
     <div class="col-xs-12">
+      <h2>Tracked Assets</h2> 
       <ul class="list-group">
-        <li class="list-group-item list-group-item-action"
-            *ngFor="let asset of personalList; let even = even; let odd = odd; let i = index"
+        <li class="list-group-item list-group-item-action" style="padding: 5px"
+            *ngFor="let asset of (assetList | selectedFilter); let even = even; let odd = odd; let i = index"
             (click)="onSelectPersonal(asset); setIndex(i)">
-          {{asset.baseName}}
-          <div style="display: inline"
-               [ngStyle]="{'visibility': asset == selectedAsset ? 'visible' : 'hidden' }"
-               class="ml-2">
-            <button class="btn btn-success" type="button" (click)="navigateToDetail(asset)">View</button>
-            <button class="btn btn-danger mr-1" type="button" (click)="onRemove()">Remove</button>
+          <div class="btn-group dropright">
+            <button type="button"
+                    class="btn btn-seconday dropdown-toggle"
+                    data-toggle="dropdown">
+              {{asset.baseName}}
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" [routerLink]="['/detail', asset.id]">View</a>
+              <a class="dropdown-item" href="#">Remove</a>
+            </div>
           </div>
-
         </li>
       </ul>
     </div>
