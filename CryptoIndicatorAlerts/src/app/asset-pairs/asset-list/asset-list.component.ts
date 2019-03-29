@@ -27,13 +27,17 @@ export class AssetListComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.assetPairsService
-      .getAssetPairs()
-      .subscribe((response) =>
-      {
-        this.assetList = response;
-      });
+    //this.assetPairsService
+    //  .getAssetPairs()
+    //  .subscribe((response) =>
+    //  {
+    //    this.assetList = response;
+    //  });
 
+    this.assetPairsService.aseetList.subscribe((items) => {
+      this.assetList = items;
+    });
+    this.assetPairsService.loadAll();
     this.assetPairsService.selectionChange
       .subscribe((response) => {
         this.assetList = response;
@@ -61,7 +65,7 @@ export class AssetListComponent implements OnInit {
   }
 
   isSelected(item: AssetPair) {
-    let isSelected = this.assetList.find((x) => { return x.baseName === item.baseName && x.isSelected == true });
+    let isSelected = this.assetList.find((x) => { return x.BaseName === item.BaseName && x.IsSelected == true });
     return isSelected;
   }
 
@@ -79,7 +83,7 @@ export class AssetListComponent implements OnInit {
   }
 
   navigateToDetail(item: AssetPair) {
-    this.router.navigate(['detail', item.id], {relativeTo: this.route});
+    this.router.navigate(['detail', item.Id], {relativeTo: this.route});
   }
 
   onSave() {

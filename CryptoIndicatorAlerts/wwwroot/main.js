@@ -180,7 +180,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <h2>{{ asset.baseName + asset.quoteName}}</h2>\r\n  </div>\r\n</div>\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <h4>Last Closing Price: </h4>{{priceMessage}}\r\n        <input type=\"text\" class=\"form-control\" id=\"lastClose\" readonly value=\"{{priceMessage}}\" />\r\n      </div>\r\n      <br />\r\n     <h4>Volume</h4>\r\n     <div class=\"form-group\">\r\n       <label for=\"vol24\">Current 24HR Vol</label>\r\n       <input type=\"text\" class=\"form-control\" id=\"vol24\" />\r\n       <label for=\"volAvg24\">Avg 20 Period</label>\r\n       <input type=\"text\" class=\"form-control\" id=\"volAvg24\" />\r\n     </div>\r\n    </form>\r\n  </div>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12 col-md-4\">\r\n    <h1>{{ asset.BaseName}}</h1>\r\n  </div>\r\n</div>\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12 col-md-4\">\r\n    <div class=\"form-group\">\r\n      <h4>Last Closing Price:</h4>\r\n      <input type=\"text\" class=\"form-control\" id=\"lastClose\" readonly value=\"{{priceBTC}}\" />\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12 col-md-4 mt-4\">\r\n    <div class=\"card text-white bg-dark\">\r\n      <div class=\"card-header\"><h5>Volume</h5></div>\r\n      <div class=\"card-body\">\r\n        <label for=\"vol24\">Current 24HR Vol</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"vol24\" readonly />\r\n        <label for=\"volAvg24\">Avg 20 Period</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"volAvg24\" readonly />\r\n        <label for=\"vol4\">Current 4HR Vol</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"vol4\" readonly />\r\n        <label for=\"volAvg4\">Avg 20 Period</label>\r\n        <input type=\"text\" id=\"volAvg4\" class=\"form-control\" readonly />\r\n        <label for=\"vol1\">Current 1HR Vol</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"vol1\" readonly />\r\n        <label for=\"volAvg1\">Avg 20 Period</label>\r\n        <input type=\"text\" id=\"volAvg1\" class=\"form-control\" readonly />\r\n        <label for=\"vol15Min\">Current 15M Vol</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"vol15Min\" readonly />\r\n        <label for=\"volAvg15M\">Avg 20 Period</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"volAvg15M\" readonly />\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-xs-12 col-md-4 mt-4\">\r\n    <div class=\"card text-white bg-dark\">\r\n      <div class=\"card-header\"><h5>Moving Average</h5></div>\r\n      <div class=\"card-body\">\r\n        <form>\r\n          <div class=\"form-row\">\r\n            <label>24HR</label>\r\n            <div class=\"col-1\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 20</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma24-1\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-2\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 50</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma24-2\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-3\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 100</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma24-3\" readonly />\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-row\">\r\n            <label>4HR</label>\r\n            <div class=\"col-1\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 20</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma4-1\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-2\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 50</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma4-2\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-3\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 100</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma4-3\" readonly />\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-row\">\r\n            <label>1HR</label>\r\n            <div class=\"col-1\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 20</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma1-1\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-2\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 50</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma1-2\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-3\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 100</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma1-3\" readonly />\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-row\">\r\n            <label>15M</label>\r\n            <div class=\"col-1\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 20</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma15M-1\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-2\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 50</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma15M-2\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-3\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 100</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma15M-3\" readonly />\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-xs-12 col-md-4 mt-4\">\r\n    <div class=\"card text-white bg-dark\">\r\n      <div class=\"card-header\"><h5>RSI</h5></div>\r\n      <div class=\"card-body\">\r\n        <label for=\"rsi24\">Current 24HR RSI</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"rsi24\" readonly />\r\n        <label for=\"rsi4\">Current 4HR RSI</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"rsi4\" readonly />\r\n        <label for=\"rsi1\">Current 1HR MA</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"rsi1\" />\r\n        <label for=\"rsi15M\">Current 15M RSI</label>\r\n        <input type=\"text\" id=\"rsi15M\" class=\"form-control\" readonly />\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -196,42 +196,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AssetDetailComponent", function() { return AssetDetailComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _asset_pairs_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
-/* harmony import */ var _websocket_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../websocket.service */ "./src/app/asset-pairs/websocket.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _asset_pairs_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
 
 
 
 
 
 var AssetDetailComponent = /** @class */ (function () {
-    function AssetDetailComponent(route, assetPairsService, websocketService) {
+    function AssetDetailComponent(route, assetPairsService) {
         this.route = route;
         this.assetPairsService = assetPairsService;
-        this.websocketService = websocketService;
     }
     AssetDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.route.params
-            .subscribe(function (params) {
-            _this.id = +params['id'];
-            _this.assetPairsService.getItem(_this.id)
-                .subscribe(function (response) {
-                _this.asset = response;
-                _this.connectPriceMessage();
-            });
-        });
+        //this.asset = this.route.paramMap.pipe(
+        //  switchMap((params: ParamMap) => 
+        //    this.assetPairsService.getItem(+params.get('id'))
+        //  ))
+        var id = +this.route.snapshot.paramMap.get('id');
+        //  this.route.params
+        //    .subscribe(
+        //      (params: Params) => {
+        //        this.id = +params['id'];
+        //      }
+        //    );
+        this.assetPairsService.aseetList.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (items) { return items.find(function (item) { return item.Id === id; }); }))
+            .subscribe(function (item) { _this.asset = item; });
+        this.assetPairsService.getVolume(this.asset.BaseName + this.asset.QuoteName, "1d")
+            .subscribe(function (item) { console.log(item); });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "4h", "50")
+            .subscribe(function (item) { console.log(item); });
+        this.assetPairsService.load(id);
+        //this.assetPairsService.getItem(id)
+        //  .pipe(map((x: AssetPair) => {
+        //    return new AssetPair(x.id, x.baseName, x.quoteName, x.isSelected)
+        //  }))
+        //  .subscribe((response) => {
+        //    this.asset = response;
+        //    console.log(this.asset.baseName)
+        //  } 
+        //this.asset = response;
+        //console.log('Shit has returned ' + this.asset.baseName);
+        //this.connectPriceMessage();
+        //);
     };
     AssetDetailComponent.prototype.connectPriceMessage = function () {
-        var _this = this;
-        this.websocketService
-            .connectPrice((String(this.asset.baseName + this.asset.quoteName).toLowerCase()))
-            .subscribe(function (response) {
-            _this.priceBTC = JSON.parse(response.data)['k']['c'];
-        });
+        //this.websocketService
+        //  .connectPrice((String(this.asset.baseName + this.asset.quoteName).toLowerCase()))
+        //  .subscribe((response) => {
+        //    this.priceBTC = JSON.parse(response.data)['k']['c'];
+        //  });
     };
     AssetDetailComponent.prototype.ngOnDestroy = function () {
-        this.websocketService.close();
+        //this.websocketService.close();
     };
     AssetDetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -239,9 +258,8 @@ var AssetDetailComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./asset-detail.component.html */ "./src/app/asset-pairs/asset-detail/asset-detail.component.html"),
             styles: [__webpack_require__(/*! ./asset-detail.component.css */ "./src/app/asset-pairs/asset-detail/asset-detail.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _asset_pairs_service__WEBPACK_IMPORTED_MODULE_3__["AssetPairsService"],
-            _websocket_service__WEBPACK_IMPORTED_MODULE_4__["WebsocketService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _asset_pairs_service__WEBPACK_IMPORTED_MODULE_4__["AssetPairsService"]])
     ], AssetDetailComponent);
     return AssetDetailComponent;
 }());
@@ -268,7 +286,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  asset-edit works!\r\n</p>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -284,12 +302,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AssetEditComponent", function() { return AssetEditComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _asset_pairs_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
+
+
 
 
 var AssetEditComponent = /** @class */ (function () {
-    function AssetEditComponent() {
+    function AssetEditComponent(assetPairsService, route) {
+        this.assetPairsService = assetPairsService;
+        this.route = route;
     }
     AssetEditComponent.prototype.ngOnInit = function () {
+        //let id = +this.route.snapshot.paramMap.get('id');
+        ////  this.route.params
+        ////    .subscribe(
+        ////      (params: Params) => {
+        ////        this.id = +params['id'];
+        ////      }
+        ////    );
+        //this.assetPairsService.getItem(id)
+        //  .pipe(map((x: AssetPair) => {
+        //    return new AssetPair(x.id, x.BaseName, x.QuoteName, x.isSelected)
+        //  }))
+        //  .subscribe((response) => {
+        //    this.asset = response;
+        //    console.log(this.asset.baseName)
+        //  })
     };
     AssetEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -297,7 +336,8 @@ var AssetEditComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./asset-edit.component.html */ "./src/app/asset-pairs/asset-edit/asset-edit.component.html"),
             styles: [__webpack_require__(/*! ./asset-edit.component.css */ "./src/app/asset-pairs/asset-edit/asset-edit.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_asset_pairs_service__WEBPACK_IMPORTED_MODULE_3__["AssetPairsService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], AssetEditComponent);
     return AssetEditComponent;
 }());
@@ -324,7 +364,7 @@ module.exports = "div.list-group{\r\n  max-height: 200px;\r\n  margin-bottom: 10
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n  <!--<div class=\"row\">\r\n    <ul class=\"nav nav-tabs\">\r\n      <li class=\"nav-item nav-link active\" [ngClass]=\"{'active': !viewSelected}\">\r\n        <a (click)=\"viewSelected = !viewSelected\">Select Assets</a>\r\n      </li>\r\n      <li class=\"nav-item nav-link\" [ngClass]=\"{'active': viewSelected }\">\r\n        <a (click)=\"viewSelected = !viewSelected\">View Assets</a>\r\n      </li>\r\n    </ul>\r\n  </div>-->\r\n\r\n  <div class=\"row mt-3\">\r\n    <div class=\"col-xs-12\" *ngIf=\"!viewSelected\">\r\n      <h2>BTC Pairs</h2>\r\n      <input [(ngModel)]=\"searchText\" class=\"form-control\" id=\"assetSearch\" type=\"text\" placeholder=\"Search..\" />\r\n      <div class=\"list-group\" id=\"assetList\">\r\n        <button type=\"button\"\r\n                class=\"list-group-item list-group-item-action\"\r\n                [ngClass]=\"{'list-group-item-primary': asset.isSelected }\"\r\n                *ngFor=\"let i = index; let asset of assetList | filter: searchText\"\r\n                (click)=\"addToTrack(asset)\">\r\n          {{ asset.baseName }}\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"viewSelected && personalList\">\r\n    <!--<div id=\"trackedList\">-->\r\n    <!--<div class=\"list-group\" *ngFor=\"let asset of personalList; let even = even; let odd = odd; let i = index\">-->\r\n    <div class=\"col-xs-12\">\r\n      <h2>Tracked Assets</h2> \r\n      <ul class=\"list-group\">\r\n        <li class=\"list-group-item list-group-item-action\" style=\"padding: 5px\"\r\n            *ngFor=\"let asset of (assetList | selectedFilter); let even = even; let odd = odd; let i = index\"\r\n            (click)=\"onSelectPersonal(asset); setIndex(i)\">\r\n          <div class=\"btn-group dropright\">\r\n            <button type=\"button\"\r\n                    class=\"btn btn-seconday dropdown-toggle\"\r\n                    data-toggle=\"dropdown\">\r\n              {{asset.baseName}}\r\n            </button>\r\n            <div class=\"dropdown-menu\">\r\n              <a class=\"dropdown-item\" [routerLink]=\"['/detail', asset.id]\">View</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Remove</a>\r\n            </div>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+module.exports = "\r\n\r\n  <!--<div class=\"row\">\r\n    <ul class=\"nav nav-tabs\">\r\n      <li class=\"nav-item nav-link active\" [ngClass]=\"{'active': !viewSelected}\">\r\n        <a (click)=\"viewSelected = !viewSelected\">Select Assets</a>\r\n      </li>\r\n      <li class=\"nav-item nav-link\" [ngClass]=\"{'active': viewSelected }\">\r\n        <a (click)=\"viewSelected = !viewSelected\">View Assets</a>\r\n      </li>\r\n    </ul>\r\n  </div>-->\r\n\r\n  <div class=\"row mt-3\">\r\n    <div class=\"col-xs-12\" *ngIf=\"!viewSelected\">\r\n      <h2>BTC Pairs</h2>\r\n      <input [(ngModel)]=\"searchText\" class=\"form-control\" id=\"assetSearch\" type=\"text\" placeholder=\"Search..\" />\r\n      <div class=\"list-group\" id=\"assetList\">\r\n        <button type=\"button\"\r\n                class=\"list-group-item list-group-item-action\"\r\n                [ngClass]=\"{'list-group-item-primary': asset.IsSelected }\"\r\n                *ngFor=\"let i = index; let asset of assetList | filter: searchText\"\r\n                (click)=\"addToTrack(asset)\">\r\n          {{ asset.BaseName }}\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"viewSelected && personalList\">\r\n    <!--<div id=\"trackedList\">-->\r\n    <!--<div class=\"list-group\" *ngFor=\"let asset of personalList; let even = even; let odd = odd; let i = index\">-->\r\n    <div class=\"col-xs-12\">\r\n      <h2>Tracked Assets</h2> \r\n      <ul class=\"list-group\">\r\n        <li class=\"list-group-item list-group-item-action\" style=\"padding: 5px\"\r\n            *ngFor=\"let asset of (assetList | selectedFilter); let even = even; let odd = odd; let i = index\"\r\n            (click)=\"onSelectPersonal(asset); setIndex(i)\">\r\n          <div class=\"btn-group dropright\">\r\n            <button type=\"button\"\r\n                    class=\"btn btn-seconday dropdown-toggle\"\r\n                    data-toggle=\"dropdown\">\r\n              {{asset.BaseName}}\r\n            </button>\r\n            <div class=\"dropdown-menu\">\r\n              <a class=\"dropdown-item\" [routerLink]=\"['/detail', asset.Id]\">View</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Remove</a>\r\n            </div>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -357,12 +397,17 @@ var AssetListComponent = /** @class */ (function () {
         this.showSave = false;
     }
     AssetListComponent.prototype.ngOnInit = function () {
+        //this.assetPairsService
+        //  .getAssetPairs()
+        //  .subscribe((response) =>
+        //  {
+        //    this.assetList = response;
+        //  });
         var _this = this;
-        this.assetPairsService
-            .getAssetPairs()
-            .subscribe(function (response) {
-            _this.assetList = response;
+        this.assetPairsService.aseetList.subscribe(function (items) {
+            _this.assetList = items;
         });
+        this.assetPairsService.loadAll();
         this.assetPairsService.selectionChange
             .subscribe(function (response) {
             _this.assetList = response;
@@ -386,7 +431,7 @@ var AssetListComponent = /** @class */ (function () {
         }
     };
     AssetListComponent.prototype.isSelected = function (item) {
-        var isSelected = this.assetList.find(function (x) { return x.baseName === item.baseName && x.isSelected == true; });
+        var isSelected = this.assetList.find(function (x) { return x.BaseName === item.BaseName && x.IsSelected == true; });
         return isSelected;
     };
     AssetListComponent.prototype.onRemove = function () {
@@ -400,7 +445,7 @@ var AssetListComponent = /** @class */ (function () {
         this.selectedAsset = asset;
     };
     AssetListComponent.prototype.navigateToDetail = function (item) {
-        this.router.navigate(['detail', item.id], { relativeTo: this.route });
+        this.router.navigate(['detail', item.Id], { relativeTo: this.route });
     };
     AssetListComponent.prototype.onSave = function () {
         this.assetPairsService.saveItems()
@@ -419,30 +464,6 @@ var AssetListComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], AssetListComponent);
     return AssetListComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/asset-pairs/asset-pair.model.ts":
-/*!*************************************************!*\
-  !*** ./src/app/asset-pairs/asset-pair.model.ts ***!
-  \*************************************************/
-/*! exports provided: AssetPair */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AssetPair", function() { return AssetPair; });
-var AssetPair = /** @class */ (function () {
-    function AssetPair(id, baseName, quoteName, isSelected) {
-        this.id = id;
-        this.baseName = baseName;
-        this.quoteName = quoteName;
-        this.isSelected = isSelected;
-    }
-    return AssetPair;
 }());
 
 
@@ -519,10 +540,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _asset_pair_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./asset-pair.model */ "./src/app/asset-pairs/asset-pair.model.ts");
-
-
 
 
 
@@ -531,45 +548,84 @@ var AssetPairsService = /** @class */ (function () {
     function AssetPairsService(httpClient) {
         this.httpClient = httpClient;
         this.selectionChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.dataStore = [];
+        this._assetList = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
+        this.loadAll();
     }
-    AssetPairsService.prototype.getAssetPairs = function () {
+    Object.defineProperty(AssetPairsService.prototype, "aseetList", {
+        get: function () {
+            return this._assetList.asObservable();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AssetPairsService.prototype.loadAll = function () {
         var _this = this;
-        return this.httpClient.get('/api/binancepairs', {
+        this.httpClient.get('/api/binancepairs', {
             observe: 'body',
             responseType: 'json'
         })
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
-            var assetList = [];
-            for (var _i = 0, response_1 = response; _i < response_1.length; _i++) {
-                var item = response_1[_i];
-                assetList.push(new _asset_pair_model__WEBPACK_IMPORTED_MODULE_5__["AssetPair"](item.Id, item.BaseName, item.QuoteName, item.IsSelected));
-            }
-            _this.assetList = assetList;
-            return _this.assetList;
-        }));
+            .subscribe(function (data) {
+            _this.dataStore = data;
+            _this._assetList.next(Object.assign([], _this.dataStore));
+        });
+        //.pipe(map(
+        //  (response: any[]) => {
+        //    const assetList = [];
+        //    for (let item of response) {
+        //      assetList.push(new AssetPair(item.Id, item.BaseName, item.QuoteName, item.IsSelected));
+        //    }
+        //    this.assetList = assetList;
+        //    return this.assetList;
+        //  }))
+    };
+    AssetPairsService.prototype.load = function (id) {
+        var _this = this;
+        this.httpClient.get('api/getpair/' + id, {
+            observe: 'body',
+            responseType: 'json'
+        })
+            .subscribe(function (data) {
+            _this.dataStore.forEach(function (item, index) {
+                if (item.Id === data.Id) {
+                    _this.dataStore[index] = data;
+                }
+            });
+            _this._assetList.next(Object.assign([], _this.dataStore));
+        });
     };
     AssetPairsService.prototype.onChange = function (item) {
-        var itemIndex = this.assetList.findIndex(function (x) { return x === item; });
-        this.assetList[itemIndex].isSelected = !this.assetList[itemIndex].isSelected;
+        var itemIndex = this.dataStore.findIndex(function (x) { return x === item; });
+        this.dataStore[itemIndex].IsSelected = !this.dataStore[itemIndex].IsSelected;
         //this.assetList.forEach((element, index, arr) => {
         //  (element.baseName === item && element.isSelected == false) ? arr[index].isSelected = true
         //    : arr[index].isSelected = false
         //});
-        this.selectionChange.next(this.assetList);
+        this.selectionChange.next(this.dataStore.slice());
     };
     AssetPairsService.prototype.getItem = function (id) {
         return this.httpClient.get('api/getpair/' + id, {
             observe: 'body',
             responseType: 'json'
-        })
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
-            return new _asset_pair_model__WEBPACK_IMPORTED_MODULE_5__["AssetPair"](response.id, response.baseName, response.quoteName, response.isSelected);
-        }));
+        }).subscribe(function (item) { return item; });
+        //.pipe(map(
+        //  (response: any) => {
+        //    return new AssetPair(response.id, response.baseName, response.quoteName, response.isSelected);
+        //}));
+    };
+    AssetPairsService.prototype.getVolume = function (symbol, interval) {
+        return this.httpClient.get('api/volume/' + symbol + '/' + interval);
+    };
+    AssetPairsService.prototype.getMA = function (symbol, interval, length) {
+        return this.httpClient.get('api/ma/' + symbol + '/' + interval + '/' + length);
     };
     AssetPairsService.prototype.saveItems = function () {
         var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('content-type', 'application/json');
-        var req = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpRequest"]('PUT', 'api/saveitems', this.assetList, { headers: header, reportProgress: true });
+        var req = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpRequest"]('PUT', 'api/saveitems', this.dataStore, { headers: header, reportProgress: true });
         return this.httpClient.request(req);
+    };
+    AssetPairsService.prototype.ngOnDestroy = function () {
+        console.log('destroyed bitch.');
     };
     AssetPairsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
@@ -645,7 +701,7 @@ var SelectedFilterPipe = /** @class */ (function () {
         //return items.filter(it => {
         //  return it.baseName.toLowerCase().includes(searchText);
         //});
-        return items.filter(function (x) { return x.isSelected; });
+        return items.filter(function (x) { return x.IsSelected; });
     };
     SelectedFilterPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
@@ -691,12 +747,66 @@ var WebsocketService = /** @class */ (function () {
             var observer = {
                 next: function (data) {
                     if (_this.wsPrice.readyState == WebSocket.OPEN) {
-                        console.log('on open WS');
+                        console.log('on open WS' + symbol + 'price stream & 24HR Vol');
                     }
                 }
             };
             return rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
         }
+    };
+    WebsocketService.prototype.connectVolume4HR = function (symbol) {
+        var _this = this;
+        this.wsVolume4HR = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol + '@kline_4h');
+        var observable = rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (obs) {
+            _this.wsVolume4HR.onmessage = obs.next.bind(obs);
+            _this.wsVolume4HR.onerror = obs.error.bind(obs);
+            _this.wsVolume4HR.onclose = obs.complete.bind(obs);
+            return _this.wsVolume4HR.close.bind(_this.wsVolume4HR);
+        });
+        var observer = {
+            next: function (data) {
+                if (_this.wsVolume4HR.readyState == WebSocket.OPEN) {
+                    console.log('on open WS' + symbol + '4HR Vol Stream');
+                }
+            }
+        };
+        return rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+    };
+    WebsocketService.prototype.connectVolume1HR = function (symbol) {
+        var _this = this;
+        this.wsVolume1HR = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol + '@kline_1h');
+        var observable = rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (obs) {
+            _this.wsVolume1HR.onmessage = obs.next.bind(obs);
+            _this.wsVolume1HR.onerror = obs.error.bind(obs);
+            _this.wsVolume1HR.onclose = obs.complete.bind(obs);
+            return _this.wsVolume1HR.close.bind(_this.wsVolume1HR);
+        });
+        var observer = {
+            next: function (data) {
+                if (_this.wsVolume1HR.readyState == WebSocket.OPEN) {
+                    console.log('on open WS' + symbol + '1HR Vol Stream');
+                }
+            }
+        };
+        return rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+    };
+    WebsocketService.prototype.connectVolume15M = function (symbol) {
+        var _this = this;
+        this.wsVolume15M = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol + '@kline_15m');
+        var observable = rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (obs) {
+            _this.wsVolume15M.onmessage = obs.next.bind(obs);
+            _this.wsVolume15M.onerror = obs.error.bind(obs);
+            _this.wsVolume15M.onclose = obs.complete.bind(obs);
+            return _this.wsVolume15M.close.bind(_this.wsVolume15M);
+        });
+        var observer = {
+            next: function (data) {
+                if (_this.wsVolume15M.readyState == WebSocket.OPEN) {
+                    console.log('on open WS' + symbol + '15M Vol Stream');
+                }
+            }
+        };
+        return rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
     };
     WebsocketService.prototype.close = function () {
         console.log('on closing WS');
@@ -731,7 +841,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\r\n  <span class=\"navbar-brand mb-0 h1\">Indicator Alerts</span>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n  \r\n  <div class=\"collapse navbar-collapse\" id=\"navbarText\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"assetpairs\"\r\n           [queryParams]=\"{view: '0'}\"\r\n           routerLinkActive=\"active\">Select Assets</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"assetpairs\"\r\n           [queryParams]=\"{view: '1'}\"\r\n           routerLinkActive=\"active\">View Assets</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <button class=\"btn btn-success\"\r\n                [ngStyle]=\"{'visibility': saveVisible ? 'visible' : 'hidden'}\"\r\n                type=\"button\">Save</button>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  \r\n\r\n</nav>\r\n\r\n\r\n\r\n\r\n\r\n"
+module.exports = "<nav class=\"navbar fixed-top navbar-expand-md navbar-dark bg-dark\">\r\n  <span class=\"navbar-brand mb-0 h1\">Indicator Alerts</span>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n  \r\n  <div class=\"collapse navbar-collapse\" id=\"navbarText\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"assetpairs\"\r\n           [queryParams]=\"{view: '0'}\"\r\n           routerLinkActive=\"active\">Select Assets</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"assetpairs\"\r\n           [queryParams]=\"{view: '1'}\"\r\n           routerLinkActive=\"active\">View Assets</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <button class=\"btn btn-success\"\r\n                [ngStyle]=\"{'visibility': saveVisible ? 'visible' : 'hidden'}\"\r\n                type=\"button\">Save</button>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  \r\n\r\n</nav>\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 

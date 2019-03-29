@@ -71,9 +71,71 @@ namespace CryptoIndicatorAlerts
     }
 
     [HttpGet("api/getpair/{id}")]
-    public AssetPair GetPair(int id)
+    public string GetPair(int id)
     {
-      return _assetPairRepo.FindByCondition(x => x.Id == id).First();
+      return JsonConvert.SerializeObject(_assetPairRepo.FindByCondition(x => x.Id == id).First());
+    }
+
+    [HttpGet("api/volume/{symbol}/{interval}")]
+    public async Task<string> GetVolume(string symbol, string interval)
+    {
+      var request = new HttpRequestMessage(HttpMethod.Get,
+         "https://api.binance.com/api/v1/klines?symbol=" + symbol + "&interval="
+         + interval + "&limit=21");
+
+      var client = _clientFactory.CreateClient();
+
+      var response = await client.SendAsync(request);
+
+      if (response.IsSuccessStatusCode)
+      {
+        var result = await response.Content.ReadAsStringAsync();
+
+        List<string[]> candleSticks = JsonConvert.DeserializeObject<List<string[]>>(result);
+
+        decimal avgVolume = 0;
+        for (int i = 0; i < candleSticks.Count - 1; i++)
+        {
+          avgVolume += Convert.ToDecimal(candleSticks[i][5]);
+        }
+
+        return avgVolume.ToString();
+      }
+      else
+      {
+        return null;
+      }
+    }
+
+    [HttpGet("api/ma/{symbol}/{interval}/{length}")]
+    public async Task<string> GetMA(string symbol, string interval, string length)
+    {
+      var request = new HttpRequestMessage(HttpMethod.Get,
+         "https://api.binance.com/api/v1/klines?symbol=" + symbol + "&interval="
+         + interval + "&limit=21");
+
+      var client = _clientFactory.CreateClient();
+
+      var response = await client.SendAsync(request);
+
+      if (response.IsSuccessStatusCode)
+      {
+        var result = await response.Content.ReadAsStringAsync();
+
+        List<string[]> candleSticks = JsonConvert.DeserializeObject<List<string[]>>(result);
+
+        decimal movingAvg = 0;
+        for (int i = 0; i < candleSticks.Count - 1; i++)
+        {
+          movingAvg += Convert.ToDecimal(candleSticks[i][4]);
+        }
+ 
+        return Convert.ToString(movingAvg / Convert.ToDecimal(length));
+      }
+      else
+      {
+        return null;
+      }
     }
 
     [HttpPut("api/saveitems")]

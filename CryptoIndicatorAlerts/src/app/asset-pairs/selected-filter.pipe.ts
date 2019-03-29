@@ -11,6 +11,6 @@ export class SelectedFilterPipe implements PipeTransform {
     //return items.filter(it => {
     //  return it.baseName.toLowerCase().includes(searchText);
     //});
-    return items.filter(x => x.isSelected);
+    return items.filter(x => x.IsSelected);
   }
 }

@@ -18,10 +18,10 @@
       <div class="list-group" id="assetList">
         <button type="button"
                 class="list-group-item list-group-item-action"
-                [ngClass]="{'list-group-item-primary': asset.isSelected }"
+                [ngClass]="{'list-group-item-primary': asset.IsSelected }"
                 *ngFor="let i = index; let asset of assetList | filter: searchText"
                 (click)="addToTrack(asset)">
-          {{ asset.baseName }}
+          {{ asset.BaseName }}
         </button>
       </div>
     </div>
@@ -41,10 +41,10 @@
             <button type="button"
                     class="btn btn-seconday dropdown-toggle"
                     data-toggle="dropdown">
-              {{asset.baseName}}
+              {{asset.BaseName}}
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" [routerLink]="['/detail', asset.id]">View</a>
+              <a class="dropdown-item" [routerLink]="['/detail', asset.Id]">View</a>
               <a class="dropdown-item" href="#">Remove</a>
             </div>
           </div>
