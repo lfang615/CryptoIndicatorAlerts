@@ -4,14 +4,16 @@ using CryptoIndicatorAlerts.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CryptoIndicatorAlerts.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20190403031819_AddUnixDate_ToRSI")]
+    partial class AddUnixDate_ToRSI
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,21 +54,17 @@ namespace CryptoIndicatorAlerts.Migrations
 
                     b.Property<decimal>("Close");
 
-                    b.Property<DateTime>("CloseTIme");
-
-                    b.Property<long>("CloseTimeUnix");
+                    b.Property<DateTime>("Date");
 
                     b.Property<decimal>("Gain");
 
                     b.Property<decimal>("Loss");
 
-                    b.Property<DateTime>("OpenTime");
-
-                    b.Property<long>("OpenTimeUnix");
-
                     b.Property<decimal>("RS");
 
                     b.Property<decimal>("RSICalc");
+
+                    b.Property<long>("UnixDate");
 
                     b.HasKey("Id");
 

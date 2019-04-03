@@ -17,5 +17,6 @@ namespace CryptoIndicatorAlerts.Models
     public string BaseName { get; set; }
     public string QuoteName { get; set; }
     public bool IsSelected { get; set; }
+    public virtual ICollection<RSI> RSIs { get; set; }
   }
 }

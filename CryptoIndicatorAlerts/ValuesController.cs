@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using CryptoIndicatorAlerts.Models;
 using CryptoIndicatorAlerts.Models.Repository;
 using Newtonsoft.Json;
+using CryptoIndicatorAlerts.Utility;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,11 +19,15 @@ namespace CryptoIndicatorAlerts
   {
     private readonly IHttpClientFactory _clientFactory;
     private IAssetPairRepository _assetPairRepo;
+    private IRSIRepository _rsiRepo;
 
-    public ValuesController(IHttpClientFactory clientFactory, IAssetPairRepository assetPairRepo)
+    public ValuesController(IHttpClientFactory clientFactory,
+                            IAssetPairRepository assetPairRepo,
+                            IRSIRepository rsiRepository)
     {
       _clientFactory = clientFactory;
       _assetPairRepo = assetPairRepo;
+      _rsiRepo = rsiRepository;
     }
 
     [HttpGet("api/binancepairs")]
@@ -137,6 +142,104 @@ namespace CryptoIndicatorAlerts
         return null;
       }
     }
+
+    //[HttpGet("api/rsi/{symbol}/{interval}")]
+    //public async Task<string> GetRSI(string symbol, string interval)
+    //{
+    //  int limit = 0;
+    //  long startTime = 0;
+    //  if (_rsiRepo.FindAll().Count() == 0)
+    //  {
+    //    limit = 250;
+    //  }
+    //  else
+    //  {
+    //    startTime = _rsiRepo.FindByCondition(x => x.AssetPair.BaseName + x.AssetPair.QuoteName == symbol)
+    //                         .OrderByDescending(x => x.Id).Select(x => x.OpenTimeUnix).First();
+    //  }
+
+    //  var request = new HttpRequestMessage(HttpMethod.Get,
+    //    "https://api.binance/com/api/v1/klines?symbol=" + symbol + "&interval=" + interval +
+    //    ((limit == 0) ? "&startTime=" + startTime.ToString() : "&limit=" + limit));
+
+    //  var client = _clientFactory.CreateClient();
+
+    //  var response = await client.SendAsync(request);
+
+    //  if (response.IsSuccessStatusCode)
+    //  {
+    //    var result = await response.Content.ReadAsStringAsync();
+
+    //    List<string[]> candleSticks = JsonConvert.DeserializeObject<List<string[]>>(result);
+    //    List<RSI> rsiInputs = new List<RSI>();
+    //    if (limit != 0)
+    //    {
+    //      for (int i = 0; i < candleSticks.Count; i++)
+    //      {
+    //        if (i == 0)
+    //        {
+    //          RSI rsi = new RSI();
+    //          rsi.OpenTime = Utility.Utility.ConvertFromUnixTimestamp(candleSticks[i][0]);
+    //          rsi.OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]);
+    //          rsi.CloseTIme = Utility.Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
+    //          rsi.CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]);
+    //          rsiInputs.Add(rsi);
+
+    //        }
+    //        else if (i <= 13)
+    //        {
+    //          RSI rsi = new RSI();
+    //          rsi.OpenTime = Utility.Utility.ConvertFromUnixTimestamp(candleSticks[i][0]);
+    //          rsi.OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]);
+    //          rsi.CloseTIme = Utility.Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
+    //          rsi.CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]);
+    //          rsi.Close = Convert.ToDecimal(candleSticks[i][4]);
+    //          rsi.Change = _rsiRepo.CalculateChange(Convert.ToDecimal(candleSticks[i-1][4]),
+    //                                                Convert.ToDecimal(candleSticks[i][4]));
+    //          rsi.Gain = (rsi.Change > 0) ? rsi.Change : 0;
+    //          rsi.Loss = (rsi.Change < 0) ? -rsi.Change : 0;
+    //          rsiInputs.Add(rsi);
+
+    //        }
+    //        else if(i == 14)
+    //        {
+    //          RSI rsi = new RSI();
+    //          rsi.OpenTime = Utility.Utility.ConvertFromUnixTimestamp(candleSticks[i][0]);
+    //          rsi.OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]);
+    //          rsi.CloseTIme = Utility.Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
+    //          rsi.CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]);
+    //          rsi.Close = Convert.ToDecimal(candleSticks[i][4]);
+    //          rsi.Change = _rsiRepo.CalculateChange(Convert.ToDecimal(candleSticks[i - 1][4]),
+    //                                                Convert.ToDecimal(candleSticks[i][4]));
+    //          rsi.Gain = (rsi.Change > 0) ? rsi.Change : 0;
+    //          rsi.Loss = (rsi.Change < 0) ? -rsi.Change : 0;
+    //          rsiInputs.Add(rsi);
+    //          rsi.AvgGain = _rsiRepo.CalculateAvgGain(rsiInputs.Select(x => x.Gain));
+    //          rsi.AvgLoss = _rsiRepo.CalculateAvgLoss(rsiInputs.Select(x => x.Loss));
+
+    //        }
+    //        else
+    //        {
+    //          RSI rsi = new RSI();
+    //          rsi.OpenTime = Utility.Utility.ConvertFromUnixTimestamp(candleSticks[i][0]);
+    //          rsi.OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]);
+    //          rsi.CloseTIme = Utility.Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
+    //          rsi.CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]);
+    //          rsi.Close = Convert.ToDecimal(candleSticks[i][4]);
+    //          rsi.Change = _rsiRepo.CalculateChange(Convert.ToDecimal(candleSticks[i - 1][4]),
+    //                                                Convert.ToDecimal(candleSticks[i][4]));
+    //          rsi.Gain = (rsi.Change > 0) ? rsi.Change : 0;
+    //          rsi.Loss = (rsi.Change < 0) ? -rsi.Change : 0;
+    //          rsiInputs.Add(rsi);
+    //          rsi.AvgGain = _rsiRepo.CalculateAvgGain(rsiInputs.Select(x => x.Gain));
+    //          rsi.AvgLoss = _rsiRepo.CalculateAvgLoss(rsiInputs.Select(x => x.Loss));
+    //        }
+    //      }
+
+    //    }
+
+    //  }
+    //}
 
     [HttpPut("api/saveitems")]
     public void SaveItems([FromBody]AssetPair[] items)

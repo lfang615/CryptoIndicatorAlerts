@@ -15,5 +15,6 @@ namespace CryptoIndicatorAlerts.Models
     }
 
     public DbSet<AssetPair> AssetPairs { get; set; }
+    public DbSet<RSI> RSIs { get; set; }
   }
 }
