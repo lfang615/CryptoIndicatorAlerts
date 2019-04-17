@@ -28,6 +28,7 @@ namespace CryptoIndicatorAlerts
       var connectionString = _config["connectionString"];
       services.AddDbContext<RepositoryContext>(o => o.UseSqlServer(connectionString));
       services.AddScoped<IAssetPairRepository, AssetPairRepository>();
+      services.AddScoped<IRSIRepository, RSIRepository>();
       services.AddMvc();
       services.AddHttpClient();
     }

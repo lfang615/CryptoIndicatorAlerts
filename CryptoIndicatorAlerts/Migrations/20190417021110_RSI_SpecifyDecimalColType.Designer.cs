@@ -4,14 +4,16 @@ using CryptoIndicatorAlerts.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CryptoIndicatorAlerts.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20190417021110_RSI_SpecifyDecimalColType")]
+    partial class RSI_SpecifyDecimalColType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,8 +77,7 @@ namespace CryptoIndicatorAlerts.Migrations
                     b.Property<decimal>("RS")
                         .HasColumnType("decimal(9,8)");
 
-                    b.Property<decimal>("RSICalc")
-                        .HasColumnType("decimal(5,2)");
+                    b.Property<decimal>("RSICalc");
 
                     b.HasKey("Id");
 

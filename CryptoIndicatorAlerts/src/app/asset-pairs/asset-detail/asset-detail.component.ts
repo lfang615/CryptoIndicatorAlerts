@@ -32,6 +32,10 @@ export class AssetDetailComponent implements OnInit, OnDestroy {
   ma15M_1: string;
   ma15M_2: string;
   ma15M_3: string;
+  rsi1D: string;
+  rsi4H: string;
+  rsi1H: string;
+  rsi15M: string;
 
   constructor(private route: ActivatedRoute,
               private assetPairsService: AssetPairsService,
@@ -46,6 +50,7 @@ export class AssetDetailComponent implements OnInit, OnDestroy {
 
     this.getVolumes();
     this.getMAs();
+    this.getRSIs();
 
     this.assetPairsService.load(id);
 
@@ -111,6 +116,11 @@ export class AssetDetailComponent implements OnInit, OnDestroy {
     this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "15m", "100")
       .subscribe((item: string) => { this.ma15M_3 = item; })
 
+  }
+
+  getRSIs() {
+    this.assetPairsService.getRSI(this.asset.BaseName + this.asset.QuoteName, "1d")
+      .subscribe((item: string) => { this.rsi1D = item; })
   }
 
   connectWsPrice() {

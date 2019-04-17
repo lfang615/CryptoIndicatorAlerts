@@ -180,7 +180,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12 col-md-4\">\r\n    <h1>{{ asset.BaseName}}</h1>\r\n  </div>\r\n</div>\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12 col-md-4\">\r\n    <div class=\"form-group\">\r\n      <h4>Last Closing Price:</h4>\r\n      <input type=\"text\" class=\"form-control\" id=\"lastClose\" readonly value=\"{{priceBTC}}\" />\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12 col-md-4 mt-4\">\r\n    <div class=\"card text-white bg-dark\">\r\n      <div class=\"card-header\"><h5>Volume</h5></div>\r\n      <div class=\"card-body\">\r\n        <label for=\"vol24\">Current 24HR Vol</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"vol24\" readonly />\r\n        <label for=\"volAvg24\">Avg 20 Period</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"volAvg24\" readonly />\r\n        <label for=\"vol4\">Current 4HR Vol</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"vol4\" readonly />\r\n        <label for=\"volAvg4\">Avg 20 Period</label>\r\n        <input type=\"text\" id=\"volAvg4\" class=\"form-control\" readonly />\r\n        <label for=\"vol1\">Current 1HR Vol</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"vol1\" readonly />\r\n        <label for=\"volAvg1\">Avg 20 Period</label>\r\n        <input type=\"text\" id=\"volAvg1\" class=\"form-control\" readonly />\r\n        <label for=\"vol15Min\">Current 15M Vol</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"vol15Min\" readonly />\r\n        <label for=\"volAvg15M\">Avg 20 Period</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"volAvg15M\" readonly />\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-xs-12 col-md-4 mt-4\">\r\n    <div class=\"card text-white bg-dark\">\r\n      <div class=\"card-header\"><h5>Moving Average</h5></div>\r\n      <div class=\"card-body\">\r\n        <form>\r\n          <div class=\"form-row\">\r\n            <label>24HR</label>\r\n            <div class=\"col-1\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 20</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma24-1\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-2\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 50</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma24-2\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-3\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 100</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma24-3\" readonly />\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-row\">\r\n            <label>4HR</label>\r\n            <div class=\"col-1\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 20</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma4-1\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-2\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 50</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma4-2\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-3\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 100</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma4-3\" readonly />\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-row\">\r\n            <label>1HR</label>\r\n            <div class=\"col-1\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 20</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma1-1\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-2\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 50</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma1-2\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-3\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 100</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma1-3\" readonly />\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-row\">\r\n            <label>15M</label>\r\n            <div class=\"col-1\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 20</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma15M-1\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-2\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 50</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma15M-2\" readonly />\r\n              </div>\r\n            </div>\r\n            <div class=\"col-3\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">MA 100</span>\r\n                </div>\r\n                <input type=\"text\" class=\"form-control\" id=\"ma15M-3\" readonly />\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-xs-12 col-md-4 mt-4\">\r\n    <div class=\"card text-white bg-dark\">\r\n      <div class=\"card-header\"><h5>RSI</h5></div>\r\n      <div class=\"card-body\">\r\n        <label for=\"rsi24\">Current 24HR RSI</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"rsi24\" readonly />\r\n        <label for=\"rsi4\">Current 4HR RSI</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"rsi4\" readonly />\r\n        <label for=\"rsi1\">Current 1HR MA</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"rsi1\" />\r\n        <label for=\"rsi15M\">Current 15M RSI</label>\r\n        <input type=\"text\" id=\"rsi15M\" class=\"form-control\" readonly />\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "<div class=\"row pb-2 pt-5 mt-5 mb-1 border-bottom\">\r\n  <div class=\"col-xs-12 col-md-4\">\r\n    <h1>{{asset.BaseName}}</h1>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12 col-md-4\">\r\n    <div class=\"form-group\">\r\n      <h4>Last Closing Price:</h4>\r\n      <input type=\"text\" class=\"form-control\" id=\"lastClose\" readonly value=\"{{priceBTC}}\" />\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12 col-md-4 mt-4\">\r\n    <div class=\"card text-white bg-dark\">\r\n      <div class=\"card-header\"><h5>Volume</h5></div>\r\n      <div class=\"card-body\">\r\n        <label>1D</label>\r\n        <div class=\"input-group mb-1\">\r\n          <div class=\"input-group-prepend\">\r\n            <span class=\"input-group-text\">Current</span>\r\n          </div>\r\n          <input type=\"text\" class=\"form-control\" id=\"vol1D\" />\r\n        </div>\r\n        <div class=\"input-group mb-1\">\r\n          <div class=\"input-group-prepend\">\r\n            <span class=\"input-group-text\">Avg 20</span>\r\n          </div>\r\n          <input type=\"text\" class=\"form-control\" id=\"volAvg1D\" value=\"{{volAvg1D}}\"/>\r\n        </div>\r\n        <label>4H</label>\r\n        <div class=\"input-group mb-1\">\r\n          <div class=\"input-group-prepend\">\r\n            <span class=\"input-group-text\">Current</span>\r\n          </div>\r\n          <input type=\"text\" class=\"form-control\" id=\"vol4H\" />\r\n        </div>\r\n        <div class=\"input-group mb-1\">\r\n          <div class=\"input-group-prepend\">\r\n            <span class=\"input-group-text\">Avg 20</span>\r\n          </div>\r\n          <input type=\"text\" class=\"form-control\" id=\"volAvg4H\" value=\"{{volAvg4H}}\" />\r\n        </div>\r\n        <label>1H</label>\r\n        <div class=\"input-group mb-1\">\r\n          <div class=\"input-group-prepend\">\r\n            <span class=\"input-group-text\">Current</span>\r\n          </div>\r\n          <input type=\"text\" class=\"form-control\" id=\"vol1H\" />\r\n        </div>\r\n        <div class=\"input-group mb-1\">\r\n          <div class=\"input-group-prepend\">\r\n            <span class=\"input-group-text\">Avg 20</span>\r\n          </div>\r\n          <input type=\"text\" class=\"form-control\" id=\"volAvg1H\" value=\"{{volAvg1H}}\"/>\r\n        </div>\r\n        <label>15M</label>\r\n        <div class=\"input-group mb-1\">\r\n          <div class=\"input-group-prepend\">\r\n            <span class=\"input-group-text\">Current</span>\r\n          </div>\r\n          <input type=\"text\" class=\"form-control\" id=\"vol15M\" />\r\n        </div>\r\n        <div class=\"input-group mb-1\">\r\n          <div class=\"input-group-prepend\">\r\n            <span class=\"input-group-text\">Avg 20</span>\r\n          </div>\r\n          <input type=\"text\" class=\"form-control\" id=\"volAvg15M\" value=\"{{volAvg15M}}\"/>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-xs-12 col-md-4 mt-4\">\r\n    <div class=\"card text-white bg-dark\">\r\n      <div class=\"card-header\"><h5>Moving Average</h5></div>\r\n      <div class=\"card-body\">\r\n          <label>1D</label>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 20</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma24-1\" readonly value=\"{{ma1D_1}}\" />\r\n          </div>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 50</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma24-2\" readonly value=\"{{ma1D_2}}\"/>\r\n          </div>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 100</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma24-3\" readonly value=\"{{ma1D_3}}\"/>\r\n          </div>\r\n          <label>4H</label>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 20</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma4-1\" readonly value=\"{{ma4H_1}}\"/>\r\n          </div>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 50</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma4-2\" readonly value=\"{{ma4H_2}}\"/>\r\n          </div>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 100</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma4-3\" readonly value=\"{{ma4H_3}}\"/>\r\n          </div>\r\n          <label>1H</label>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 20</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma1-1\" readonly value=\"{{ma1H_1}}\"/>\r\n          </div>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 50</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma1-2\" readonly value=\"{{ma1H_2}}\"/>\r\n          </div>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 100</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma1-3\" readonly value=\"{{ma1H_3}}\"/>\r\n          </div>\r\n          <label>15M</label>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 20</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma15M-1\" readonly value=\"{{ma15M_1}}\"/>\r\n          </div>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 50</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma15M-2\" readonly value=\"{{ma15M_2}}\"/>\r\n          </div>\r\n          <div class=\"input-group mb-1\">\r\n            <div class=\"input-group-prepend\">\r\n              <span class=\"input-group-text\">MA 100</span>\r\n            </div>\r\n            <input type=\"text\" class=\"form-control\" id=\"ma15M-3\" readonly value=\"{{ma15M_3}}\"/>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-xs-12 col-md-4 mt-4\">\r\n    <div class=\"card text-white bg-dark\">\r\n      <div class=\"card-header\"><h5>RSI</h5></div>\r\n      <div class=\"card-body\">\r\n        <label for=\"rsi24\">Current 24HR RSI</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"rsi24\" readonly value=\"{{rsi1D}}\" />\r\n        <label for=\"rsi4\">Current 4HR RSI</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"rsi4\" readonly />\r\n        <label for=\"rsi1\">Current 1HR MA</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"rsi1\" />\r\n        <label for=\"rsi15M\">Current 15M RSI</label>\r\n        <input type=\"text\" id=\"rsi15M\" class=\"form-control\" readonly />\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -199,35 +199,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _asset_pairs_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
+/* harmony import */ var _websocket_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../websocket.service */ "./src/app/asset-pairs/websocket.service.ts");
+
 
 
 
 
 
 var AssetDetailComponent = /** @class */ (function () {
-    function AssetDetailComponent(route, assetPairsService) {
+    function AssetDetailComponent(route, assetPairsService, websocketService) {
         this.route = route;
         this.assetPairsService = assetPairsService;
+        this.websocketService = websocketService;
     }
     AssetDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //this.asset = this.route.paramMap.pipe(
-        //  switchMap((params: ParamMap) => 
-        //    this.assetPairsService.getItem(+params.get('id'))
-        //  ))
         var id = +this.route.snapshot.paramMap.get('id');
-        //  this.route.params
-        //    .subscribe(
-        //      (params: Params) => {
-        //        this.id = +params['id'];
-        //      }
-        //    );
         this.assetPairsService.aseetList.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (items) { return items.find(function (item) { return item.Id === id; }); }))
             .subscribe(function (item) { _this.asset = item; });
-        this.assetPairsService.getVolume(this.asset.BaseName + this.asset.QuoteName, "1d")
-            .subscribe(function (item) { console.log(item); });
-        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "4h", "50")
-            .subscribe(function (item) { console.log(item); });
+        this.getVolumes();
+        this.getMAs();
+        this.getRSIs();
         this.assetPairsService.load(id);
         //this.assetPairsService.getItem(id)
         //  .pipe(map((x: AssetPair) => {
@@ -237,17 +229,89 @@ var AssetDetailComponent = /** @class */ (function () {
         //    this.asset = response;
         //    console.log(this.asset.baseName)
         //  } 
-        //this.asset = response;
-        //console.log('Shit has returned ' + this.asset.baseName);
-        //this.connectPriceMessage();
-        //);
     };
-    AssetDetailComponent.prototype.connectPriceMessage = function () {
-        //this.websocketService
-        //  .connectPrice((String(this.asset.baseName + this.asset.quoteName).toLowerCase()))
-        //  .subscribe((response) => {
-        //    this.priceBTC = JSON.parse(response.data)['k']['c'];
-        //  });
+    AssetDetailComponent.prototype.getVolumes = function () {
+        var _this = this;
+        this.assetPairsService.getVolume(this.asset.BaseName + this.asset.QuoteName, "1d")
+            .subscribe(function (item) { _this.volAvg1D = item; });
+        this.assetPairsService.getVolume(this.asset.BaseName + this.asset.QuoteName, "4h")
+            .subscribe(function (item) { _this.volAvg4H = item; });
+        this.assetPairsService.getVolume(this.asset.BaseName + this.asset.QuoteName, "1h")
+            .subscribe(function (item) { _this.volAvg1H = item; });
+        this.assetPairsService.getVolume(this.asset.BaseName + this.asset.QuoteName, "15m")
+            .subscribe(function (item) { _this.volAvg15M = item; });
+    };
+    AssetDetailComponent.prototype.getMAs = function () {
+        var _this = this;
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "1d", "20")
+            .subscribe(function (item) { _this.ma1D_1 = item; });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "1d", "50")
+            .subscribe(function (item) { _this.ma1D_2 = item; });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "1d", "100")
+            .subscribe(function (item) { _this.ma1D_3 = item; });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "4h", "20")
+            .subscribe(function (item) { _this.ma4H_1 = item; });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "4h", "50")
+            .subscribe(function (item) { _this.ma4H_2 = item; });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "4h", "100")
+            .subscribe(function (item) { _this.ma4H_3 = item; });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "1h", "20")
+            .subscribe(function (item) { _this.ma1H_1 = item; });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "1h", "50")
+            .subscribe(function (item) { _this.ma1H_2 = item; });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "1h", "100")
+            .subscribe(function (item) { _this.ma1H_3 = item; });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "15m", "20")
+            .subscribe(function (item) { _this.ma15M_1 = item; });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "15m", "50")
+            .subscribe(function (item) { _this.ma15M_2 = item; });
+        this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "15m", "100")
+            .subscribe(function (item) { _this.ma15M_3 = item; });
+    };
+    AssetDetailComponent.prototype.getRSIs = function () {
+        var _this = this;
+        this.assetPairsService.getRSI(this.asset.BaseName + this.asset.QuoteName, "1d")
+            .subscribe(function (item) { _this.rsi1D = item; });
+    };
+    AssetDetailComponent.prototype.connectWsPrice = function () {
+        var _this = this;
+        this.websocketService
+            .connectPrice((String(this.asset.BaseName + this.asset.QuoteName).toLowerCase()))
+            .subscribe(function (response) {
+            _this.priceBTC = JSON.parse(response.data)['k']['c'];
+        });
+    };
+    AssetDetailComponent.prototype.connectWsVolume1D = function () {
+        var _this = this;
+        this.websocketService
+            .connectVolume1D((String(this.asset.BaseName + this.asset.QuoteName).toLowerCase()))
+            .subscribe(function (response) {
+            _this.priceBTC = JSON.parse(response.data)['k']['c'];
+        });
+    };
+    AssetDetailComponent.prototype.connectWsVolume4H = function () {
+        var _this = this;
+        this.websocketService
+            .connectVolume4H((String(this.asset.BaseName + this.asset.QuoteName).toLowerCase()))
+            .subscribe(function (response) {
+            _this.priceBTC = JSON.parse(response.data)['k']['c'];
+        });
+    };
+    AssetDetailComponent.prototype.connectWsVolume1H = function () {
+        var _this = this;
+        this.websocketService
+            .connectVolume1H((String(this.asset.BaseName + this.asset.QuoteName).toLowerCase()))
+            .subscribe(function (response) {
+            _this.priceBTC = JSON.parse(response.data)['k']['c'];
+        });
+    };
+    AssetDetailComponent.prototype.connectWsVolume15M = function () {
+        var _this = this;
+        this.websocketService
+            .connectVolume15M((String(this.asset.BaseName + this.asset.QuoteName).toLowerCase()))
+            .subscribe(function (response) {
+            _this.priceBTC = JSON.parse(response.data)['k']['c'];
+        });
     };
     AssetDetailComponent.prototype.ngOnDestroy = function () {
         //this.websocketService.close();
@@ -259,7 +323,8 @@ var AssetDetailComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./asset-detail.component.css */ "./src/app/asset-pairs/asset-detail/asset-detail.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
-            _asset_pairs_service__WEBPACK_IMPORTED_MODULE_4__["AssetPairsService"]])
+            _asset_pairs_service__WEBPACK_IMPORTED_MODULE_4__["AssetPairsService"],
+            _websocket_service__WEBPACK_IMPORTED_MODULE_5__["WebsocketService"]])
     ], AssetDetailComponent);
     return AssetDetailComponent;
 }());
@@ -619,6 +684,9 @@ var AssetPairsService = /** @class */ (function () {
     AssetPairsService.prototype.getMA = function (symbol, interval, length) {
         return this.httpClient.get('api/ma/' + symbol + '/' + interval + '/' + length);
     };
+    AssetPairsService.prototype.getRSI = function (symbol, interval) {
+        return this.httpClient.get('api/rsi/' + symbol + '/' + interval);
+    };
     AssetPairsService.prototype.saveItems = function () {
         var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('content-type', 'application/json');
         var req = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpRequest"]('PUT', 'api/saveitems', this.dataStore, { headers: header, reportProgress: true });
@@ -751,49 +819,66 @@ var WebsocketService = /** @class */ (function () {
                     }
                 }
             };
-            return rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+            this.priceSubject = rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+            return this.priceSubject;
         }
     };
-    WebsocketService.prototype.connectVolume4HR = function (symbol) {
+    WebsocketService.prototype.connectVolume1D = function (symbol) {
         var _this = this;
-        this.wsVolume4HR = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol + '@kline_4h');
+        this.wsVolume1D = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol + '@kline_1d');
         var observable = rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (obs) {
-            _this.wsVolume4HR.onmessage = obs.next.bind(obs);
-            _this.wsVolume4HR.onerror = obs.error.bind(obs);
-            _this.wsVolume4HR.onclose = obs.complete.bind(obs);
-            return _this.wsVolume4HR.close.bind(_this.wsVolume4HR);
+            _this.wsVolume1D.onopen = function () { console.log('on open Ws' + symbol + '1D vol stream'); };
+            _this.wsVolume1D.onmessage = obs.next.bind(obs);
+            _this.wsVolume1D.onerror = obs.error.bind(obs);
+            _this.wsVolume1D.onclose = obs.complete.bind(obs);
+            return _this.wsVolume1D.close.bind(_this.wsVolume1D);
         });
         var observer = {
             next: function (data) {
-                if (_this.wsVolume4HR.readyState == WebSocket.OPEN) {
-                    console.log('on open WS' + symbol + '4HR Vol Stream');
-                }
             }
         };
-        return rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+        this.volumeSubject1D = rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+        return this.volumeSubject1D;
     };
-    WebsocketService.prototype.connectVolume1HR = function (symbol) {
+    WebsocketService.prototype.connectVolume4H = function (symbol) {
         var _this = this;
-        this.wsVolume1HR = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol + '@kline_1h');
+        this.wsVolume4H = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol + '@kline_4h');
         var observable = rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (obs) {
-            _this.wsVolume1HR.onmessage = obs.next.bind(obs);
-            _this.wsVolume1HR.onerror = obs.error.bind(obs);
-            _this.wsVolume1HR.onclose = obs.complete.bind(obs);
-            return _this.wsVolume1HR.close.bind(_this.wsVolume1HR);
+            _this.wsVolume4H.onopen = function () { console.log('on open Ws' + symbol + '4H vol stream'); };
+            _this.wsVolume4H.onmessage = obs.next.bind(obs);
+            _this.wsVolume4H.onerror = obs.error.bind(obs);
+            _this.wsVolume4H.onclose = obs.complete.bind(obs);
+            return _this.wsVolume4H.close.bind(_this.wsVolume4H);
         });
         var observer = {
             next: function (data) {
-                if (_this.wsVolume1HR.readyState == WebSocket.OPEN) {
-                    console.log('on open WS' + symbol + '1HR Vol Stream');
-                }
             }
         };
-        return rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+        this.volumeSubject4H = rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+        return this.volumeSubject4H;
+    };
+    WebsocketService.prototype.connectVolume1H = function (symbol) {
+        var _this = this;
+        this.wsVolume1H = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol + '@kline_1h');
+        var observable = rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (obs) {
+            _this.wsVolume1H.onopen = function () { console.log('on open Ws' + symbol + '1H vol stream'); };
+            _this.wsVolume1H.onmessage = obs.next.bind(obs);
+            _this.wsVolume1H.onerror = obs.error.bind(obs);
+            _this.wsVolume1H.onclose = obs.complete.bind(obs);
+            return _this.wsVolume1H.close.bind(_this.wsVolume1H);
+        });
+        var observer = {
+            next: function (data) {
+            }
+        };
+        this.volumeSubject1H = rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+        return this.volumeSubject1H;
     };
     WebsocketService.prototype.connectVolume15M = function (symbol) {
         var _this = this;
         this.wsVolume15M = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol + '@kline_15m');
         var observable = rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (obs) {
+            _this.wsVolume15M.onopen = function () { console.log('on open Ws' + symbol + '15M vol stream'); };
             _this.wsVolume15M.onmessage = obs.next.bind(obs);
             _this.wsVolume15M.onerror = obs.error.bind(obs);
             _this.wsVolume15M.onclose = obs.complete.bind(obs);
@@ -801,17 +886,23 @@ var WebsocketService = /** @class */ (function () {
         });
         var observer = {
             next: function (data) {
-                if (_this.wsVolume15M.readyState == WebSocket.OPEN) {
-                    console.log('on open WS' + symbol + '15M Vol Stream');
-                }
             }
         };
-        return rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+        this.volumeSubject15M = rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"].create(observer, observable);
+        return this.volumeSubject15M;
     };
     WebsocketService.prototype.close = function () {
         console.log('on closing WS');
         this.wsPrice.close();
+        this.wsVolume1D.close();
+        this.wsVolume4H.close();
+        this.wsVolume1H.close();
+        this.wsVolume15M.close();
         this.priceSubject = null;
+        this.volumeSubject1D = null;
+        this.volumeSubject4H = null;
+        this.volumeSubject1H = null;
+        this.volumeSubject15M = null;
     };
     WebsocketService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()

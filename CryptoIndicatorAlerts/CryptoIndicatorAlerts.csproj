@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190417020338_DataAnnotations_RSI.cs" />
+    <Compile Remove="Migrations\20190417020338_DataAnnotations_RSI.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="src\app\asset-pairs\asset-pair.model.ts" />
     <None Remove="src\app\asset-pairs\asset-pairs.component.ts" />
     <None Remove="src\app\asset-pairs\asset-pairs.service.ts" />

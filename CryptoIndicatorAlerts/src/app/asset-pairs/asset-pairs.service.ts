@@ -89,6 +89,10 @@ export class AssetPairsService implements OnDestroy {
     return this.httpClient.get('api/ma/' + symbol + '/' + interval + '/' + length);
   }
 
+  getRSI(symbol: string, interval: string) {
+    return this.httpClient.get('api/rsi/' + symbol + '/' + interval);
+  }
+
   saveItems() {
     const header = new HttpHeaders().set('content-type', 'application/json');
     const req = new HttpRequest('PUT', 'api/saveitems', this.dataStore, { headers: header, reportProgress: true });

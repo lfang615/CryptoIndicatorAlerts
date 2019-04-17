@@ -14,18 +14,35 @@ namespace CryptoIndicatorAlerts.Models
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [ReadOnly(true)]
     public int Id { get; set; }
+    public string Interval { get; set; }
     public DateTime OpenTime { get; set; }
     public long OpenTimeUnix { get; set; }
     public DateTime CloseTIme { get; set; }
     public long CloseTimeUnix { get; set; }
+
+    [Column(TypeName = "decimal(9,8)")]
     public decimal Close { get; set; }
-    public decimal Change { get; set; }
-    public decimal Gain { get; set; }
-    public decimal Loss { get; set; }
-    public decimal AvgGain { get; set; }
-    public decimal AvgLoss { get; set; }
-    public decimal RS { get; set; }
-    public decimal RSICalc { get; set; }
+
+    [Column(TypeName = "decimal(9,8)")]
+    public decimal? Change { get; set; }
+
+    [Column(TypeName = "decimal(9,8)")]
+    public decimal? Gain { get; set; }
+
+    [Column(TypeName = "decimal(9,8)")]
+    public decimal? Loss { get; set; }
+
+    [Column(TypeName = "decimal(9,8)")]
+    public decimal? AvgGain { get; set; }
+
+    [Column(TypeName = "decimal(9,8)")]
+    public decimal? AvgLoss { get; set; }
+
+    [Column(TypeName = "decimal(9,8)")]
+    public decimal? RS { get; set; }
+
+    [Column(TypeName = "decimal(5,2)")]
+    public decimal? RSICalc { get; set; }
     public int AssetPairId { get; set; }
     [ForeignKey("AssetPairId")]
     public AssetPair AssetPair { get; set; }

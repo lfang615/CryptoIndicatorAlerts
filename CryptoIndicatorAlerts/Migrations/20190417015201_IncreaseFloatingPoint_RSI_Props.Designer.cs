@@ -4,14 +4,16 @@ using CryptoIndicatorAlerts.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CryptoIndicatorAlerts.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20190417015201_IncreaseFloatingPoint_RSI_Props")]
+    partial class IncreaseFloatingPoint_RSI_Props
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,39 +46,31 @@ namespace CryptoIndicatorAlerts.Migrations
 
                     b.Property<int>("AssetPairId");
 
-                    b.Property<decimal>("AvgGain")
-                        .HasColumnType("decimal(9,8)");
+                    b.Property<decimal>("AvgGain");
 
-                    b.Property<decimal>("AvgLoss")
-                        .HasColumnType("decimal(9,8)");
+                    b.Property<decimal>("AvgLoss");
 
-                    b.Property<decimal>("Change")
-                        .HasColumnType("decimal(9,8)");
+                    b.Property<decimal>("Change");
 
-                    b.Property<decimal>("Close")
-                        .HasColumnType("decimal(9,8)");
+                    b.Property<decimal>("Close");
 
                     b.Property<DateTime>("CloseTIme");
 
                     b.Property<long>("CloseTimeUnix");
 
-                    b.Property<decimal>("Gain")
-                        .HasColumnType("decimal(9,8)");
+                    b.Property<decimal>("Gain");
 
                     b.Property<string>("Interval");
 
-                    b.Property<decimal>("Loss")
-                        .HasColumnType("decimal(9,8)");
+                    b.Property<decimal>("Loss");
 
                     b.Property<DateTime>("OpenTime");
 
                     b.Property<long>("OpenTimeUnix");
 
-                    b.Property<decimal>("RS")
-                        .HasColumnType("decimal(9,8)");
+                    b.Property<decimal>("RS");
 
-                    b.Property<decimal>("RSICalc")
-                        .HasColumnType("decimal(5,2)");
+                    b.Property<decimal>("RSICalc");
 
                     b.HasKey("Id");
 
