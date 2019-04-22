@@ -46,16 +46,23 @@ namespace CryptoIndicatorAlerts.Models.Repository
       return avgGain / avgLoss;
     }
 
+    public decimal CalcSmoothRS(decimal prevAvgGain, decimal prevAvgLoss, decimal gain, decimal loss)
+    {
+      return ((prevAvgGain * 13m) + gain) / 14m / (((prevAvgLoss * 13m) + loss) / 14m);
+    }
+
     public decimal CalculateRSI(decimal avgLoss, decimal RS)
     {
-      if(avgLoss == 0)
-      {
-        return 100;
-      }
-      else
-      {
-        return 100 - (100 / (1 + RS));
-      }
+      //if(avgLoss == 0)
+      //{
+      //  return 100;
+      //}
+      //else
+      //{
+      //  return 100 - (100 / (1 + RS));
+      //}
+
+      return 100m - (100m / (1m + RS));
     }
 
     public void CreateInitialRSIValues(List<string[]> candleSticks, string interval, int assetId, out List<RSI> rsiInputs)
@@ -112,7 +119,9 @@ namespace CryptoIndicatorAlerts.Models.Repository
           rsi.Loss = (rsi.Change < 0) ? -rsi.Change : 0;
           rsiInputs.Add(rsi);
           rsi.AvgGain = CalculateAvgGain(rsiInputs.Where(x => x.Change != null).Select(x => x.Gain.Value));
-          rsi.AvgLoss = CalculateAvgLoss(rsiInputs.Select(x => x.Loss.Value));
+          rsi.AvgLoss = CalculateAvgLoss(rsiInputs.Where(x => x.Change != null).Select(x => x.Loss.Value));
+          rsi.RS = rsi.AvgGain.Value / rsi.AvgLoss.Value;
+          rsi.RSICalc = 100m - 100m / (1m + rsi.RS.Value);
           Create(rsi);
 
         }

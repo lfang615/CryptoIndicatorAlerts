@@ -4,14 +4,16 @@ using CryptoIndicatorAlerts.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CryptoIndicatorAlerts.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20190421004353_CreateEMA_Model")]
+    partial class CreateEMA_Model
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,15 +46,11 @@ namespace CryptoIndicatorAlerts.Migrations
 
                     b.Property<int>("AssetPairId");
 
-                    b.Property<decimal>("Close")
-                        .HasColumnType("decimal(9,8)");
+                    b.Property<decimal>("Close");
 
                     b.Property<DateTime>("CloseTIme");
 
                     b.Property<long>("CloseTimeUnix");
-
-                    b.Property<decimal>("EMACalc")
-                        .HasColumnType("decimal(9,8)");
 
                     b.Property<string>("Interval");
 

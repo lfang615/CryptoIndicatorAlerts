@@ -20,10 +20,12 @@ namespace CryptoIndicatorAlerts
     private readonly IHttpClientFactory _clientFactory;
     private IAssetPairRepository _assetPairRepo;
     private IRSIRepository _rsiRepo;
+    private IEMARepository _emaRepo;
 
     public ValuesController(IHttpClientFactory clientFactory,
                             IAssetPairRepository assetPairRepo,
-                            IRSIRepository rsiRepository)
+                            IRSIRepository rsiRepository,
+                            IEMARepository emaRepository)
     {
       _clientFactory = clientFactory;
       _assetPairRepo = assetPairRepo;
@@ -65,8 +67,8 @@ namespace CryptoIndicatorAlerts
       //    _assetPairRepo.Save();
       //  }
 
-        //return assetPairsList.Select(x => x["symbol"]).Where(x => x.ToString().EndsWith("BTC"));
-        return JsonConvert.SerializeObject(_assetPairRepo.FindAll());
+      //return assetPairsList.Select(x => x["symbol"]).Where(x => x.ToString().EndsWith("BTC"));
+      return JsonConvert.SerializeObject(_assetPairRepo.FindAll());
       //}
       //else
       //{
@@ -117,7 +119,7 @@ namespace CryptoIndicatorAlerts
     {
       var request = new HttpRequestMessage(HttpMethod.Get,
          "https://api.binance.com/api/v1/klines?symbol=" + symbol + "&interval="
-         + interval + "&limit=21");
+         + interval + "&limit=" + length);
 
       var client = _clientFactory.CreateClient();
 
@@ -134,8 +136,57 @@ namespace CryptoIndicatorAlerts
         {
           movingAvg += Convert.ToDecimal(candleSticks[i][4]);
         }
- 
+
         return Convert.ToString(movingAvg / Convert.ToDecimal(length));
+      }
+      else
+      {
+        return null;
+      }
+    }
+
+    [HttpGet("api/ema/{symbol}/{interval}/{length}")]
+    public async Task<string> GetEMA(string symbol, string interval, string length)
+    {
+      int limit = 0;
+      long startTime = 0;
+      int assetId = _assetPairRepo.FindByCondition(x => x.BaseName + x.QuoteName == symbol).First().Id;
+      if (_emaRepo.FindByCondition(x => x.AssetPairId == assetId && x.Interval == interval).Count() == 0)
+      {
+        limit = 500;
+      }
+      else
+      {
+        startTime = _emaRepo.FindByCondition(x => x.AssetPair.BaseName + x.AssetPair.QuoteName == symbol &&
+                              x.Interval == interval)
+                             .OrderByDescending(x => x.Id).Select(x => x.OpenTimeUnix).First();
+      }
+
+      var request = new HttpRequestMessage(HttpMethod.Get,
+        "https://api.binance.com/api/v1/klines?symbol=" + symbol + "&interval=" + interval +
+        ((limit == 0) ? "&startTime=" + startTime.ToString() : "&limit=" + limit));
+
+      var client = _clientFactory.CreateClient();
+
+      var response = await client.SendAsync(request);
+
+      if (response.IsSuccessStatusCode)
+      {
+        var result = await response.Content.ReadAsStringAsync();
+
+        List<string[]> candleSticks = JsonConvert.DeserializeObject<List<string[]>>(result);
+
+        decimal ema;
+        if (limit != 0)
+        {
+          ema = _emaRepo.CalculateInitialEMA(Convert.ToInt32(length), candleSticks);
+          return ema.ToString();
+        }
+        else
+        {
+          //ema = _emaRepo.CalculateEMA(Convert.ToInt32(length), )
+        }
+        
       }
       else
       {
@@ -151,7 +202,7 @@ namespace CryptoIndicatorAlerts
       int assetId = _assetPairRepo.FindByCondition(x => x.BaseName + x.QuoteName == symbol).First().Id;
       if (_rsiRepo.FindByCondition(x => x.AssetPairId == assetId && x.Interval == interval).Count() == 0)
       {
-        limit = 250;
+        limit = 300;
       }
       else
       {
@@ -173,7 +224,7 @@ namespace CryptoIndicatorAlerts
         var result = await response.Content.ReadAsStringAsync();
 
         List<string[]> candleSticks = JsonConvert.DeserializeObject<List<string[]>>(result);
-        List<RSI> rsiInputs = null; 
+        List<RSI> rsiInputs = null;
         if (limit != 0)
         {
           _rsiRepo.CreateInitialRSIValues(candleSticks, interval, assetId, out rsiInputs);
@@ -185,7 +236,7 @@ namespace CryptoIndicatorAlerts
         }
 
         return JsonConvert.SerializeObject(rsiInputs.Last().RSICalc);
-        
+
       }
       else
       {
@@ -198,7 +249,7 @@ namespace CryptoIndicatorAlerts
     {
       foreach (var pair in items)
       {
-        if(pair.IsSelected == true)
+        if (pair.IsSelected == true)
         {
           AssetPair assetPair = _assetPairRepo.FindByCondition(x => x.Id == pair.Id).FirstOrDefault();
           assetPair.IsSelected = true;
@@ -207,7 +258,7 @@ namespace CryptoIndicatorAlerts
       }
 
       _assetPairRepo.Save();
-      
+
     }
 
     //// GET api/<controller>/5

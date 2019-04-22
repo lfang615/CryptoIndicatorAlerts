@@ -29,6 +29,7 @@ namespace CryptoIndicatorAlerts
       services.AddDbContext<RepositoryContext>(o => o.UseSqlServer(connectionString));
       services.AddScoped<IAssetPairRepository, AssetPairRepository>();
       services.AddScoped<IRSIRepository, RSIRepository>();
+      services.AddScoped<IEMARepository, EMARepository>();
       services.AddMvc();
       services.AddHttpClient();
     }
