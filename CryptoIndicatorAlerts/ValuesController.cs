@@ -30,6 +30,7 @@ namespace CryptoIndicatorAlerts
       _clientFactory = clientFactory;
       _assetPairRepo = assetPairRepo;
       _rsiRepo = rsiRepository;
+      _emaRepo = emaRepository;
     }
 
     [HttpGet("api/binancepairs")]
@@ -155,7 +156,9 @@ namespace CryptoIndicatorAlerts
       int limit = 0;
       long startTime = 0;
       int assetId = _assetPairRepo.FindByCondition(x => x.BaseName + x.QuoteName == symbol).First().Id;
-      if (_emaRepo.FindByCondition(x => x.AssetPairId == assetId && x.Interval == interval).Count() == 0)
+      if (_emaRepo.FindByCondition(x => x.AssetPairId == assetId &&
+                                    x.Interval == interval &&
+                                    x.Length == Convert.ToInt32(length)).Count() == 0)
       {
         limit = 250;
       }
@@ -183,12 +186,12 @@ namespace CryptoIndicatorAlerts
         decimal ema;
         if (limit != 0)
         {
-          ema = _emaRepo.CalculateInitialEMA(Convert.ToInt32(length), candleSticks, interval);
+          ema = _emaRepo.CalculateInitialEMA(Convert.ToInt32(length), candleSticks, interval, assetId);
           return ema.ToString();
         }
         else
         {
-          ema = _emaRepo.CalculateEMA(Convert.ToInt32(length), candleSticks, symbol, interval);
+          ema = _emaRepo.CalculateEMA(Convert.ToInt32(length), candleSticks, symbol, interval, assetId);
           return ema.ToString();
         }
 

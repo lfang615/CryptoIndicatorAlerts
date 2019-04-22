@@ -49,6 +49,7 @@ export class AssetListComponent implements OnInit {
         this.viewSelected = queryParams["view"] === "1" ? true : false;
       })
     //this.socket = webSocket('wss://stream.binance.com:9443/ws/bnbbtc@kline_1m');
+    //this.socket = webSocket('wss://stream.binance.com:9443/ws/bnbbtc@kline_1m');
     //this.socket.subscribe(
     //  msg => console.log(msg), // Called whenever there is a message from the server.
     //  err => console.log(err), // Called if at any point WebSocket API signals some kind of error.

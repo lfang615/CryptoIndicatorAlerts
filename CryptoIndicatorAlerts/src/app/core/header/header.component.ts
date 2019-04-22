@@ -17,4 +17,12 @@ export class HeaderComponent implements OnInit {
       })
   }
 
+  onSave() {
+    this.assetPairsService.saveItems()
+      .subscribe(
+        (response) => {
+          console.log(response);
+        });
+  }
+
 }

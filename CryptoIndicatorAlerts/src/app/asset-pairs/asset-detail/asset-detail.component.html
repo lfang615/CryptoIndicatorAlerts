@@ -28,7 +28,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Avg 20</span>
           </div>
-          <input type="text" class="form-control" id="volAvg1D" value="{{volAvg1D}}"/>
+          <input type="text" class="form-control" id="volAvg1D" value="{{volAvg1D}}" />
         </div>
         <label>4H</label>
         <div class="input-group mb-1">
@@ -54,7 +54,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Avg 20</span>
           </div>
-          <input type="text" class="form-control" id="volAvg1H" value="{{volAvg1H}}"/>
+          <input type="text" class="form-control" id="volAvg1H" value="{{volAvg1H}}" />
         </div>
         <label>15M</label>
         <div class="input-group mb-1">
@@ -67,7 +67,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Avg 20</span>
           </div>
-          <input type="text" class="form-control" id="volAvg15M" value="{{volAvg15M}}"/>
+          <input type="text" class="form-control" id="volAvg15M" value="{{volAvg15M}}" />
         </div>
       </div>
     </div>
@@ -76,82 +76,165 @@
     <div class="card text-white bg-dark">
       <div class="card-header"><h5>Moving Average</h5></div>
       <div class="card-body">
-          <label>1D</label>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 20</span>
-            </div>
-            <input type="text" class="form-control" id="ma24-1" readonly value="{{ma1D_1}}" />
+        <label>1D</label>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 20</span>
           </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 50</span>
-            </div>
-            <input type="text" class="form-control" id="ma24-2" readonly value="{{ma1D_2}}"/>
+          <input type="text" class="form-control" id="ma24-1" readonly value="{{ma1D_1}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 50</span>
           </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 100</span>
-            </div>
-            <input type="text" class="form-control" id="ma24-3" readonly value="{{ma1D_3}}"/>
+          <input type="text" class="form-control" id="ma24-2" readonly value="{{ma1D_2}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 100</span>
           </div>
-          <label>4H</label>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 20</span>
-            </div>
-            <input type="text" class="form-control" id="ma4-1" readonly value="{{ma4H_1}}"/>
+          <input type="text" class="form-control" id="ma24-3" readonly value="{{ma1D_3}}" />
+        </div>
+        <label>4H</label>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 20</span>
           </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 50</span>
-            </div>
-            <input type="text" class="form-control" id="ma4-2" readonly value="{{ma4H_2}}"/>
+          <input type="text" class="form-control" id="ma4-1" readonly value="{{ma4H_1}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 50</span>
           </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 100</span>
-            </div>
-            <input type="text" class="form-control" id="ma4-3" readonly value="{{ma4H_3}}"/>
+          <input type="text" class="form-control" id="ma4-2" readonly value="{{ma4H_2}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 100</span>
           </div>
-          <label>1H</label>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 20</span>
-            </div>
-            <input type="text" class="form-control" id="ma1-1" readonly value="{{ma1H_1}}"/>
+          <input type="text" class="form-control" id="ma4-3" readonly value="{{ma4H_3}}" />
+        </div>
+        <label>1H</label>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 20</span>
           </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 50</span>
-            </div>
-            <input type="text" class="form-control" id="ma1-2" readonly value="{{ma1H_2}}"/>
+          <input type="text" class="form-control" id="ma1-1" readonly value="{{ma1H_1}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 50</span>
           </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 100</span>
-            </div>
-            <input type="text" class="form-control" id="ma1-3" readonly value="{{ma1H_3}}"/>
+          <input type="text" class="form-control" id="ma1-2" readonly value="{{ma1H_2}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 100</span>
           </div>
-          <label>15M</label>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 20</span>
-            </div>
-            <input type="text" class="form-control" id="ma15M-1" readonly value="{{ma15M_1}}"/>
+          <input type="text" class="form-control" id="ma1-3" readonly value="{{ma1H_3}}" />
+        </div>
+        <label>15M</label>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 20</span>
           </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 50</span>
-            </div>
-            <input type="text" class="form-control" id="ma15M-2" readonly value="{{ma15M_2}}"/>
+          <input type="text" class="form-control" id="ma15M-1" readonly value="{{ma15M_1}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 50</span>
           </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text">MA 100</span>
-            </div>
-            <input type="text" class="form-control" id="ma15M-3" readonly value="{{ma15M_3}}"/>
+          <input type="text" class="form-control" id="ma15M-2" readonly value="{{ma15M_2}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">MA 100</span>
           </div>
+          <input type="text" class="form-control" id="ma15M-3" readonly value="{{ma15M_3}}" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-4 mt-4">
+    <div class="card text-white bg-dark">
+      <div class="card-header"><h5>Exponential Moving Average</h5></div>
+      <div class="card-body">
+        <label>1D</label>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 20</span>
+          </div>
+          <input type="text" class="form-control" id="ema24-1" readonly value="{{ema1D_1}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 50</span>
+          </div>
+          <input type="text" class="form-control" id="ema24-2" readonly value="{{ema1D_2}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 100</span>
+          </div>
+          <input type="text" class="form-control" id="ema24-3" readonly value="{{ema1D_3}}" />
+        </div>
+        <label>4H</label>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 20</span>
+          </div>
+          <input type="text" class="form-control" id="ema4-1" readonly value="{{ema4H_1}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 50</span>
+          </div>
+          <input type="text" class="form-control" id="ema4-2" readonly value="{{ema4H_2}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 100</span>
+          </div>
+          <input type="text" class="form-control" id="ema4-3" readonly value="{{ema4H_3}}" />
+        </div>
+        <label>1H</label>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 20</span>
+          </div>
+          <input type="text" class="form-control" id="ema1-1" readonly value="{{ema1H_1}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 50</span>
+          </div>
+          <input type="text" class="form-control" id="ema1-2" readonly value="{{ema1H_2}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 100</span>
+          </div>
+          <input type="text" class="form-control" id="ema1-3" readonly value="{{ema1H_3}}" />
+        </div>
+        <label>15M</label>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 20</span>
+          </div>
+          <input type="text" class="form-control" id="ema15M-1" readonly value="{{ema15M_1}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 50</span>
+          </div>
+          <input type="text" class="form-control" id="ema15M-2" readonly value="{{ema15M_2}}" />
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text">EMA 100</span>
+          </div>
+          <input type="text" class="form-control" id="ema15M-3" readonly value="{{ema15M_3}}" />
+        </div>
       </div>
     </div>
   </div>
