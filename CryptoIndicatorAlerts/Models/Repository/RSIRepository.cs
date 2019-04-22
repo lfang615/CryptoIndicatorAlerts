@@ -78,7 +78,7 @@ namespace CryptoIndicatorAlerts.Models.Repository
           rsi.Interval = interval;
           rsi.OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][0]);
           rsi.OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]);
-          rsi.CloseTIme = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
+          rsi.CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
           rsi.CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]);
           rsi.Close = Convert.ToDecimal(candleSticks[i][4]);
           rsiInputs.Add(rsi);
@@ -92,7 +92,7 @@ namespace CryptoIndicatorAlerts.Models.Repository
           rsi.Interval = interval;
           rsi.OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][0]);
           rsi.OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]);
-          rsi.CloseTIme = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
+          rsi.CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
           rsi.CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]);
           rsi.Close = Convert.ToDecimal(candleSticks[i][4]);
           rsi.Change = CalculateChange(Convert.ToDecimal(candleSticks[i - 1][4]),
@@ -110,7 +110,7 @@ namespace CryptoIndicatorAlerts.Models.Repository
           rsi.Interval = interval;
           rsi.OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][0]);
           rsi.OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]);
-          rsi.CloseTIme = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
+          rsi.CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
           rsi.CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]);
           rsi.Close = Convert.ToDecimal(candleSticks[i][4]);
           rsi.Change = CalculateChange(Convert.ToDecimal(candleSticks[i - 1][4]),
@@ -132,7 +132,7 @@ namespace CryptoIndicatorAlerts.Models.Repository
           rsi.Interval = interval;
           rsi.OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][0]);
           rsi.OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]);
-          rsi.CloseTIme = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
+          rsi.CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
           rsi.CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]);
           rsi.Close = Convert.ToDecimal(candleSticks[i][4]);
           rsi.Change = CalculateChange(Convert.ToDecimal(candleSticks[i - 1][4]),
@@ -180,7 +180,7 @@ namespace CryptoIndicatorAlerts.Models.Repository
           rsi.Interval = interval;
           rsi.OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][0]);
           rsi.OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]);
-          rsi.CloseTIme = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
+          rsi.CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
           rsi.CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]);
           rsi.Close = Convert.ToDecimal(candleSticks[i][4]);
           rsi.Change = CalculateChange(previous2RSIs[0].Close, Convert.ToDecimal(candleSticks[i][4]));
@@ -200,7 +200,7 @@ namespace CryptoIndicatorAlerts.Models.Repository
           rsi.Interval = interval;
           rsi.OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][0]);
           rsi.OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]);
-          rsi.CloseTIme = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
+          rsi.CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]);
           rsi.CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]);
           rsi.Close = Convert.ToDecimal(candleSticks[i][4]);
           rsi.Change = CalculateChange(Convert.ToDecimal(candleSticks[i - 1][4]), Convert.ToDecimal(candleSticks[i][4]));

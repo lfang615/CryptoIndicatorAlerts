@@ -33,48 +33,52 @@ namespace CryptoIndicatorAlerts
     }
 
     [HttpGet("api/binancepairs")]
-    public string GetBinancePairs()
+    public async Task<string> GetBinancePairs()
     {
-      //var request = new HttpRequestMessage(HttpMethod.Get,
-      //   "https://api.binance.com/api/v3/ticker/price");
+      if (_assetPairRepo.FindAll().Count() == 0)
+      {
+        var request = new HttpRequestMessage(HttpMethod.Get,
+         "https://api.binance.com/api/v3/ticker/price");
 
-      //var client = _clientFactory.CreateClient();
+        var client = _clientFactory.CreateClient();
 
-      //var response = await client.SendAsync(request);
+        var response = await client.SendAsync(request);
 
-      //if (response.IsSuccessStatusCode)
-      //{
-      //  var result = await response.Content.ReadAsStringAsync();
+        if (response.IsSuccessStatusCode)
+        {
+          var result = await response.Content.ReadAsStringAsync();
 
-      //  List<Dictionary<string, string>> assetPairsList = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(result);
+          List<Dictionary<string, string>> assetPairsList = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(result);
 
-      //  if (_assetPairRepo.FindAll().Count() == 0)
-      //  {
-      //    foreach (var item in assetPairsList)
-      //    {
-      //      if (item["symbol"].EndsWith("BTC"))
-      //      {
-      //        AssetPair pair = new AssetPair()
-      //        {
-      //          BaseName = item["symbol"].Split("BTC")[0],
-      //          QuoteName = "BTC"
-      //        };
-      //        _assetPairRepo.Create(pair);
-      //      }
+          foreach (var item in assetPairsList)
+          {
+            if (item["symbol"].EndsWith("BTC"))
+            {
+              AssetPair pair = new AssetPair()
+              {
+                BaseName = item["symbol"].Split("BTC")[0],
+                QuoteName = "BTC"
+              };
+              _assetPairRepo.Create(pair);
+            }
 
-      //    }
+          }
 
-      //    _assetPairRepo.Save();
-      //  }
+          _assetPairRepo.Save();
+          //return assetPairsList.Select(x => x["symbol"]).Where(x => x.ToString().EndsWith("BTC"));
+          return JsonConvert.SerializeObject(_assetPairRepo.FindAll());
 
-      //return assetPairsList.Select(x => x["symbol"]).Where(x => x.ToString().EndsWith("BTC"));
-      return JsonConvert.SerializeObject(_assetPairRepo.FindAll());
-      //}
-      //else
-      //{
-      //  return null;
-      //}
+        }
+        else
+        {
+          return null;
+        }
 
+      }
+      else
+      {
+        return JsonConvert.SerializeObject(_assetPairRepo.FindAll());
+      }
     }
 
     [HttpGet("api/getpair/{id}")]
@@ -153,7 +157,7 @@ namespace CryptoIndicatorAlerts
       int assetId = _assetPairRepo.FindByCondition(x => x.BaseName + x.QuoteName == symbol).First().Id;
       if (_emaRepo.FindByCondition(x => x.AssetPairId == assetId && x.Interval == interval).Count() == 0)
       {
-        limit = 500;
+        limit = 250;
       }
       else
       {
@@ -179,14 +183,15 @@ namespace CryptoIndicatorAlerts
         decimal ema;
         if (limit != 0)
         {
-          ema = _emaRepo.CalculateInitialEMA(Convert.ToInt32(length), candleSticks);
+          ema = _emaRepo.CalculateInitialEMA(Convert.ToInt32(length), candleSticks, interval);
           return ema.ToString();
         }
         else
         {
-          //ema = _emaRepo.CalculateEMA(Convert.ToInt32(length), )
+          ema = _emaRepo.CalculateEMA(Convert.ToInt32(length), candleSticks, symbol, interval);
+          return ema.ToString();
         }
-        
+
       }
       else
       {

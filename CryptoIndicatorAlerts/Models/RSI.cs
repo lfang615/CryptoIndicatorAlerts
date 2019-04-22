@@ -17,7 +17,7 @@ namespace CryptoIndicatorAlerts.Models
     public string Interval { get; set; }
     public DateTime OpenTime { get; set; }
     public long OpenTimeUnix { get; set; }
-    public DateTime CloseTIme { get; set; }
+    public DateTime CloseTime { get; set; }
     public long CloseTimeUnix { get; set; }
 
     [Column(TypeName = "decimal(9,8)")]
