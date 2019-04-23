@@ -160,7 +160,7 @@ namespace CryptoIndicatorAlerts
                                     x.Interval == interval &&
                                     x.Length == Convert.ToInt32(length)).Count() == 0)
       {
-        limit = 250;
+        limit = 500;
       }
       else
       {

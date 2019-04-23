@@ -16,8 +16,6 @@ namespace CryptoIndicatorAlerts.Models.Repository
     }
     public decimal CalculateEMA(int length, List<string[]> candleSticks, string symbol, string interval, int assetPairId)
     {
-      decimal multiplier = 2 / (length + 1);
-
       List<EMA> emas = FindByCondition(x => x.AssetPair.BaseName + x.AssetPair.QuoteName == symbol
                       && x.Interval == interval).OrderByDescending(x => x.OpenTime).Take(2).ToList();
 
@@ -34,11 +32,11 @@ namespace CryptoIndicatorAlerts.Models.Repository
             Interval = interval,
             AssetPairId = assetPairId,
             Length = length,
-            OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[Convert.ToInt32(length) - 1][0]),
-            OpenTimeUnix = Convert.ToInt64(candleSticks[Convert.ToInt32(length) - 1][0]),
-            CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[Convert.ToInt32(length) - 1][6]),
-            CloseTimeUnix = Convert.ToInt64(candleSticks[Convert.ToInt32(length) - 1][6]),
-            Close = Convert.ToDecimal(candleSticks[Convert.ToInt32(length) - 1][4]),
+            OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][0]),
+            OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]),
+            CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]),
+            CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]),
+            Close = Convert.ToDecimal(candleSticks[i][4]),
             EMACalc = currentEMA
           };
 
@@ -52,11 +50,11 @@ namespace CryptoIndicatorAlerts.Models.Repository
             Interval = interval,
             AssetPairId = assetPairId,
             Length = length,
-            OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[Convert.ToInt32(length) - 1][0]),
-            OpenTimeUnix = Convert.ToInt64(candleSticks[Convert.ToInt32(length) - 1][0]),
-            CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[Convert.ToInt32(length) - 1][6]),
-            CloseTimeUnix = Convert.ToInt64(candleSticks[Convert.ToInt32(length) - 1][6]),
-            Close = Convert.ToDecimal(candleSticks[Convert.ToInt32(length) - 1][4]),
+            OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][0]),
+            OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]),
+            CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]),
+            CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]),
+            Close = Convert.ToDecimal(candleSticks[i][4]),
             EMACalc = currentEMA
           };
 
@@ -98,6 +96,24 @@ namespace CryptoIndicatorAlerts.Models.Repository
         {
           rollingEMA = CalculateEMA(length, Convert.ToDecimal(candleSticks[i][4]), ema);
         }
+        else if(i == candleSticks.Count - 2)
+        {
+          // Also create EMA for period prior current candle
+          rollingEMA = CalculateEMA(length, Convert.ToDecimal(candleSticks[i][4]), rollingEMA);
+          EMA prevEMA = new EMA
+          {
+            Interval = interval,
+            AssetPairId = assetPairId,
+            Length = length,
+            OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][0]),
+            OpenTimeUnix = Convert.ToInt64(candleSticks[i][0]),
+            CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[i][6]),
+            CloseTimeUnix = Convert.ToInt64(candleSticks[i][6]),
+            Close = Convert.ToDecimal(candleSticks[i][4]),
+            EMACalc = rollingEMA
+          };
+          Create(prevEMA);
+        }
         else
         {
           rollingEMA = CalculateEMA(length, Convert.ToDecimal(candleSticks[i][4]), rollingEMA);
@@ -110,11 +126,11 @@ namespace CryptoIndicatorAlerts.Models.Repository
         Interval = interval,
         AssetPairId = assetPairId,
         Length = length,
-        OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[Convert.ToInt32(length) - 1][0]),
-        OpenTimeUnix = Convert.ToInt64(candleSticks[Convert.ToInt32(length) - 1][0]),
-        CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[Convert.ToInt32(length) - 1][6]),
-        CloseTimeUnix = Convert.ToInt64(candleSticks[Convert.ToInt32(length) - 1][6]),
-        Close = Convert.ToDecimal(candleSticks[Convert.ToInt32(length) - 1][4]),
+        OpenTime = Utility.ConvertFromUnixTimestamp(candleSticks[candleSticks.Count-1][0]),
+        OpenTimeUnix = Convert.ToInt64(candleSticks[candleSticks.Count-1][0]),
+        CloseTime = Utility.ConvertFromUnixTimestamp(candleSticks[candleSticks.Count - 1][6]),
+        CloseTimeUnix = Convert.ToInt64(candleSticks[candleSticks.Count - 1][6]),
+        Close = Convert.ToDecimal(candleSticks[candleSticks.Count - 1][4]),
         EMACalc = rollingEMA
       };
 

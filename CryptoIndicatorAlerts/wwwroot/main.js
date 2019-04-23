@@ -273,6 +273,10 @@ var AssetDetailComponent = /** @class */ (function () {
         var _this = this;
         this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "20")
             .subscribe(function (item) { _this.ema1D_1 = item; });
+        this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "50")
+            .subscribe(function (item) { _this.ema1D_2 = item; });
+        this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "200")
+            .subscribe(function (item) { _this.ema1D_3 = item; });
     };
     AssetDetailComponent.prototype.getRSIs = function () {
         var _this = this;
@@ -1056,7 +1060,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\lfang\source\repos\CryptoIndicatorAlerts\CryptoIndicatorAlerts\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\aznin\source\repos\CryptoIndicatorAlerts\CryptoIndicatorAlerts\src\main.ts */"./src/main.ts");
 
 
 /***/ })
