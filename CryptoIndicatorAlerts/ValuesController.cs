@@ -156,11 +156,17 @@ namespace CryptoIndicatorAlerts
       int limit = 0;
       long startTime = 0;
       int assetId = _assetPairRepo.FindByCondition(x => x.BaseName + x.QuoteName == symbol).First().Id;
-      if (_emaRepo.FindByCondition(x => x.AssetPairId == assetId &&
+      int emaRecordCount = _emaRepo.FindByCondition(x => x.AssetPairId == assetId &&
                                     x.Interval == interval &&
-                                    x.Length == Convert.ToInt32(length)).Count() == 0)
+                                    x.Length == Convert.ToInt32(length)).Count();
+
+      if (emaRecordCount == 0 && (length != "100" || length != "200"))
       {
-        limit = 500;
+        limit = 300;
+      }
+      else if (length == "100" || length == "200" && emaRecordCount == 0)
+      {
+        limit = 1000;
       }
       else
       {
