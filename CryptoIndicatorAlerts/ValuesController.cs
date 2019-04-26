@@ -40,6 +40,7 @@ namespace CryptoIndicatorAlerts
       {
         var request = new HttpRequestMessage(HttpMethod.Get,
          "https://api.binance.com/api/v3/ticker/price");
+        request.Headers.ConnectionClose = true;
 
         var client = _clientFactory.CreateClient();
 
@@ -94,6 +95,7 @@ namespace CryptoIndicatorAlerts
       var request = new HttpRequestMessage(HttpMethod.Get,
          "https://api.binance.com/api/v1/klines?symbol=" + symbol + "&interval="
          + interval + "&limit=21");
+      request.Headers.ConnectionClose = true;
 
       var client = _clientFactory.CreateClient();
 
@@ -125,6 +127,7 @@ namespace CryptoIndicatorAlerts
       var request = new HttpRequestMessage(HttpMethod.Get,
          "https://api.binance.com/api/v1/klines?symbol=" + symbol + "&interval="
          + interval + "&limit=" + length);
+      request.Headers.ConnectionClose = true;
 
       var client = _clientFactory.CreateClient();
 
@@ -160,7 +163,7 @@ namespace CryptoIndicatorAlerts
                                     x.Interval == interval &&
                                     x.Length == Convert.ToInt32(length)).Count();
 
-      if (emaRecordCount == 0 && (length != "100" || length != "200"))
+      if (emaRecordCount == 0 && length != "100" && length != "200")
       {
         limit = 300;
       }
@@ -178,6 +181,7 @@ namespace CryptoIndicatorAlerts
       var request = new HttpRequestMessage(HttpMethod.Get,
         "https://api.binance.com/api/v1/klines?symbol=" + symbol + "&interval=" + interval +
         ((limit == 0) ? "&startTime=" + startTime.ToString() : "&limit=" + limit));
+      request.Headers.ConnectionClose = true;
 
       var client = _clientFactory.CreateClient();
 
@@ -216,7 +220,7 @@ namespace CryptoIndicatorAlerts
       int assetId = _assetPairRepo.FindByCondition(x => x.BaseName + x.QuoteName == symbol).First().Id;
       if (_rsiRepo.FindByCondition(x => x.AssetPairId == assetId && x.Interval == interval).Count() == 0)
       {
-        limit = 300;
+        limit = 1000;
       }
       else
       {
@@ -228,6 +232,7 @@ namespace CryptoIndicatorAlerts
       var request = new HttpRequestMessage(HttpMethod.Get,
         "https://api.binance.com/api/v1/klines?symbol=" + symbol + "&interval=" + interval +
         ((limit == 0) ? "&startTime=" + startTime.ToString() : "&limit=" + limit));
+      request.Headers.ConnectionClose = true;
 
       var client = _clientFactory.CreateClient();
 

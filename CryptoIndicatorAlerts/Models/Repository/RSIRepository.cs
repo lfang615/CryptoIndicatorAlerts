@@ -9,7 +9,6 @@ namespace CryptoIndicatorAlerts.Models.Repository
 {
   public class RSIRepository : RepositoryBase<RSI>, IRSIRepository
   {
-    const decimal alpha = (decimal)0.07142857;
     public RSIRepository(RepositoryContext repositoryContext)
       :base(repositoryContext)
     {
@@ -18,32 +17,36 @@ namespace CryptoIndicatorAlerts.Models.Repository
 
     public decimal CalculateAvgGainAlpha(decimal gain, decimal prevAvgGain)
     {
-      return gain * alpha + (1 - alpha) * prevAvgGain;
+      decimal multiplier = Math.Round(2m / (14m + 1m), 4);
+      decimal multiplier2 = 1m / 14m;
+      return Math.Round(gain * multiplier2 +  prevAvgGain * (1 - multiplier2), 8);
     }
 
     public decimal CalculateAvgGain(IEnumerable<decimal> rsiPeriods)
     {
-      return rsiPeriods.Average(x => x);
+      return Math.Round(rsiPeriods.Average(x => x), 8);
     }
 
     public decimal CalculateAvgLoss(IEnumerable<decimal> rsiPeriods)
     {
-      return rsiPeriods.Average(x => x);
+      return Math.Round(rsiPeriods.Average(x => x), 8);
     }
 
     public decimal CalculateAvgLossAlpha(decimal loss, decimal prevAvgLoss)
     {
-      return loss * alpha + (1 - alpha) * prevAvgLoss;
+      decimal multiplier = Math.Round(2m / (14m + 1m), 4);
+      decimal multiplier2 = 1m / 14m;
+      return Math.Round(loss * multiplier2 + prevAvgLoss * (1 - multiplier2), 8); 
     }
 
     public decimal CalculateChange(decimal previous, decimal current)
     {
-      return previous - current;
+      return current - previous;
     }
 
     public decimal CalculateRS(decimal avgGain, decimal avgLoss)
     {
-      return avgGain / avgLoss;
+      return Math.Round(avgGain / avgLoss, 8);
     }
 
     public decimal CalcSmoothRS(decimal prevAvgGain, decimal prevAvgLoss, decimal gain, decimal loss)
@@ -62,7 +65,7 @@ namespace CryptoIndicatorAlerts.Models.Repository
       //  return 100 - (100 / (1 + RS));
       //}
 
-      return 100m - (100m / (1m + RS));
+      return Math.Round(100m - (100m / (1m + RS)), 2);
     }
 
     public void CreateInitialRSIValues(List<string[]> candleSticks, string interval, int assetId, out List<RSI> rsiInputs)
@@ -121,7 +124,7 @@ namespace CryptoIndicatorAlerts.Models.Repository
           rsi.AvgGain = CalculateAvgGain(rsiInputs.Where(x => x.Change != null).Select(x => x.Gain.Value));
           rsi.AvgLoss = CalculateAvgLoss(rsiInputs.Where(x => x.Change != null).Select(x => x.Loss.Value));
           rsi.RS = rsi.AvgGain.Value / rsi.AvgLoss.Value;
-          rsi.RSICalc = 100m - 100m / (1m + rsi.RS.Value);
+          rsi.RSICalc = CalculateRSI(rsi.AvgLoss.Value, rsi.RS.Value);
           Create(rsi);
 
         }
@@ -156,7 +159,7 @@ namespace CryptoIndicatorAlerts.Models.Repository
     {
       rsiInputs = new List<RSI>();
       List<RSI> previous2RSIs;
-      previous2RSIs = FindByCondition(x => x.AssetPairId == assetId && x.Interval == interval).OrderByDescending(x => x.Id).Take(2).ToList();
+      previous2RSIs = FindByCondition(x => x.AssetPairId == assetId && x.Interval == interval).OrderByDescending(x => x.OpenTime).Take(2).ToList();
 
       for (int i = 0; i < candleSticks.Count; i++)
       {
@@ -166,8 +169,8 @@ namespace CryptoIndicatorAlerts.Models.Repository
           previous2RSIs[0].Change = CalculateChange(previous2RSIs[1].Close, Convert.ToDecimal(candleSticks[i][4]));
           previous2RSIs[0].Gain = (previous2RSIs[0].Change > 0) ? previous2RSIs[0].Change : 0;
           previous2RSIs[0].Loss = (previous2RSIs[0].Change < 0) ? -previous2RSIs[0].Change : 0;
-          previous2RSIs[0].AvgGain = CalculateAvgGainAlpha(previous2RSIs[0].Gain.Value, previous2RSIs[1].Gain.Value);
-          previous2RSIs[0].AvgLoss = CalculateAvgLossAlpha(previous2RSIs[0].Loss.Value, previous2RSIs[1].Loss.Value);
+          previous2RSIs[0].AvgGain = CalculateAvgGainAlpha(previous2RSIs[0].Gain.Value, previous2RSIs[1].AvgGain.Value);
+          previous2RSIs[0].AvgLoss = CalculateAvgLossAlpha(previous2RSIs[0].Loss.Value, previous2RSIs[1].AvgLoss.Value);
           previous2RSIs[0].RS = CalculateRS(previous2RSIs[0].AvgGain.Value, previous2RSIs[0].AvgLoss.Value);
           previous2RSIs[0].RSICalc = CalculateRSI(previous2RSIs[0].AvgLoss.Value, previous2RSIs[0].RS.Value);
           rsiInputs.Add(previous2RSIs[0]);
@@ -186,8 +189,8 @@ namespace CryptoIndicatorAlerts.Models.Repository
           rsi.Change = CalculateChange(previous2RSIs[0].Close, Convert.ToDecimal(candleSticks[i][4]));
           rsi.Gain = (rsi.Change > 0) ? rsi.Change : 0;
           rsi.Loss = (rsi.Change < 0) ? -rsi.Change : 0;
-          rsi.AvgGain = CalculateAvgGainAlpha(rsi.Gain.Value, previous2RSIs[0].Gain.Value);
-          rsi.AvgLoss = CalculateAvgLossAlpha(rsi.Loss.Value, previous2RSIs[0].Loss.Value);
+          rsi.AvgGain = CalculateAvgGainAlpha(rsi.Gain.Value, previous2RSIs[0].AvgGain.Value);
+          rsi.AvgLoss = CalculateAvgLossAlpha(rsi.Loss.Value, previous2RSIs[0].AvgLoss.Value);
           rsi.RS = CalculateRS(rsi.AvgGain.Value, rsi.AvgLoss.Value);
           rsi.RSICalc = CalculateRSI(rsi.AvgLoss.Value, rsi.RS.Value);
           rsiInputs.Add(rsi);

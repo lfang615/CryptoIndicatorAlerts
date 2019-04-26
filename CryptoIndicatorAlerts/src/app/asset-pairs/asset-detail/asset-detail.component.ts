@@ -63,7 +63,7 @@ export class AssetDetailComponent implements OnInit, OnDestroy {
     this.getVolumes();
     this.getMAs();
     this.getEMAs();
-    //this.getRSIs();
+    this.getRSIs();
 
     this.assetPairsService.load(id);
 
@@ -132,14 +132,14 @@ export class AssetDetailComponent implements OnInit, OnDestroy {
   }
 
   getEMAs() {
-    this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "20")
-      .subscribe((item: string) => { this.ema1D_1 = item; })
+    //this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "20")
+    //  .subscribe((item: string) => { this.ema1D_1 = item; })
 
     this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "50")
       .subscribe((item: string) => { this.ema1D_2 = item; })
 
-    this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "200")
-      .subscribe((item: string) => { this.ema1D_3 = item; })
+    //this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "200")
+    //  .subscribe((item: string) => { this.ema1D_3 = item; })
   }
 
   getRSIs() {
