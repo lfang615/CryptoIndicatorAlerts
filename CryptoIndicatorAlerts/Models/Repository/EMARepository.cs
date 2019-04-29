@@ -150,6 +150,5 @@ namespace CryptoIndicatorAlerts.Models.Repository
 
     }
 
-
   }
 }

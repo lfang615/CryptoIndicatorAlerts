@@ -135,7 +135,7 @@ export class AssetDetailComponent implements OnInit, OnDestroy {
     //this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "20")
     //  .subscribe((item: string) => { this.ema1D_1 = item; })
 
-    this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "50")
+    this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "9")
       .subscribe((item: string) => { this.ema1D_2 = item; })
 
     //this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "200")

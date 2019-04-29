@@ -56,15 +56,6 @@ namespace CryptoIndicatorAlerts.Models.Repository
 
     public decimal CalculateRSI(decimal avgLoss, decimal RS)
     {
-      //if(avgLoss == 0)
-      //{
-      //  return 100;
-      //}
-      //else
-      //{
-      //  return 100 - (100 / (1 + RS));
-      //}
-
       return Math.Round(100m - (100m / (1m + RS)), 2);
     }
 
@@ -209,8 +200,8 @@ namespace CryptoIndicatorAlerts.Models.Repository
           rsi.Change = CalculateChange(Convert.ToDecimal(candleSticks[i - 1][4]), Convert.ToDecimal(candleSticks[i][4]));
           rsi.Gain = (rsi.Change > 0) ? rsi.Change : 0;
           rsi.Loss = (rsi.Change < 0) ? -rsi.Change : 0;
-          rsi.AvgGain = CalculateAvgGainAlpha(rsi.Gain.Value, rsiInputs[i - 1].Gain.Value);
-          rsi.AvgLoss = CalculateAvgLossAlpha(rsi.Loss.Value, rsiInputs[i - 1].Loss.Value);
+          rsi.AvgGain = CalculateAvgGainAlpha(rsi.Gain.Value, rsiInputs[i - 1].AvgGain.Value);
+          rsi.AvgLoss = CalculateAvgLossAlpha(rsi.Loss.Value, rsiInputs[i - 1].AvgLoss.Value);
           rsi.RS = CalculateRS(rsi.AvgGain.Value, rsi.AvgLoss.Value);
           rsi.RSICalc = CalculateRSI(rsi.AvgLoss.Value, rsi.RS.Value);
           rsiInputs.Add(rsi);

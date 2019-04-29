@@ -26,9 +26,14 @@ namespace CryptoIndicatorAlerts.Models
 
     [Column(TypeName = "decimal(5,4)")]
     public decimal EMACalc { get; set; }
+    [Column(TypeName = "decimal(7,6)")]
+    public decimal? MACD { get; set; }
+    [Column(TypeName = "decimal(7, 6)")]
+    public decimal? Signal { get; set; }
     public int AssetPairId { get; set; }
     [ForeignKey("AssetPairId")]
     public AssetPair AssetPair { get; set; }
+    
 
   }
 }

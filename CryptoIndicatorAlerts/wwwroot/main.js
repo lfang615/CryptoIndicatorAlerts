@@ -273,7 +273,7 @@ var AssetDetailComponent = /** @class */ (function () {
         //this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "20")
         //  .subscribe((item: string) => { this.ema1D_1 = item; })
         var _this = this;
-        this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "50")
+        this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "9")
             .subscribe(function (item) { _this.ema1D_2 = item; });
         //this.assetPairsService.getEMA(this.asset.BaseName + this.asset.QuoteName, "1d", "200")
         //  .subscribe((item: string) => { this.ema1D_3 = item; })
