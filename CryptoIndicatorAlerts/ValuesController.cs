@@ -21,16 +21,19 @@ namespace CryptoIndicatorAlerts
     private IAssetPairRepository _assetPairRepo;
     private IRSIRepository _rsiRepo;
     private IEMARepository _emaRepo;
+    private IMACDRepository _macdRepo;
 
     public ValuesController(IHttpClientFactory clientFactory,
                             IAssetPairRepository assetPairRepo,
                             IRSIRepository rsiRepository,
-                            IEMARepository emaRepository)
+                            IEMARepository emaRepository,
+                            IMACDRepository macdRepository)
     {
       _clientFactory = clientFactory;
       _assetPairRepo = assetPairRepo;
       _rsiRepo = rsiRepository;
       _emaRepo = emaRepository;
+      _macdRepo = macdRepository;
     }
 
     [HttpGet("api/binancepairs")]
@@ -210,6 +213,59 @@ namespace CryptoIndicatorAlerts
       {
         return null;
       }
+    }
+
+    [HttpGet("api/macd/{symbol}/{interval}")]
+    public async Task<string> GetMACD(string symbol, string interval)
+    {
+      int limit = 0;
+      long startTime = 0;
+      int assetId = _assetPairRepo.FindByCondition(x => x.BaseName + x.QuoteName == symbol).First().Id;
+      if (_macdRepo.FindByCondition(x => x.AssetPairId == assetId && x.Interval == interval).Count() == 0)
+      {
+        limit = 1000;
+      }
+      else
+      {
+        startTime = _macdRepo.FindByCondition(x => x.AssetPair.BaseName + x.AssetPair.QuoteName == symbol &&
+                              x.Interval == interval)
+                             .OrderByDescending(x => x.Id).Select(x => x.OpenTimeUnix).First();
+      }
+
+      var request = new HttpRequestMessage(HttpMethod.Get,
+        "https://api.binance.com/api/v1/klines?symbol=" + symbol + "&interval=" + interval +
+        ((limit == 0) ? "&startTime=" + startTime.ToString() : "&limit=" + limit));
+      request.Headers.ConnectionClose = true;
+
+      var client = _clientFactory.CreateClient();
+
+      var response = await client.SendAsync(request);
+
+      if (response.IsSuccessStatusCode)
+      {
+        MACD macd;
+        var result = await response.Content.ReadAsStringAsync();
+
+        List<string[]> candleSticks = JsonConvert.DeserializeObject<List<string[]>>(result);
+        
+        if (limit != 0)
+        {
+          macd = _macdRepo.CalculateInitialMACD(symbol, interval, candleSticks);
+
+        }
+        else
+        {
+          macd = _macdRepo.CalculateMACD(symbol, interval, candleSticks);
+        }
+
+        return JsonConvert.SerializeObject(macd);
+
+      }
+      else
+      {
+        return null;
+      }
+
     }
 
     [HttpGet("api/rsi/{symbol}/{interval}")]
