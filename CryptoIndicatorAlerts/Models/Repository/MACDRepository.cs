@@ -39,26 +39,26 @@ namespace CryptoIndicatorAlerts.Models.Repository
         {
           rollingEMA12 = CalculateEMA(12, Convert.ToDecimal(candleSticks[i][4]), rollingEMA12);
           rollingEMA26 = CalculateEMA(26, Convert.ToDecimal(candleSticks[i][4]), sma26);
-          macdList.Add(rollingEMA12 = rollingEMA26);
+          macdList.Add(rollingEMA12 - rollingEMA26);
         }
         else if (i > 26 && i < 34)
         {
           rollingEMA12 = CalculateEMA(12, Convert.ToDecimal(candleSticks[i][4]), rollingEMA12);
           rollingEMA26 = CalculateEMA(26, Convert.ToDecimal(candleSticks[i][4]), rollingEMA26);
-          macdList.Add(rollingEMA12 = rollingEMA26);
+          macdList.Add(rollingEMA12 - rollingEMA26);
         }
         else if (i == 34)
         {
           rollingEMA12 = CalculateEMA(12, Convert.ToDecimal(candleSticks[i][4]), rollingEMA12);
           rollingEMA26 = CalculateEMA(26, Convert.ToDecimal(candleSticks[i][4]), rollingEMA26);
-          macdList.Add(rollingEMA12 = rollingEMA26);
+          macdList.Add(rollingEMA12 - rollingEMA26);
           signal = Math.Round(macdList.Average(), 7);
         }
         else if (i > 34 && i < candleSticks.Count - 2)
         {
           rollingEMA12 = CalculateEMA(12, Convert.ToDecimal(candleSticks[i][4]), rollingEMA12);
           rollingEMA26 = CalculateEMA(26, Convert.ToDecimal(candleSticks[i][4]), rollingEMA26);
-          macd = rollingEMA12 = rollingEMA26;
+          macd = rollingEMA12 - rollingEMA26;
           signal = CalculateEMA(9, macd, signal);
         }
         else if (i == candleSticks.Count - 2)
@@ -66,7 +66,7 @@ namespace CryptoIndicatorAlerts.Models.Repository
           // Also create EMA for period prior to current candle
           rollingEMA12 = CalculateEMA(12, Convert.ToDecimal(candleSticks[i][4]), rollingEMA12);
           rollingEMA26 = CalculateEMA(26, Convert.ToDecimal(candleSticks[i][4]), rollingEMA26);
-          macd = rollingEMA12 = rollingEMA26;
+          macd = rollingEMA12 - rollingEMA26;
           signal = CalculateEMA(9, macd, signal);
 
           MACD prevEMA = new MACD
@@ -87,7 +87,7 @@ namespace CryptoIndicatorAlerts.Models.Repository
         {
           rollingEMA12 = CalculateEMA(12, Convert.ToDecimal(candleSticks[i][4]), rollingEMA12);
           rollingEMA26 = CalculateEMA(26, Convert.ToDecimal(candleSticks[i][4]), rollingEMA26);
-          macd = rollingEMA12 = rollingEMA26;
+          macd = rollingEMA12 - rollingEMA26;
           signal = CalculateEMA(9, macd, signal);
         }
       }
@@ -194,9 +194,9 @@ namespace CryptoIndicatorAlerts.Models.Repository
 
     private decimal CalculateEMA(int length, decimal closingPrice, decimal prevEMA)
     {
-      decimal multiplier = Math.Round(2m / (Convert.ToDecimal(length) + 1m), 4);
+      decimal multiplier = Math.Round(2m / (Convert.ToDecimal(length) + 1m), 7);
 
-      return Math.Round(closingPrice * multiplier + prevEMA * (1m - multiplier), 4);
+      return Math.Round(closingPrice * multiplier + prevEMA * (1m - multiplier), 7);
     }
   }
 }

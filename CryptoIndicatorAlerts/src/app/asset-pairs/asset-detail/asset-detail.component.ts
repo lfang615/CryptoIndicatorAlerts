@@ -48,6 +48,10 @@ export class AssetDetailComponent implements OnInit, OnDestroy {
   ema15M_1: string;
   ema15M_2: string;
   ema15M_3: string;
+  macd1D: string;
+  macd4H: string;
+  macd1H: string;
+  macd15M: string;
 
   constructor(private route: ActivatedRoute,
               private assetPairsService: AssetPairsService,
@@ -64,6 +68,7 @@ export class AssetDetailComponent implements OnInit, OnDestroy {
     this.getMAs();
     this.getEMAs();
     this.getRSIs();
+    this.getMACD();
 
     this.assetPairsService.load(id);
 
@@ -129,6 +134,11 @@ export class AssetDetailComponent implements OnInit, OnDestroy {
     this.assetPairsService.getMA(this.asset.BaseName + this.asset.QuoteName, "15m", "100")
       .subscribe((item: string) => { this.ma15M_3 = item; })
 
+  }
+
+  getMACD() {
+    this.assetPairsService.getMACD(this.asset.BaseName + this.asset.QuoteName, "1d")
+      .subscribe((item: string) => { this.macd1D = item; })
   }
 
   getEMAs() {
