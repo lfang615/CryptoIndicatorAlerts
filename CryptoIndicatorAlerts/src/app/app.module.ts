@@ -18,7 +18,8 @@ import { AssetEditComponent } from './asset-pairs/asset-edit/asset-edit.componen
 const appRoutes: Routes = [
   { path: '', redirectTo: '/assetpairs', pathMatch: 'full' },
   { path: 'assetpairs/view', component: AssetPairsComponent },
-  { path: 'detail/:id', component: AssetDetailComponent},
+  { path: 'detail/:id', component: AssetDetailComponent },
+  { path: 'edit/:id', component: AssetEditComponent },
   { path: 'assetpairs', component: AssetPairsComponent}
   
 ];

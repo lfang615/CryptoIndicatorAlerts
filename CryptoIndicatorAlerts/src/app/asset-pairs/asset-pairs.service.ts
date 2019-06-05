@@ -10,6 +10,7 @@ import { Response } from 'selenium-webdriver/http';
 export class AssetPairsService implements OnDestroy {
   private _assetList: BehaviorSubject<AssetPair[]>;
   private dataStore: AssetPair[];
+  private userSettings: Settings[];
 
   selectionChange = new Subject<AssetPair[]>();
 

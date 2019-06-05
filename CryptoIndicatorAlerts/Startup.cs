@@ -31,6 +31,7 @@ namespace CryptoIndicatorAlerts
       services.AddScoped<IRSIRepository, RSIRepository>();
       services.AddScoped<IEMARepository, EMARepository>();
       services.AddScoped<IMACDRepository, MACDRepository>();
+      services.AddScoped<ISettingsRepository, SettingsRepository>();
       services.AddMvc();
       services.AddHttpClient();
     }

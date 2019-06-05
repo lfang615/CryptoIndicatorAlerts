@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router, ParamMap } from '@angular/router';
 import { AssetPair } from '../asset-pair.model';
 import { AssetPairsService } from '../asset-pairs.service';
+import { Settings } from '../settings.model';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -11,27 +12,19 @@ import { map } from 'rxjs/operators';
 })
 export class AssetEditComponent implements OnInit {
   asset: AssetPair;
+  timeFrames: string[] = ['5M', '15M', '1H', '4H', '1D', '1W'];
+
   constructor(private assetPairsService: AssetPairsService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    //let id = +this.route.snapshot.paramMap.get('id');
+    let id = +this.route.snapshot.paramMap.get('id');
 
-    ////  this.route.params
-    ////    .subscribe(
-    ////      (params: Params) => {
-    ////        this.id = +params['id'];
-    ////      }
-    ////    );
+    this.assetPairsService.aseetList.pipe(
+      map((items) => { return items.find(item => item.Id === id) }))
+      .subscribe((item) => { this.asset = item })
 
-    //this.assetPairsService.getItem(id)
-    //  .pipe(map((x: AssetPair) => {
-    //    return new AssetPair(x.id, x.BaseName, x.QuoteName, x.isSelected)
-    //  }))
-    //  .subscribe((response) => {
-    //    this.asset = response;
-    //    console.log(this.asset.baseName)
-    //  })
+
   }
 
 }
