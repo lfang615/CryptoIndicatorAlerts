@@ -14,6 +14,7 @@ import { FilterPipe } from './asset-pairs/filter.pipe';
 import { SelectedFilterPipe } from './asset-pairs/selected-filter.pipe';
 import { AssetDetailComponent } from './asset-pairs/asset-detail/asset-detail.component';
 import { AssetEditComponent } from './asset-pairs/asset-edit/asset-edit.component';
+import { BitmexComponent } from './bitmex/bitmex.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/assetpairs', pathMatch: 'full' },
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     FilterPipe,
     SelectedFilterPipe,
     AssetDetailComponent,
-    AssetEditComponent
+    AssetEditComponent,
+    BitmexComponent
   ],
   imports: [
     BrowserModule,
