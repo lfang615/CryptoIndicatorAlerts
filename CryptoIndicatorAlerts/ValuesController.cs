@@ -22,18 +22,21 @@ namespace CryptoIndicatorAlerts
     private IRSIRepository _rsiRepo;
     private IEMARepository _emaRepo;
     private IMACDRepository _macdRepo;
+    private ISettingsRepository _settingsRepo;
 
     public ValuesController(IHttpClientFactory clientFactory,
                             IAssetPairRepository assetPairRepo,
                             IRSIRepository rsiRepository,
                             IEMARepository emaRepository,
-                            IMACDRepository macdRepository)
+                            IMACDRepository macdRepository,
+                            ISettingsRepository settingsRepository)
     {
       _clientFactory = clientFactory;
       _assetPairRepo = assetPairRepo;
       _rsiRepo = rsiRepository;
       _emaRepo = emaRepository;
       _macdRepo = macdRepository;
+      _settingsRepo = settingsRepository;
     }
 
     [HttpGet("api/binancepairs")]
@@ -247,7 +250,7 @@ namespace CryptoIndicatorAlerts
         var result = await response.Content.ReadAsStringAsync();
 
         List<string[]> candleSticks = JsonConvert.DeserializeObject<List<string[]>>(result);
-        
+
         if (limit != 0)
         {
           macd = _macdRepo.CalculateInitialMACD(symbol, interval, candleSticks);
@@ -336,6 +339,19 @@ namespace CryptoIndicatorAlerts
 
     }
 
+    [HttpPut("api/createsetting")]
+    public void CreateAssetSetting([FromBody] Settings assetSetting)
+    {
+      _settingsRepo.Create(assetSetting);
+      _settingsRepo.Save();
+    }
+
+    [HttpPut("api/updatesetting/{id}")]
+    public void UpdateAssetSetting(int id)
+    {
+      _settingsRepo.Update(_settingsRepo.FindByCondition(x => x.Id == id).First());
+      _settingsRepo.Save();
+    }
     //// GET api/<controller>/5
     //[HttpGet("{id}")]
     //public string Get(int id)

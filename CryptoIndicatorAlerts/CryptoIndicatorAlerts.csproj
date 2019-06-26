@@ -20,6 +20,8 @@
     <None Remove="src\app\asset-pairs\settings.model.ts" />
     <None Remove="src\app\asset-pairs\user-settings.service.ts" />
     <None Remove="src\app\asset-pairs\websocket.service.ts" />
+    <None Remove="src\app\bitmex\order-details.model.ts" />
+    <None Remove="src\app\bitmex\order.model.ts" />
     <None Remove="src\app\shared\websocket.service.ts" />
   </ItemGroup>
 
@@ -47,6 +49,8 @@
     <TypeScriptCompile Include="src\app\asset-pairs\settings.model.ts" />
     <TypeScriptCompile Include="src\app\asset-pairs\user-settings.service.ts" />
     <TypeScriptCompile Include="src\app\asset-pairs\websocket.service.ts" />
+    <TypeScriptCompile Include="src\app\bitmex\order-details.model.ts" />
+    <TypeScriptCompile Include="src\app\bitmex\order.model.ts" />
     <TypeScriptCompile Include="src\app\shared\websocket.service.ts" />
   </ItemGroup>
 

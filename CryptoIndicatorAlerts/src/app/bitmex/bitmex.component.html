@@ -1,3 +1,99 @@
-<p>
-  bitmex works!
-</p>
+<div class="row pb-2 pt-5 mt-5 mb-1">
+  <div class="col-xs-12 col-md-10">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-primary" (click)="changeOrderForm('market')">Market</button>
+      <button type="button" class="btn btn-primary" (click)="changeOrderForm('limit')">Limit</button>
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Stop
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <a class="dropdown-item" href="#" (click)="changeOrderForm('stop')">Stop Market</a>
+          <a class="dropdown-item" href="#">Stop Limit</a>
+          <a class="dropdown-item" href="#">Trailing Stop</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="mktOrderSelect">
+  <div class="col-xs-12 col-md-10">
+    <div class="dropdown-menu">
+      <form class="px-4 py-3">
+        <div class="form-group">
+          <label for="mktQuantity">Quantity</label>
+          <input type="text" class="form-control" id="mktQuantity" />
+        </div>
+        <button type="submit" id="btnBuy" class="btn btn-primary">Buy</button>
+        <button type="submit" id="btnSell" class="btn btn-primary">Sell</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="lmtOrderSelect">
+  <div class="form-group">
+    <label for="limQuantity">Quantity</label>
+    <input type="text" class="form-control" id="limQuantity" />
+  </div>
+  <div class="form-group">
+    <label for="limPrice">Quantity</label>
+    <input type="text" class="form-control" id="limPrice" />
+  </div>
+  <button type="submit" id="btnLimitBuy" class="btn btn-primary">Buy</button>
+  <button type="submit" id="btnLimitSell" class="btn btn-primary">Sell</button>
+</div>
+
+<div class="row" *ngIf="stopSelect">
+  <div class="col-xs-12 col-md-10">
+    <div class="dropdown-menu">
+      <form class="px-4 py-3">
+        <div class="form-group">
+          <label for="mktStopQty">Stop Price</label>
+          <input type="text" class="form-control" id="mktStopQty" />
+        </div>
+        <div class="form-group">
+          <label for="mktStopPrice">Stop Price</label>
+          <input type="text" class="form-control" id="mktStopPrice" />
+        </div>
+
+        <div class="form-group">
+          <label for="lmtStop">Stop Price</label>
+          <input type="text" class="form-control" id="lmtStop" />
+        </div>
+        <div class="form-group">
+          <label for="lmtTrigger">Trigger</label>
+        </div>
+        <button type="submit" id="btnBuyStop" class="btn btn-primary">Buy Stop</button>
+        <button type="submit" id="btnSellStop" class="btn btn-primary">Sell Stop</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="stopSelect">
+  <div class="col-xs-12 col-md-10">
+    <div class="dropdown-menu">
+      <form class="px-4 py-3">
+        <div class="form-group">
+          <label for="mktStopQty">Stop Price</label>
+          <input type="text" class="form-control" id="mktStopQty" />
+        </div>
+        <div class="form-group">
+          <label for="mktStopPrice">Stop Price</label>
+          <input type="text" class="form-control" id="mktStopPrice" />
+        </div>
+
+        <div class="form-group">
+          <label for="lmtStop">Stop Price</label>
+          <input type="text" class="form-control" id="lmtStop" />
+        </div>
+        <div class="form-group">
+          <label for="lmtTrigger">Trigger</label>
+        </div>
+        <button type="submit" id="btnBuyStop" class="btn btn-primary">Buy Stop</button>
+        <button type="submit" id="btnSellStop" class="btn btn-primary">Sell Stop</button>
+      </form>
+    </div>
+  </div>
+</div>

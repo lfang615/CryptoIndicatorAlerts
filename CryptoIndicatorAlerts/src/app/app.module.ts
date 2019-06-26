@@ -21,7 +21,8 @@ const appRoutes: Routes = [
   { path: 'assetpairs/view', component: AssetPairsComponent },
   { path: 'detail/:id', component: AssetDetailComponent },
   { path: 'edit/:id', component: AssetEditComponent },
-  { path: 'assetpairs', component: AssetPairsComponent}
+  { path: 'assetpairs', component: AssetPairsComponent },
+  { path: 'bitmex', component: BitmexComponent }
   
 ];
 
