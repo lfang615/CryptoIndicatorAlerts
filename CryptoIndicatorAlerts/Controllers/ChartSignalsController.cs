@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using CryptoIndicatorAlerts.Models;
 using CryptoIndicatorAlerts.Models.Repository;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Options;
 using CryptoIndicatorAlerts.Shared;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -15,7 +16,7 @@ using CryptoIndicatorAlerts.Shared;
 namespace CryptoIndicatorAlerts
 {
 
-  public class ValuesController : Controller
+  public class ChartSignalsController : Controller
   {
     private readonly IHttpClientFactory _clientFactory;
     private IAssetPairRepository _assetPairRepo;
@@ -24,7 +25,7 @@ namespace CryptoIndicatorAlerts
     private IMACDRepository _macdRepo;
     private ISettingsRepository _settingsRepo;
 
-    public ValuesController(IHttpClientFactory clientFactory,
+    public ChartSignalsController(IHttpClientFactory clientFactory,
                             IAssetPairRepository assetPairRepo,
                             IRSIRepository rsiRepository,
                             IEMARepository emaRepository,

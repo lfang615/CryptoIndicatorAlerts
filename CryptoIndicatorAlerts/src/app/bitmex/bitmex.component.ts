@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class BitmexComponent implements OnInit {
   mktOrderSelect: boolean = true;
   lmtOrderSelect: boolean = false;
-  stopSelect: boolean = false;
+  stopMktSelect: boolean = false;
+  stopLmtSelect: boolean = false;
+  profitLmtSelect: boolean = false;
+  trailStopSelect: boolean = false;
 
   constructor() { }
 
@@ -21,17 +24,50 @@ export class BitmexComponent implements OnInit {
       case "market":
         this.mktOrderSelect = true;
         this.lmtOrderSelect = false;
-        this.stopSelect = false;
+        this.stopMktSelect = false;
+        this.stopLmtSelect = false;
+        this.profitLmtSelect = false;
+        this.trailStopSelect = false;
         break;
       case "limit":
         this.mktOrderSelect = false;
         this.lmtOrderSelect = true;
-        this.stopSelect = false;
+        this.stopMktSelect = false;
+        this.stopLmtSelect = false;
+        this.profitLmtSelect = false;
+        this.trailStopSelect = false;
         break;
       case "stop":
         this.mktOrderSelect = false;
         this.lmtOrderSelect = false;
-        this.stopSelect = true;
+        this.stopMktSelect = true;
+        this.stopLmtSelect = false;
+        this.profitLmtSelect = false;
+        this.trailStopSelect = false;
+        break;
+      case "stopLmt":
+        this.mktOrderSelect = false;
+        this.lmtOrderSelect = false;
+        this.stopMktSelect = false;
+        this.stopLmtSelect = true;
+        this.profitLmtSelect = false;
+        this.trailStopSelect = false;
+        break;
+      case "profitLmt":
+        this.mktOrderSelect = false;
+        this.lmtOrderSelect = false;
+        this.stopMktSelect = false;
+        this.stopLmtSelect = false;
+        this.profitLmtSelect = true;
+        this.trailStopSelect = false;
+        break;
+      case "trailStop":
+        this.mktOrderSelect = false;
+        this.lmtOrderSelect = false;
+        this.stopMktSelect = false;
+        this.stopLmtSelect = false;
+        this.profitLmtSelect = false;
+        this.trailStopSelect = true;
         break;
     }
   }

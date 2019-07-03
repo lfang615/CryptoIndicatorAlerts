@@ -1,99 +1,154 @@
 <div class="row pb-2 pt-5 mt-5 mb-1">
   <div class="col-xs-12 col-md-10">
     <div class="btn-group" role="group">
-      <button type="button" class="btn btn-primary" (click)="changeOrderForm('market')">Market</button>
-      <button type="button" class="btn btn-primary" (click)="changeOrderForm('limit')">Limit</button>
+      <button type="button"
+              class="btn btn-primary"
+              [ngClass]="{'active': mktOrderSelect }"
+              (click)="changeOrderForm('market')">
+        Market
+      </button>
+      <button type="button"
+              class="btn btn-primary"
+              [ngClass]="{'active': lmtOrderSelect }"
+              (click)="changeOrderForm('limit')">
+        Limit
+      </button>
       <div class="btn-group" role="group">
-        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button id="btnGroupDrop1"
+                type="button"
+                class="btn btn-primary dropdown-toggle"
+                [ngClass]="{'active': stopMktSelect || stopLmtSelect || profitLmtSelect || trailStopSelect }"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
           Stop
         </button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-          <a class="dropdown-item" href="#" (click)="changeOrderForm('stop')">Stop Market</a>
-          <a class="dropdown-item" href="#">Stop Limit</a>
-          <a class="dropdown-item" href="#">Trailing Stop</a>
+          <a class="dropdown-item"
+             [ngClass]="{'active': stopMktSelect}"
+             [routerLink]=""
+             (click)="changeOrderForm('stop')">Stop Market</a>
+          <a class="dropdown-item"
+             [ngClass]="{'active': stopLmtSelect}"
+             [routerLink]=""
+             (click)="changeOrderForm('stopLmt')">Stop Limit</a>
+          <a class="dropdown-item"
+             [ngClass]="{'active': profitLmtSelect}"
+             [routerLink]=""
+             (click)="changeOrderForm('profitLmt')">Take Profit Limit</a>
+          <a class="dropdown-item"
+             [ngClass]="{'active': trailStopSelect}"
+             [routerLink]=""
+             (click)="changeOrderForm('trailStop')">Trailing Stop</a>
         </div>
       </div>
     </div>
   </div>
 </div>
 <div class="row" *ngIf="mktOrderSelect">
-  <div class="col-xs-12 col-md-10">
-    <div class="dropdown-menu">
-      <form class="px-4 py-3">
-        <div class="form-group">
-          <label for="mktQuantity">Quantity</label>
-          <input type="text" class="form-control" id="mktQuantity" />
-        </div>
-        <button type="submit" id="btnBuy" class="btn btn-primary">Buy</button>
-        <button type="submit" id="btnSell" class="btn btn-primary">Sell</button>
-      </form>
-    </div>
+  <div class="col-xs-12 col-md-3">
+    <form>
+      <div class="form-group">
+        <label for="mktQuantity">Quantity</label>
+        <input type="text" class="form-control" id="mktQuantity" />
+      </div>
+      <button type="submit" id="btnBuyMkt" class="btn btn-primary mr-2">Buy Market</button>
+      <button type="submit" id="btnSellMkt" class="btn btn-primary">Sell Market</button>
+    </form>
   </div>
 </div>
 
 <div class="row" *ngIf="lmtOrderSelect">
-  <div class="form-group">
-    <label for="limQuantity">Quantity</label>
-    <input type="text" class="form-control" id="limQuantity" />
-  </div>
-  <div class="form-group">
-    <label for="limPrice">Quantity</label>
-    <input type="text" class="form-control" id="limPrice" />
-  </div>
-  <button type="submit" id="btnLimitBuy" class="btn btn-primary">Buy</button>
-  <button type="submit" id="btnLimitSell" class="btn btn-primary">Sell</button>
-</div>
-
-<div class="row" *ngIf="stopSelect">
-  <div class="col-xs-12 col-md-10">
-    <div class="dropdown-menu">
-      <form class="px-4 py-3">
-        <div class="form-group">
-          <label for="mktStopQty">Stop Price</label>
-          <input type="text" class="form-control" id="mktStopQty" />
-        </div>
-        <div class="form-group">
-          <label for="mktStopPrice">Stop Price</label>
-          <input type="text" class="form-control" id="mktStopPrice" />
-        </div>
-
-        <div class="form-group">
-          <label for="lmtStop">Stop Price</label>
-          <input type="text" class="form-control" id="lmtStop" />
-        </div>
-        <div class="form-group">
-          <label for="lmtTrigger">Trigger</label>
-        </div>
-        <button type="submit" id="btnBuyStop" class="btn btn-primary">Buy Stop</button>
-        <button type="submit" id="btnSellStop" class="btn btn-primary">Sell Stop</button>
-      </form>
-    </div>
+  <div class="col-xs-12 col-md-3">
+    <form>
+      <div class="form-group">
+        <label for="lmtQuantity">Quantity</label>
+        <input type="text" class="form-control" id="limQuantity" />
+      </div>
+      <div class="form-group">
+        <label for="lmtPrice">Limit Price</label>
+        <input type="text" class="form-control" id="limPrice" />
+      </div>
+      <button type="submit" id="btnLmtBuy" class="btn btn-primary mr-2">Buy / Long</button>
+      <button type="submit" id="btnLmtSell" class="btn btn-primary">Sell / Short</button>
+    </form>
   </div>
 </div>
 
-<div class="row" *ngIf="stopSelect">
-  <div class="col-xs-12 col-md-10">
-    <div class="dropdown-menu">
-      <form class="px-4 py-3">
-        <div class="form-group">
-          <label for="mktStopQty">Stop Price</label>
-          <input type="text" class="form-control" id="mktStopQty" />
-        </div>
-        <div class="form-group">
-          <label for="mktStopPrice">Stop Price</label>
-          <input type="text" class="form-control" id="mktStopPrice" />
-        </div>
-
-        <div class="form-group">
-          <label for="lmtStop">Stop Price</label>
-          <input type="text" class="form-control" id="lmtStop" />
-        </div>
-        <div class="form-group">
-          <label for="lmtTrigger">Trigger</label>
-        </div>
-        <button type="submit" id="btnBuyStop" class="btn btn-primary">Buy Stop</button>
-        <button type="submit" id="btnSellStop" class="btn btn-primary">Sell Stop</button>
-      </form>
-    </div>
+<div class="row" *ngIf="stopMktSelect">
+  <div class="col-xs-12 col-md-3">
+    <form>
+      <div class="form-group">
+        <label for="mktStopQty">Quantity</label>
+        <input type="text" class="form-control" id="mktStopQty" />
+      </div>
+      <div class="form-group">
+        <label for="mktStopPrice">Stop Price</label>
+        <input type="text" class="form-control" id="mktStopPrice" />
+      </div>
+      <button type="submit" id="btnBuyStop" class="btn btn-primary mr-2">Set Buy Stop</button>
+      <button type="submit" id="btnSellStop" class="btn btn-primary">Set Sell Stop</button>
+    </form>
   </div>
 </div>
+
+<div class="row" *ngIf="stopLmtSelect">
+  <div class="col-xs-12 col-md-3">
+    <form>
+      <div class="form-group">
+        <label for="mktStopQty">Stop Price</label>
+        <input type="text" class="form-control" id="mktStopQty" />
+      </div>
+      <div class="form-group">
+        <label for="lmtStopPrice">Limit Price</label>
+        <input type="text" class="form-control" id="lmtStopPrice" />
+      </div>
+      <div class="form-group">
+        <label for="lmtTriggerStop">Stop Price</label>
+        <input type="text" class="form-control" id="lmtTriggerStop" />
+      </div>
+      <button type="submit" id="btnBuyLmtStop" class="btn btn-primary mr-2">Set Buy Stop</button>
+      <button type="submit" id="btnSellLmtStop" class="btn btn-primary">Set Sell Stop</button>
+    </form>
+  </div>
+</div>
+
+<div class="row" *ngIf="profitLmtSelect">
+  <div class="col-xs-12 col-md-5">
+    <form>
+      <div class="form-group">
+        <label for="profitLmtQty">Quantity</label>
+        <input type="text" class="form-control" id="profitLmtQty" />
+      </div>
+      <div class="form-group">
+        <label for="profitLmtPrice">Limit Price</label>
+        <input type="text" class="form-control" id="profitLmtPrice" />
+      </div>
+      <div class="form-group">
+        <label for="profitTrigger">Trigger Price</label>
+        <input type="text" class="form-control" id="profitTrigger" />
+      </div>
+      <button type="submit" id="btnLmtProfitBuy" class="btn btn-primary mr-2">Take Profit Buy</button>
+      <button type="submit" id="btnLmtProfitSell" class="btn btn-primary">Take Profit Sell</button>
+    </form>
+  </div>
+</div>
+
+<div class="row" *ngIf="trailStopSelect">
+  <div class="col-xs-12 col-md-3">
+    <form>
+      <div class="form-group">
+        <label for="trailQty">Quantity</label>
+        <input type="text" class="form-control" id="trailQty" />
+      </div>
+      <div class="form-group">
+        <label for="trailValue">Trail Value</label>
+        <input type="text" class="form-control" id="trailValue" />
+      </div>
+      <button type="submit" id="btnTrail" class="btn btn-primary mr-2">Set Buy Stop</button>
+      <button type="submit" id="btnTrail" class="btn btn-primary">Set Sell Stop</button>
+    </form>
+  </div>
+</div>
+
+

@@ -34,6 +34,7 @@ namespace CryptoIndicatorAlerts
       services.AddScoped<ISettingsRepository, SettingsRepository>();
       services.AddMvc();
       services.AddHttpClient();
+      services.Configure<BitmexAPIKey>(_config.GetSection("BitmexAPI"));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +51,7 @@ namespace CryptoIndicatorAlerts
           await next();
         }
       });
+      
       app.UseMvc();
       app.UseDefaultFiles();
       app.UseStaticFiles();
