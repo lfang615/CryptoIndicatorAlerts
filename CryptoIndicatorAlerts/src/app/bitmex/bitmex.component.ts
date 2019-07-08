@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { BitmexService } from './bitmex.service';
+import { OrderExecution } from './order.model';
+import { Subscription } from 'rxjs';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-bitmex',
@@ -12,6 +16,8 @@ export class BitmexComponent implements OnInit {
   stopLmtSelect: boolean = false;
   profitLmtSelect: boolean = false;
   trailStopSelect: boolean = false;
+  orderList: OrderExecution[];
+
 
   constructor() { }
 

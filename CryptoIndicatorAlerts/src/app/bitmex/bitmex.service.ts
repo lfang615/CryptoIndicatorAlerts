@@ -7,9 +7,16 @@ import { OrderExecution } from './order.model';
 @Injectable()
 export class BitmexService implements OnDestroy {
   private dataStore: OrderExecution[];
+  private _orderList: BehaviorSubject<OrderExecution[]>;
 
   constructor(private httpClient: HttpClient) {
+    this.dataStore = [];
+    this._orderList = <BehaviorSubject<OrderExecution[]>>new BehaviorSubject([]);
+    this.loadOrders();
+  }
 
+  get orderList() {
+    return this._orderList.asObservable();
   }
 
   loadOrders() {
@@ -18,7 +25,7 @@ export class BitmexService implements OnDestroy {
       responseType: 'json'
     })
       .subscribe((data: OrderExecution[]) => {
-
+        this.dataStore = data;
       })
   }
 
