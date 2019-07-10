@@ -10,6 +10,7 @@ import { AssetListComponent } from './asset-pairs/asset-list/asset-list.componen
 import { HeaderComponent } from './core/header/header.component';
 import { AssetPairsService } from './asset-pairs/asset-pairs.service';
 import { WebsocketService } from './asset-pairs/websocket.service';
+import { BitmexService } from './bitmex/bitmex.service';
 import { FilterPipe } from './asset-pairs/filter.pipe';
 import { SelectedFilterPipe } from './asset-pairs/selected-filter.pipe';
 import { AssetDetailComponent } from './asset-pairs/asset-detail/asset-detail.component';
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AssetPairsService, WebsocketService],
+  providers: [AssetPairsService, WebsocketService, BitmexService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

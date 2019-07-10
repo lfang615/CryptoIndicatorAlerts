@@ -19,9 +19,16 @@ export class BitmexComponent implements OnInit {
   orderList: OrderExecution[];
 
 
-  constructor() { }
+  constructor(private bitmexService: BitmexService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
+    this.bitmexService.orderList.subscribe((items) => {
+      this.orderList = items;
+    });
+
+    this.bitmexService.loadOrders();
 
   }
 
@@ -77,5 +84,7 @@ export class BitmexComponent implements OnInit {
         break;
     }
   }
+
+  
 
 }
