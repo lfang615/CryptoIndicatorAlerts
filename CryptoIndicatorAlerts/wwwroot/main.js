@@ -104,11 +104,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_header_header_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./core/header/header.component */ "./src/app/core/header/header.component.ts");
 /* harmony import */ var _asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./asset-pairs/asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
 /* harmony import */ var _asset_pairs_websocket_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./asset-pairs/websocket.service */ "./src/app/asset-pairs/websocket.service.ts");
-/* harmony import */ var _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./asset-pairs/filter.pipe */ "./src/app/asset-pairs/filter.pipe.ts");
-/* harmony import */ var _asset_pairs_selected_filter_pipe__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./asset-pairs/selected-filter.pipe */ "./src/app/asset-pairs/selected-filter.pipe.ts");
-/* harmony import */ var _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./asset-pairs/asset-detail/asset-detail.component */ "./src/app/asset-pairs/asset-detail/asset-detail.component.ts");
-/* harmony import */ var _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./asset-pairs/asset-edit/asset-edit.component */ "./src/app/asset-pairs/asset-edit/asset-edit.component.ts");
-/* harmony import */ var _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./bitmex/bitmex.component */ "./src/app/bitmex/bitmex.component.ts");
+/* harmony import */ var _bitmex_bitmex_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./bitmex/bitmex.service */ "./src/app/bitmex/bitmex.service.ts");
+/* harmony import */ var _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./asset-pairs/filter.pipe */ "./src/app/asset-pairs/filter.pipe.ts");
+/* harmony import */ var _asset_pairs_selected_filter_pipe__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./asset-pairs/selected-filter.pipe */ "./src/app/asset-pairs/selected-filter.pipe.ts");
+/* harmony import */ var _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./asset-pairs/asset-detail/asset-detail.component */ "./src/app/asset-pairs/asset-detail/asset-detail.component.ts");
+/* harmony import */ var _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./asset-pairs/asset-edit/asset-edit.component */ "./src/app/asset-pairs/asset-edit/asset-edit.component.ts");
+/* harmony import */ var _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./bitmex/bitmex.component */ "./src/app/bitmex/bitmex.component.ts");
+
 
 
 
@@ -129,10 +131,10 @@ __webpack_require__.r(__webpack_exports__);
 var appRoutes = [
     { path: '', redirectTo: '/assetpairs', pathMatch: 'full' },
     { path: 'assetpairs/view', component: _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__["AssetPairsComponent"] },
-    { path: 'detail/:id', component: _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_14__["AssetDetailComponent"] },
-    { path: 'edit/:id', component: _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_15__["AssetEditComponent"] },
+    { path: 'detail/:id', component: _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_15__["AssetDetailComponent"] },
+    { path: 'edit/:id', component: _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_16__["AssetEditComponent"] },
     { path: 'assetpairs', component: _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__["AssetPairsComponent"] },
-    { path: 'bitmex', component: _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_16__["BitmexComponent"] }
+    { path: 'bitmex', component: _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__["BitmexComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -144,11 +146,11 @@ var AppModule = /** @class */ (function () {
                 _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__["AssetPairsComponent"],
                 _asset_pairs_asset_list_asset_list_component__WEBPACK_IMPORTED_MODULE_8__["AssetListComponent"],
                 _core_header_header_component__WEBPACK_IMPORTED_MODULE_9__["HeaderComponent"],
-                _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_12__["FilterPipe"],
-                _asset_pairs_selected_filter_pipe__WEBPACK_IMPORTED_MODULE_13__["SelectedFilterPipe"],
-                _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_14__["AssetDetailComponent"],
-                _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_15__["AssetEditComponent"],
-                _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_16__["BitmexComponent"]
+                _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_13__["FilterPipe"],
+                _asset_pairs_selected_filter_pipe__WEBPACK_IMPORTED_MODULE_14__["SelectedFilterPipe"],
+                _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_15__["AssetDetailComponent"],
+                _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_16__["AssetEditComponent"],
+                _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__["BitmexComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -156,7 +158,7 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(appRoutes)
             ],
-            providers: [_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_10__["AssetPairsService"], _asset_pairs_websocket_service__WEBPACK_IMPORTED_MODULE_11__["WebsocketService"]],
+            providers: [_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_10__["AssetPairsService"], _asset_pairs_websocket_service__WEBPACK_IMPORTED_MODULE_11__["WebsocketService"], _bitmex_bitmex_service__WEBPACK_IMPORTED_MODULE_12__["BitmexService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
@@ -952,7 +954,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row pb-2 pt-5 mt-5 mb-1\">\r\n  <div class=\"col-xs-12 col-md-10\">\r\n    <div class=\"btn-group\" role=\"group\">\r\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"changeOrderForm({{'market'}})\">Market</button>\r\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"changeOrderForm({{'limit'}})\">Limit</button>\r\n      <div class=\"btn-group\" role=\"group\">\r\n        <button id=\"btnGroupDrop1\" type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n          Stop\r\n        </button>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"btnGroupDrop1\">\r\n          <a class=\"dropdown-item\" href=\"#\" (click)=\"{{'stop'}}\">Stop Market</a>\r\n          <a class=\"dropdown-item\" href=\"#\">Stop Limit</a>\r\n          <a class=\"dropdown-item\" href=\"#\">Trailing Stop</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row\" *ngIf=\"mktOrderSelect\">\r\n  <div class=\"col-xs-12 col-md-10\">\r\n    <div class=\"dropdown-menu\">\r\n      <form class=\"px-4 py-3\">\r\n        <div class=\"form-group\">\r\n          <label for=\"mktQuantity\">Quantity</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"mktQuantity\" />\r\n        </div>\r\n        <button type=\"submit\" id=\"btnBuy\" class=\"btn btn-primary\">Buy</button>\r\n        <button type=\"submit\" id=\"btnSell\" class=\"btn btn-primary\">Sell</button>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"lmtOrderSelect\">\r\n  <div class=\"form-group\">\r\n    <label for=\"limQuantity\">Quantity</label>\r\n    <input type=\"text\" class=\"form-control\" id=\"limQuantity\" />\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label for=\"limPrice\">Quantity</label>\r\n    <input type=\"text\" class=\"form-control\" id=\"limPrice\" />\r\n  </div>\r\n  <button type=\"submit\" id=\"btnLimitBuy\" class=\"btn btn-primary\">Buy</button>\r\n  <button type=\"submit\" id=\"btnLimitSell\" class=\"btn btn-primary\">Sell</button>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopSelect\">\r\n  <div class=\"col-xs-12 col-md-10\">\r\n    <div class=\"dropdown-menu\">\r\n      <form class=\"px-4 py-3\">\r\n        <div class=\"form-group\">\r\n          <label for=\"mktStopQty\">Stop Price</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"mktStopPrice\">Stop Price</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"mktStopPrice\" />\r\n        </div>\r\n\r\n        <div class=\"form-group\">\r\n          <label for=\"lmtStop\">Stop Price</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"lmtStop\" />\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"lmtTrigger\">Trigger</label>\r\n        </div>\r\n        <button type=\"submit\" id=\"btnBuyStop\" class=\"btn btn-primary\">Buy Stop</button>\r\n        <button type=\"submit\" id=\"btnSellStop\" class=\"btn btn-primary\">Sell Stop</button>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopSelect\">\r\n  <div class=\"col-xs-12 col-md-10\">\r\n    <div class=\"dropdown-menu\">\r\n      <form class=\"px-4 py-3\">\r\n        <div class=\"form-group\">\r\n          <label for=\"mktStopQty\">Stop Price</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"mktStopPrice\">Stop Price</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"mktStopPrice\" />\r\n        </div>\r\n\r\n        <div class=\"form-group\">\r\n          <label for=\"lmtStop\">Stop Price</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"lmtStop\" />\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"lmtTrigger\">Trigger</label>\r\n        </div>\r\n        <button type=\"submit\" id=\"btnBuyStop\" class=\"btn btn-primary\">Buy Stop</button>\r\n        <button type=\"submit\" id=\"btnSellStop\" class=\"btn btn-primary\">Sell Stop</button>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "\r\n\r\n<div class=\"row pb-2 pt-5 mt-5 mb-1\">\r\n  <!--<button type=\"button\" class=\"btn btn-success\" (click)=\"testOrder()\">Test Order!</button>-->\r\n  <div class=\"col-xs-12 col-md-10\">\r\n    <div class=\"btn-group\" role=\"group\">\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': mktOrderSelect }\"\r\n              (click)=\"changeOrderForm('market')\">\r\n        Market\r\n      </button>\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': lmtOrderSelect }\"\r\n              (click)=\"changeOrderForm('limit')\">\r\n        Limit\r\n      </button>\r\n      <div class=\"btn-group\" role=\"group\">\r\n        <button id=\"btnGroupDrop1\"\r\n                type=\"button\"\r\n                class=\"btn btn-primary dropdown-toggle\"\r\n                [ngClass]=\"{'active': stopMktSelect || stopLmtSelect || profitLmtSelect || trailStopSelect }\"\r\n                data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\"\r\n                aria-expanded=\"false\">\r\n          Stop\r\n        </button>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"btnGroupDrop1\">\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopMktSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stop')\">Stop Market</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stopLmt')\">Stop Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': profitLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('profitLmt')\">Take Profit Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': trailStopSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('trailStop')\">Trailing Stop</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row\" *ngIf=\"mktOrderSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktQuantity\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyMkt\" class=\"btn btn-primary mr-2\">Buy Market</button>\r\n      <button type=\"submit\" id=\"btnSellMkt\" class=\"btn btn-primary\">Sell Market</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"lmtOrderSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"limQuantity\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"limPrice\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtBuy\" class=\"btn btn-primary mr-2\">Buy / Long</button>\r\n      <button type=\"submit\" id=\"btnLmtSell\" class=\"btn btn-primary\">Sell / Short</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopMktSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopPrice\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopPrice\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtStopPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtStopPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtTriggerStop\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtTriggerStop\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyLmtStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellLmtStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"profitLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-5\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitTrigger\">Trigger Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitTrigger\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtProfitBuy\" class=\"btn btn-primary mr-2\">Take Profit Buy</button>\r\n      <button type=\"submit\" id=\"btnLmtProfitSell\" class=\"btn btn-primary\">Take Profit Sell</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"trailStopSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailValue\">Trail Value</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailValue\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -968,32 +970,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BitmexComponent", function() { return BitmexComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _bitmex_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bitmex.service */ "./src/app/bitmex/bitmex.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 var BitmexComponent = /** @class */ (function () {
-    function BitmexComponent() {
+    function BitmexComponent(bitmexService, route, router) {
+        this.bitmexService = bitmexService;
+        this.route = route;
+        this.router = router;
         this.mktOrderSelect = true;
         this.lmtOrderSelect = false;
-        this.stopSelect = false;
+        this.stopMktSelect = false;
+        this.stopLmtSelect = false;
+        this.profitLmtSelect = false;
+        this.trailStopSelect = false;
     }
     BitmexComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.bitmexService.orderList.subscribe(function (items) {
+            _this.orderList = items;
+        });
+        this.bitmexService.loadOrders();
     };
     BitmexComponent.prototype.changeOrderForm = function (formView) {
         switch (formView) {
             case "market":
                 this.mktOrderSelect = true;
                 this.lmtOrderSelect = false;
-                this.stopSelect = false;
+                this.stopMktSelect = false;
+                this.stopLmtSelect = false;
+                this.profitLmtSelect = false;
+                this.trailStopSelect = false;
                 break;
             case "limit":
                 this.mktOrderSelect = false;
                 this.lmtOrderSelect = true;
-                this.stopSelect = false;
+                this.stopMktSelect = false;
+                this.stopLmtSelect = false;
+                this.profitLmtSelect = false;
+                this.trailStopSelect = false;
                 break;
             case "stop":
                 this.mktOrderSelect = false;
                 this.lmtOrderSelect = false;
-                this.stopSelect = true;
+                this.stopMktSelect = true;
+                this.stopLmtSelect = false;
+                this.profitLmtSelect = false;
+                this.trailStopSelect = false;
+                break;
+            case "stopLmt":
+                this.mktOrderSelect = false;
+                this.lmtOrderSelect = false;
+                this.stopMktSelect = false;
+                this.stopLmtSelect = true;
+                this.profitLmtSelect = false;
+                this.trailStopSelect = false;
+                break;
+            case "profitLmt":
+                this.mktOrderSelect = false;
+                this.lmtOrderSelect = false;
+                this.stopMktSelect = false;
+                this.stopLmtSelect = false;
+                this.profitLmtSelect = true;
+                this.trailStopSelect = false;
+                break;
+            case "trailStop":
+                this.mktOrderSelect = false;
+                this.lmtOrderSelect = false;
+                this.stopMktSelect = false;
+                this.stopLmtSelect = false;
+                this.profitLmtSelect = false;
+                this.trailStopSelect = true;
                 break;
         }
     };
@@ -1003,9 +1053,66 @@ var BitmexComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./bitmex.component.html */ "./src/app/bitmex/bitmex.component.html"),
             styles: [__webpack_require__(/*! ./bitmex.component.css */ "./src/app/bitmex/bitmex.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_bitmex_service__WEBPACK_IMPORTED_MODULE_2__["BitmexService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], BitmexComponent);
     return BitmexComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/bitmex/bitmex.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/bitmex/bitmex.service.ts ***!
+  \******************************************/
+/*! exports provided: BitmexService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BitmexService", function() { return BitmexService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
+
+
+
+var BitmexService = /** @class */ (function () {
+    function BitmexService(httpClient) {
+        this.httpClient = httpClient;
+        this.dataStore = [];
+        this._orderList = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
+        this.loadOrders();
+    }
+    Object.defineProperty(BitmexService.prototype, "orderList", {
+        get: function () {
+            return this._orderList.asObservable();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    BitmexService.prototype.loadOrders = function () {
+        var _this = this;
+        this.httpClient.get('/api/orders', {
+            observe: 'body',
+            responseType: 'json'
+        })
+            .subscribe(function (data) {
+            _this.dataStore = data;
+        });
+    };
+    BitmexService.prototype.ngOnDestroy = function () {
+    };
+    BitmexService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], BitmexService);
+    return BitmexService;
 }());
 
 
