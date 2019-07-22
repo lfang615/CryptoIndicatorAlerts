@@ -20,7 +20,7 @@ namespace CryptoIndicatorAlerts.Exchanges
   }
   public class Bitmex
   {
-    private const string domain = "https://www.bitmex.com/api/v1";
+    private const string domain = "https://www.bitmex.com";
     private string apiKey;
     private string apiSecret;
     private int rateLimit;

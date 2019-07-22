@@ -28,10 +28,10 @@ export class AssetPairsService implements OnDestroy {
       observe: 'body',
       responseType: 'json'
     })
-      .subscribe((data: AssetPair[]) => {
-        this.dataStore = data;
-        this._assetList.next(Object.assign([], this.dataStore));
-      })
+      //.subscribe((data: AssetPair[]) => {
+      //  this.dataStore = data;
+      //  this._assetList.next(Object.assign([], this.dataStore));
+      //})
       //.pipe(map(
       //  (response: any[]) => {
       //    const assetList = [];

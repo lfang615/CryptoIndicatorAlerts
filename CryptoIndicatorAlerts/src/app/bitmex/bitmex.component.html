@@ -154,4 +154,69 @@
   </div>
 </div>
 
+<!--<div class="row mt-5">
+  <div class="col-xs-12 col-md-10">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Symbol</th>
+          <th scope="col">Side</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Avg Price</th>
+          <th scope="col">Order Type</th>
+          <th scope="col">Transact Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orderList">
+          <td>{{order.symbol}}</td>
+          <td>{{order.side}}</td>
+          <td>{{order.orderQty}}</td>
+          <td>{{order.price}}</td>
+          <td>{{order.ordType}}</td>
+          <td>{{order.timeIn}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>-->
 
+<div class="row mt-5">
+  <ag-grid-angular style="width: 700px; height: 500px;"
+                   class="ag-theme-balham"
+                   [rowData]="rowData"
+                   [columnDefs]="columnDefs">
+  </ag-grid-angular>
+  <!--<mat-table [dataSource]="dataSource">
+    <ng-container *matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+      <mat-cell *matCellDef="let order"></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell *matHeaderCellDef>Symbol</mat-header-cell>
+      <mat-cell *matCellDef="let order"></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="side">
+      <mat-header-cell *matHeaderCellDef>Side</mat-header-cell>
+      <mat-cell *matCellDef="let order"></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="orderQty">
+      <mat-header-cell *matHeaderCellDef>Quantity</mat-header-cell>
+      <mat-cell *matCellDef="let order"></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef>Avg Price</mat-header-cell>
+      <mat-cell *matCellDef="let order"></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ordType">
+      <mat-header-cell *matHeaderCellDef>Order Type</mat-header-cell>
+      <mat-cell *matCellDef="let order"></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="timeIn">
+      <mat-header-cell *matHeaderCellDef>Transact Time</mat-header-cell>
+      <mat-cell *matCellDef="let order"></mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>-->
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BitmexService } from './bitmex.service';
 import { OrderExecution } from './order.model';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -17,18 +17,29 @@ export class BitmexComponent implements OnInit {
   profitLmtSelect: boolean = false;
   trailStopSelect: boolean = false;
   orderList: OrderExecution[];
-
-
+  columnDefs = [{
+    headerName: 'Symbol', field: 'symbol', width: 75 },
+    { headerName: 'Side', field: 'side', width: 75 },
+    { headerName: 'Quantity', field: 'orderQty', width: 100 },
+    { headerName: 'Price', field: 'price', width: 100 },
+    { headerName: 'Order Type', field: 'ordType', width: 150 },
+    { headerName: 'Transact Time', field: 'timeIn', width: 100 }
+  ];
+  rowData = [];
+ 
   constructor(private bitmexService: BitmexService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
-    this.bitmexService.orderList.subscribe((items) => {
-      this.orderList = items;
-    });
+    //this.bitmexService.orderList.subscribe((items) => {
+    //  this.orderList = items;
+    //});
 
-    this.bitmexService.loadOrders();
+    this.bitmexService.loadOrders()
+      .subscribe((items) => {
+        this.rowData = items;
+      });
 
   }
 
@@ -86,5 +97,6 @@ export class BitmexComponent implements OnInit {
   }
 
   
-
 }
+
+

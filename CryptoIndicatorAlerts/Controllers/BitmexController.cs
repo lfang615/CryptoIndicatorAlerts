@@ -30,7 +30,10 @@ namespace CryptoIndicatorAlerts.Controllers
       Bitmex bitmex = new Bitmex(_bitmexAPIKey.Value.Key, _bitmexAPIKey.Value.Secret);
 
       string orders = bitmex.GetOrders();
-      return "Hello World!!";
+      List<Dictionary<string, string>> ordersJson = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(orders);
+
+      return orders;
+      
     }
 
   }

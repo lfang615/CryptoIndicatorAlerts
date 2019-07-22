@@ -16,6 +16,8 @@ import { SelectedFilterPipe } from './asset-pairs/selected-filter.pipe';
 import { AssetDetailComponent } from './asset-pairs/asset-detail/asset-detail.component';
 import { AssetEditComponent } from './asset-pairs/asset-edit/asset-edit.component';
 import { BitmexComponent } from './bitmex/bitmex.component';
+import { AgGridModule } from 'ag-grid-angular';
+
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/assetpairs', pathMatch: 'full' },
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AgGridModule.withComponents(null)
   ],
   providers: [AssetPairsService, WebsocketService, BitmexService],
   bootstrap: [AppComponent]

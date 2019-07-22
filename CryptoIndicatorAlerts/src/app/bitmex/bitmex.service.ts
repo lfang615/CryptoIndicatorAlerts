@@ -20,13 +20,20 @@ export class BitmexService implements OnDestroy {
   }
 
   loadOrders() {
-    this.httpClient.get('/api/orders', {
+    return this.httpClient.get('/api/orders', {
       observe: 'body',
       responseType: 'json'
     })
-      .subscribe((data: OrderExecution[]) => {
-        this.dataStore = data;
-      })
+    .pipe(map(
+      (response: any[]) => {
+        let orderList = [];
+        //for (let item of response) {
+        //  orderList.push(new OrderExecution(item.orderId, item.symbol, item.side, item.orderQty, item.price,
+        //                                    item.ordType, new Date(item.transactTime).toLocaleString()));
+        //}
+
+        return response;
+      }))
   }
 
   ngOnDestroy() {
