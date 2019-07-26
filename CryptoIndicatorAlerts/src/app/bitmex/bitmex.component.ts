@@ -3,6 +3,7 @@ import { BitmexService } from './bitmex.service';
 import { OrderExecution } from './order.model';
 import { Subscription, Observable } from 'rxjs';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-bitmex',
@@ -16,16 +17,19 @@ export class BitmexComponent implements OnInit {
   stopLmtSelect: boolean = false;
   profitLmtSelect: boolean = false;
   trailStopSelect: boolean = false;
-  orderList: OrderExecution[];
-  columnDefs = [{
-    headerName: 'Symbol', field: 'symbol', width: 75 },
+  model = new OrderExecution();
+  //orderList: OrderExecution[];
+  columnDefs = [
+    {headerName: 'Id', field: 'id', hide: true},
+    { headerName: 'Symbol', field: 'symbol', width: 75 },
     { headerName: 'Side', field: 'side', width: 75 },
     { headerName: 'Quantity', field: 'orderQty', width: 100 },
-    { headerName: 'Price', field: 'price', width: 100 },
+    { headerName: 'Price', field: 'price', width: 100, editable: true, filter: true },
     { headerName: 'Order Type', field: 'ordType', width: 150 },
-    { headerName: 'Transact Time', field: 'timeIn', width: 100 }
+    {headerName: 'Status', field: 'ordStatus', width: 75},
+    { headerName: 'Transact Time', field: 'timeIn', width: 150 }
   ];
-  rowData = [];
+  rowData: OrderExecution[];
  
   constructor(private bitmexService: BitmexService,
               private route: ActivatedRoute,
@@ -43,7 +47,25 @@ export class BitmexComponent implements OnInit {
 
   }
 
+  onCellValueChanged(params) {
+    if (params.oldValue != params.newValue && params.data.ordStatus == 'open') {
+
+    }
+  }
+
+  onSubmit() {
+    this.bitmexService.createOrder(this.model);
+    console.log(this.model.orderQty);
+  }
+
+  clearFormValues() {
+    this.model.price = null;
+    this.model.stopPx = null;
+  }
+
   changeOrderForm(formView: string) {
+    this.clearFormValues();
+
     switch (formView) {
       case "market":
         this.mktOrderSelect = true;

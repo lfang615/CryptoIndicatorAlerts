@@ -157,6 +157,7 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(appRoutes),
@@ -957,7 +958,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<div class=\"row pb-2 pt-5 mt-5 mb-1\">\r\n  <!--<button type=\"button\" class=\"btn btn-success\" (click)=\"testOrder()\">Test Order!</button>-->\r\n  <div class=\"col-xs-12 col-md-10\">\r\n    <div class=\"btn-group\" role=\"group\">\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': mktOrderSelect }\"\r\n              (click)=\"changeOrderForm('market')\">\r\n        Market\r\n      </button>\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': lmtOrderSelect }\"\r\n              (click)=\"changeOrderForm('limit')\">\r\n        Limit\r\n      </button>\r\n      <div class=\"btn-group\" role=\"group\">\r\n        <button id=\"btnGroupDrop1\"\r\n                type=\"button\"\r\n                class=\"btn btn-primary dropdown-toggle\"\r\n                [ngClass]=\"{'active': stopMktSelect || stopLmtSelect || profitLmtSelect || trailStopSelect }\"\r\n                data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\"\r\n                aria-expanded=\"false\">\r\n          Stop\r\n        </button>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"btnGroupDrop1\">\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopMktSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stop')\">Stop Market</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stopLmt')\">Stop Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': profitLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('profitLmt')\">Take Profit Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': trailStopSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('trailStop')\">Trailing Stop</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row\" *ngIf=\"mktOrderSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktQuantity\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyMkt\" class=\"btn btn-primary mr-2\">Buy Market</button>\r\n      <button type=\"submit\" id=\"btnSellMkt\" class=\"btn btn-primary\">Sell Market</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"lmtOrderSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"limQuantity\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"limPrice\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtBuy\" class=\"btn btn-primary mr-2\">Buy / Long</button>\r\n      <button type=\"submit\" id=\"btnLmtSell\" class=\"btn btn-primary\">Sell / Short</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopMktSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopPrice\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopPrice\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtStopPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtStopPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtTriggerStop\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtTriggerStop\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyLmtStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellLmtStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"profitLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-5\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitTrigger\">Trigger Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitTrigger\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtProfitBuy\" class=\"btn btn-primary mr-2\">Take Profit Buy</button>\r\n      <button type=\"submit\" id=\"btnLmtProfitSell\" class=\"btn btn-primary\">Take Profit Sell</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"trailStopSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailValue\">Trail Value</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailValue\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<!--<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12 col-md-10\">\r\n    <table class=\"table\">\r\n      <thead>\r\n        <tr>\r\n          <th scope=\"col\">Symbol</th>\r\n          <th scope=\"col\">Side</th>\r\n          <th scope=\"col\">Quantity</th>\r\n          <th scope=\"col\">Avg Price</th>\r\n          <th scope=\"col\">Order Type</th>\r\n          <th scope=\"col\">Transact Time</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let order of orderList\">\r\n          <td>{{order.symbol}}</td>\r\n          <td>{{order.side}}</td>\r\n          <td>{{order.orderQty}}</td>\r\n          <td>{{order.price}}</td>\r\n          <td>{{order.ordType}}</td>\r\n          <td>{{order.timeIn}}</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n</div>-->\r\n\r\n<div class=\"row mt-5\">\r\n  <ag-grid-angular style=\"width: 500px; height: 500px;\"\r\n                   class=\"ag-theme-balham\"\r\n                   [rowData]=\"rowData\"\r\n                   [columnDefs]=\"columnDefs\">\r\n  </ag-grid-angular>\r\n  <!--<mat-table [dataSource]=\"dataSource\">\r\n    <ng-container *matColumnDef=\"id\">\r\n      <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let order\"></mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"symbol\">\r\n      <mat-header-cell *matHeaderCellDef>Symbol</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let order\"></mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"side\">\r\n      <mat-header-cell *matHeaderCellDef>Side</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let order\"></mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"orderQty\">\r\n      <mat-header-cell *matHeaderCellDef>Quantity</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let order\"></mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"price\">\r\n      <mat-header-cell *matHeaderCellDef>Avg Price</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let order\"></mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"ordType\">\r\n      <mat-header-cell *matHeaderCellDef>Order Type</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let order\"></mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"timeIn\">\r\n      <mat-header-cell *matHeaderCellDef>Transact Time</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let order\"></mat-cell>\r\n    </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n  </mat-table>-->\r\n</div>\r\n"
+module.exports = "\r\n\r\n<div class=\"row pb-2 pt-5 mt-5 mb-1\">\r\n  <!--<button type=\"button\" class=\"btn btn-success\" (click)=\"testOrder()\">Test Order!</button>-->\r\n  <div class=\"col-xs-12 col-md-10\">\r\n    <div class=\"btn-group\" role=\"group\">\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': mktOrderSelect }\"\r\n              (click)=\"changeOrderForm('market')\">\r\n        Market\r\n      </button>\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': lmtOrderSelect }\"\r\n              (click)=\"changeOrderForm('limit')\">\r\n        Limit\r\n      </button>\r\n      <div class=\"btn-group\" role=\"group\">\r\n        <button id=\"btnGroupDrop1\"\r\n                type=\"button\"\r\n                class=\"btn btn-primary dropdown-toggle\"\r\n                [ngClass]=\"{'active': stopMktSelect || stopLmtSelect || profitLmtSelect || trailStopSelect }\"\r\n                data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\"\r\n                aria-expanded=\"false\">\r\n          Stop\r\n        </button>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"btnGroupDrop1\">\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopMktSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stop')\">Stop Market</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stopLmt')\">Stop Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': profitLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('profitLmt')\">Take Profit Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': trailStopSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('trailStop')\">Trailing Stop</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row\" *ngIf=\"mktOrderSelect\" >\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"mktQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"mktQuantity\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyMkt\" class=\"btn btn-primary mr-2\">Buy Market</button>\r\n      <button type=\"submit\" id=\"btnSellMkt\" class=\"btn btn-primary\">Sell Market</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"lmtOrderSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"limQuantity\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.price\" name=\"price\" id=\"limPrice\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtBuy\" class=\"btn btn-primary mr-2\" >Buy / Long</button>\r\n      <button type=\"submit\" id=\"btnLmtSell\" class=\"btn btn-primary\">Sell / Short</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopMktSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\"/>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopPrice\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopPrice\" [(ngModel)]=\"model.stopPx\" name=\"stopPx\"/>\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtStopPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtStopPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtTriggerStop\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtTriggerStop\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyLmtStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellLmtStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"profitLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-5\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitTrigger\">Trigger Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitTrigger\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtProfitBuy\" class=\"btn btn-primary mr-2\">Take Profit Buy</button>\r\n      <button type=\"submit\" id=\"btnLmtProfitSell\" class=\"btn btn-primary\">Take Profit Sell</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"trailStopSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailValue\">Trail Value</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailValue\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"row mt-5\">\r\n  <ag-grid-angular style=\"width: 700px; height: 500px;\"\r\n                   class=\"ag-theme-balham\"\r\n                   [pagination]=\"true\"\r\n                   [rowData]=\"rowData\"\r\n                   [columnDefs]=\"columnDefs\"\r\n                   (cellValueChanged)=\"onCellValueChanged($event)\">\r\n  </ag-grid-angular>\r\n  \r\n</div>\r\n"
 
 /***/ }),
 
@@ -974,7 +975,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _bitmex_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bitmex.service */ "./src/app/bitmex/bitmex.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _order_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./order.model */ "./src/app/bitmex/order.model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
@@ -990,14 +993,18 @@ var BitmexComponent = /** @class */ (function () {
         this.stopLmtSelect = false;
         this.profitLmtSelect = false;
         this.trailStopSelect = false;
-        this.columnDefs = [{ headerName: 'Symbol', field: 'symbol' },
-            { headerName: 'Side', field: 'side' },
-            { headerName: 'Quantity', field: 'orderQty' },
-            { headerName: 'Price', field: 'price' },
-            { headerName: 'Order Type', field: 'ordType' },
-            { headerName: 'Transact Time', field: 'timeIn' }
+        this.model = new _order_model__WEBPACK_IMPORTED_MODULE_3__["OrderExecution"]();
+        //orderList: OrderExecution[];
+        this.columnDefs = [
+            { headerName: 'Id', field: 'id', hide: true },
+            { headerName: 'Symbol', field: 'symbol', width: 75 },
+            { headerName: 'Side', field: 'side', width: 75 },
+            { headerName: 'Quantity', field: 'orderQty', width: 100 },
+            { headerName: 'Price', field: 'price', width: 100, editable: true, filter: true },
+            { headerName: 'Order Type', field: 'ordType', width: 150 },
+            { headerName: 'Status', field: 'ordStatus', width: 75 },
+            { headerName: 'Transact Time', field: 'timeIn', width: 150 }
         ];
-        this.rowData = [];
     }
     BitmexComponent.prototype.ngOnInit = function () {
         //this.bitmexService.orderList.subscribe((items) => {
@@ -1009,7 +1016,19 @@ var BitmexComponent = /** @class */ (function () {
             _this.rowData = items;
         });
     };
+    BitmexComponent.prototype.onCellValueChanged = function (params) {
+        if (params.oldValue != params.newValue) {
+        }
+    };
+    BitmexComponent.prototype.onSubmit = function () {
+        console.log(this.model.orderQty);
+    };
+    BitmexComponent.prototype.clearFormValues = function () {
+        this.model.price = null;
+        this.model.stopPx = null;
+    };
     BitmexComponent.prototype.changeOrderForm = function (formView) {
+        this.clearFormValues();
         switch (formView) {
             case "market":
                 this.mktOrderSelect = true;
@@ -1068,8 +1087,8 @@ var BitmexComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./bitmex.component.css */ "./src/app/bitmex/bitmex.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_bitmex_service__WEBPACK_IMPORTED_MODULE_2__["BitmexService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], BitmexComponent);
     return BitmexComponent;
 }());
@@ -1093,6 +1112,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _order_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./order.model */ "./src/app/bitmex/order.model.ts");
+
 
 
 
@@ -1119,12 +1140,19 @@ var BitmexService = /** @class */ (function () {
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
             var orderList = [];
-            //for (let item of response) {
-            //  orderList.push(new OrderExecution(item.orderId, item.symbol, item.side, item.orderQty, item.price,
-            //                                    item.ordType, new Date(item.transactTime).toLocaleString()));
-            //}
+            for (var _i = 0, response_1 = response; _i < response_1.length; _i++) {
+                var item = response_1[_i];
+                orderList.push(new _order_model__WEBPACK_IMPORTED_MODULE_5__["OrderExecution"](item.orderID, item.symbol, item.side, item.orderQty, item.price, item.ordType, item.ordStatus, new Date(item.transactTime).toLocaleString()));
+            }
             return orderList;
         }));
+    };
+    BitmexService.prototype.ammendOrder = function () {
+        this.httpClient.put('/api/orders', {});
+    };
+    BitmexService.prototype.createOrder = function (order) {
+        this.httpClient.post('/api/orders', order)
+            .subscribe(function (data) { return data; });
     };
     BitmexService.prototype.ngOnDestroy = function () {
     };
@@ -1133,6 +1161,34 @@ var BitmexService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], BitmexService);
     return BitmexService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/bitmex/order.model.ts":
+/*!***************************************!*\
+  !*** ./src/app/bitmex/order.model.ts ***!
+  \***************************************/
+/*! exports provided: OrderExecution */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderExecution", function() { return OrderExecution; });
+var OrderExecution = /** @class */ (function () {
+    function OrderExecution(id, symbol, side, orderQty, price, ordType, ordStatus, timeIn) {
+        this.id = id;
+        this.symbol = symbol;
+        this.side = side;
+        this.orderQty = orderQty;
+        this.price = price;
+        this.ordType = ordType;
+        this.ordStatus = ordStatus;
+        this.timeIn = timeIn;
+    }
+    return OrderExecution;
 }());
 
 

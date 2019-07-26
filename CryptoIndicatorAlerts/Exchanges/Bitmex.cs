@@ -18,6 +18,22 @@ namespace CryptoIndicatorAlerts.Exchanges
     public decimal AskPrice { get; set; }
     public DateTime Timestamp { get; set; }
   }
+
+  public class Order
+  {
+    public string Id { get; set; }
+    public string Symbol { get; set; }
+    public string Side { get; set; }
+    public string OrderQty { get; set; }
+    public string Price { get; set; }
+    public string StopPx { get; set; }
+    public string PegOffsetValue { get; set; }
+    public string PegPriceType { get; set; }
+    public string OrdType { get; set; }
+    public string OrdStatus { get; set; }
+    public string TimeIn { get; set; }
+
+  }
   public class Bitmex
   {
     private const string domain = "https://www.bitmex.com";
@@ -114,7 +130,7 @@ namespace CryptoIndicatorAlerts.Exchanges
       {
         using (HttpWebResponse response = (HttpWebResponse)wex.Response)
         {
-          if (response == null)
+          if (response == null || response.StatusCode != HttpStatusCode.OK)
             throw;
 
           using (Stream str = response.GetResponseStream())
@@ -151,14 +167,39 @@ namespace CryptoIndicatorAlerts.Exchanges
       return Query("GET", "/order", param, true);
     }
 
-    public string PostOrders()
+    public string PostOrders(string side, string ordType, string ordQuantity, string price, string stopPrice)
     {
       var param = new Dictionary<string, string>();
       param["symbol"] = "XBTUSD";
-      param["side"] = "Buy";
-      param["orderQty"] = "1";
-      param["ordType"] = "Market";
+      //param["side"] = "Buy";
+      param["orderQty"] = ordQuantity;
+      if(price != null)
+      {
+        param["price"] = price;
+      }
+      if(stopPrice != null)
+      {
+        param["stopPx"] = stopPrice;
+      }
+      
+      //param["ordType"] = "Market";
       return Query("POST", "/order", param, true);
+    }
+
+    public string EditOrder(string orderID, string orderQty, string price)
+    {
+      var param = new Dictionary<string, string>();
+      param["orderID"] = orderID;
+      if(price != null)
+      {
+        param["price"] = price;
+      }
+      if(orderQty != null)
+      {
+        param["orderQty"] = orderQty;
+      }
+      
+      return Query("PUT", "/order", param, true);
     }
 
     public string DeleteOrders()
