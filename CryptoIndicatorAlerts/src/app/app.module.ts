@@ -16,6 +16,7 @@ import { SelectedFilterPipe } from './asset-pairs/selected-filter.pipe';
 import { AssetDetailComponent } from './asset-pairs/asset-detail/asset-detail.component';
 import { AssetEditComponent } from './asset-pairs/asset-edit/asset-edit.component';
 import { BitmexComponent } from './bitmex/bitmex.component';
+import { AlertComponent } from './shared/alert/alert.component';
 import { AgGridModule } from 'ag-grid-angular';
 
 
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     SelectedFilterPipe,
     AssetDetailComponent,
     AssetEditComponent,
-    BitmexComponent
+    BitmexComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

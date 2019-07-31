@@ -23,6 +23,7 @@
     <None Remove="src\app\bitmex\bitmex.service.ts" />
     <None Remove="src\app\bitmex\order-details.model.ts" />
     <None Remove="src\app\bitmex\order.model.ts" />
+    <None Remove="src\app\shared\alert\alert.component.ts" />
     <None Remove="src\app\shared\websocket.service.ts" />
   </ItemGroup>
 
@@ -54,6 +55,7 @@
     <TypeScriptCompile Include="src\app\bitmex\bitmex.service.ts" />
     <TypeScriptCompile Include="src\app\bitmex\order-details.model.ts" />
     <TypeScriptCompile Include="src\app\bitmex\order.model.ts" />
+    <TypeScriptCompile Include="src\app\shared\alert\alert.component.ts" />
     <TypeScriptCompile Include="src\app\shared\websocket.service.ts" />
   </ItemGroup>
 

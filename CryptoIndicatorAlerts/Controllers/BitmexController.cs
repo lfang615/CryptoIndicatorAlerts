@@ -43,7 +43,7 @@ namespace CryptoIndicatorAlerts.Controllers
 
       try
       {
-        return Ok(bitmex.EditOrder(order.Id, order.OrderQty, order.Price));
+        return Ok(bitmex.EditOrder(order.Id, order.OrderQty, order.Price, order.StopPx));
       }
       catch(Exception ex)
       {

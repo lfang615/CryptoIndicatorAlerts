@@ -110,8 +110,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./asset-pairs/asset-detail/asset-detail.component */ "./src/app/asset-pairs/asset-detail/asset-detail.component.ts");
 /* harmony import */ var _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./asset-pairs/asset-edit/asset-edit.component */ "./src/app/asset-pairs/asset-edit/asset-edit.component.ts");
 /* harmony import */ var _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./bitmex/bitmex.component */ "./src/app/bitmex/bitmex.component.ts");
-/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ag-grid-angular */ "./node_modules/ag-grid-angular/main.js");
-/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(ag_grid_angular__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _shared_alert_alert_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/alert/alert.component */ "./src/app/shared/alert/alert.component.ts");
+/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ag-grid-angular */ "./node_modules/ag-grid-angular/main.js");
+/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(ag_grid_angular__WEBPACK_IMPORTED_MODULE_19__);
+
 
 
 
@@ -153,7 +155,8 @@ var AppModule = /** @class */ (function () {
                 _asset_pairs_selected_filter_pipe__WEBPACK_IMPORTED_MODULE_14__["SelectedFilterPipe"],
                 _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_15__["AssetDetailComponent"],
                 _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_16__["AssetEditComponent"],
-                _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__["BitmexComponent"]
+                _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__["BitmexComponent"],
+                _shared_alert_alert_component__WEBPACK_IMPORTED_MODULE_18__["AlertComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -161,7 +164,7 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(appRoutes),
-                ag_grid_angular__WEBPACK_IMPORTED_MODULE_18__["AgGridModule"].withComponents(null)
+                ag_grid_angular__WEBPACK_IMPORTED_MODULE_19__["AgGridModule"].withComponents(null)
             ],
             providers: [_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_10__["AssetPairsService"], _asset_pairs_websocket_service__WEBPACK_IMPORTED_MODULE_11__["WebsocketService"], _bitmex_bitmex_service__WEBPACK_IMPORTED_MODULE_12__["BitmexService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -958,7 +961,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<div class=\"row pb-2 pt-5 mt-5 mb-1\">\r\n  <!--<button type=\"button\" class=\"btn btn-success\" (click)=\"testOrder()\">Test Order!</button>-->\r\n  <div class=\"col-xs-12 col-md-10\">\r\n    <div class=\"btn-group\" role=\"group\">\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': mktOrderSelect }\"\r\n              (click)=\"changeOrderForm('market')\">\r\n        Market\r\n      </button>\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': lmtOrderSelect }\"\r\n              (click)=\"changeOrderForm('limit')\">\r\n        Limit\r\n      </button>\r\n      <div class=\"btn-group\" role=\"group\">\r\n        <button id=\"btnGroupDrop1\"\r\n                type=\"button\"\r\n                class=\"btn btn-primary dropdown-toggle\"\r\n                [ngClass]=\"{'active': stopMktSelect || stopLmtSelect || profitLmtSelect || trailStopSelect }\"\r\n                data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\"\r\n                aria-expanded=\"false\">\r\n          Stop\r\n        </button>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"btnGroupDrop1\">\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopMktSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stop')\">Stop Market</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stopLmt')\">Stop Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': profitLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('profitLmt')\">Take Profit Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': trailStopSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('trailStop')\">Trailing Stop</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row\" *ngIf=\"mktOrderSelect\" >\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"mktQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"mktQuantity\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyMkt\" class=\"btn btn-primary mr-2\">Buy Market</button>\r\n      <button type=\"submit\" id=\"btnSellMkt\" class=\"btn btn-primary\">Sell Market</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"lmtOrderSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"limQuantity\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.price\" name=\"price\" id=\"limPrice\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtBuy\" class=\"btn btn-primary mr-2\" >Buy / Long</button>\r\n      <button type=\"submit\" id=\"btnLmtSell\" class=\"btn btn-primary\">Sell / Short</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopMktSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\"/>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopPrice\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopPrice\" [(ngModel)]=\"model.stopPx\" name=\"stopPx\"/>\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtStopPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtStopPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtTriggerStop\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtTriggerStop\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyLmtStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellLmtStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"profitLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-5\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitTrigger\">Trigger Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitTrigger\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtProfitBuy\" class=\"btn btn-primary mr-2\">Take Profit Buy</button>\r\n      <button type=\"submit\" id=\"btnLmtProfitSell\" class=\"btn btn-primary\">Take Profit Sell</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"trailStopSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailValue\">Trail Value</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailValue\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"row mt-5\">\r\n  <ag-grid-angular style=\"width: 700px; height: 500px;\"\r\n                   class=\"ag-theme-balham\"\r\n                   [pagination]=\"true\"\r\n                   [rowData]=\"rowData\"\r\n                   [columnDefs]=\"columnDefs\"\r\n                   (cellValueChanged)=\"onCellValueChanged($event)\">\r\n  </ag-grid-angular>\r\n  \r\n</div>\r\n"
+module.exports = "\r\n\r\n<div class=\"row pb-2 pt-5 mt-5 mb-1\">\r\n  <div class=\"col-xs-12 col-md-10\">\r\n    <app-alert [message]=\"error\" *ngIf=\"error\"></app-alert>\r\n    <div class=\"btn-group\" role=\"group\">\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': mktOrderSelect }\"\r\n              (click)=\"changeOrderForm('market')\">\r\n        Market\r\n      </button>\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': lmtOrderSelect }\"\r\n              (click)=\"changeOrderForm('limit')\">\r\n        Limit\r\n      </button>\r\n      <div class=\"btn-group\" role=\"group\">\r\n        <button id=\"btnGroupDrop1\"\r\n                type=\"button\"\r\n                class=\"btn btn-primary dropdown-toggle\"\r\n                [ngClass]=\"{'active': stopMktSelect || stopLmtSelect || profitLmtSelect || trailStopSelect }\"\r\n                data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\"\r\n                aria-expanded=\"false\">\r\n          Stop\r\n        </button>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"btnGroupDrop1\">\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopMktSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stop')\">Stop Market</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stopLmt')\">Stop Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': profitLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('profitLmt')\">Take Profit Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': trailStopSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('trailStop')\">Trailing Stop</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row\" *ngIf=\"mktOrderSelect\" >\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"mktQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"mktQuantity\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyMkt\" class=\"btn btn-primary mr-2\">Buy Market</button>\r\n      <button type=\"submit\" id=\"btnSellMkt\" class=\"btn btn-primary\">Sell Market</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"lmtOrderSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"limQuantity\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.price\" name=\"price\" id=\"limPrice\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtBuy\" class=\"btn btn-primary mr-2\" >Buy / Long</button>\r\n      <button type=\"submit\" id=\"btnLmtSell\" class=\"btn btn-primary\">Sell / Short</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopMktSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\"/>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopPrice\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopPrice\" [(ngModel)]=\"model.stopPx\" name=\"stopPx\"/>\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtStopPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtStopPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtTriggerStop\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtTriggerStop\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyLmtStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellLmtStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"profitLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-5\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitTrigger\">Trigger Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitTrigger\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtProfitBuy\" class=\"btn btn-primary mr-2\">Take Profit Buy</button>\r\n      <button type=\"submit\" id=\"btnLmtProfitSell\" class=\"btn btn-primary\">Take Profit Sell</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"trailStopSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailValue\">Trail Value</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailValue\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"row mt-5\">\r\n  <ag-grid-angular style=\"width: 700px; height: 500px;\"\r\n                   class=\"ag-theme-balham\"\r\n                   [pagination]=\"true\"\r\n                   [rowData]=\"rowData\"\r\n                   [columnDefs]=\"columnDefs\"\r\n                   (cellValueChanged)=\"onCellValueChanged($event)\">\r\n  </ag-grid-angular>\r\n  \r\n</div>\r\n"
 
 /***/ }),
 
@@ -994,6 +997,7 @@ var BitmexComponent = /** @class */ (function () {
         this.profitLmtSelect = false;
         this.trailStopSelect = false;
         this.model = new _order_model__WEBPACK_IMPORTED_MODULE_3__["OrderExecution"]();
+        this.error = null;
         //orderList: OrderExecution[];
         this.columnDefs = [
             { headerName: 'Id', field: 'id', hide: true },
@@ -1001,6 +1005,7 @@ var BitmexComponent = /** @class */ (function () {
             { headerName: 'Side', field: 'side', width: 75 },
             { headerName: 'Quantity', field: 'orderQty', width: 100 },
             { headerName: 'Price', field: 'price', width: 100, editable: true, filter: true },
+            { headerName: 'Stop Px', field: 'stopPx', width: 100, editable: true },
             { headerName: 'Order Type', field: 'ordType', width: 150 },
             { headerName: 'Status', field: 'ordStatus', width: 75 },
             { headerName: 'Transact Time', field: 'timeIn', width: 150 }
@@ -1017,10 +1022,21 @@ var BitmexComponent = /** @class */ (function () {
         });
     };
     BitmexComponent.prototype.onCellValueChanged = function (params) {
-        if (params.oldValue != params.newValue) {
+        if (params.oldValue != params.newValue && params.data.ordStatus == 'New') {
+            this.bitmexService.ammendOrder(this.rowData.filter(function (order) { return order.id == params.data.id; })[0])
+                .subscribe(function (message) {
+                if (message.status == 200) {
+                    console.log(message);
+                }
+            });
+        }
+    };
+    BitmexComponent.prototype.setStatusMessage = function (message) {
+        if (message == 200) {
         }
     };
     BitmexComponent.prototype.onSubmit = function () {
+        this.bitmexService.createOrder(this.model);
         console.log(this.model.orderQty);
     };
     BitmexComponent.prototype.clearFormValues = function () {
@@ -1142,13 +1158,14 @@ var BitmexService = /** @class */ (function () {
             var orderList = [];
             for (var _i = 0, response_1 = response; _i < response_1.length; _i++) {
                 var item = response_1[_i];
-                orderList.push(new _order_model__WEBPACK_IMPORTED_MODULE_5__["OrderExecution"](item.orderID, item.symbol, item.side, item.orderQty, item.price, item.ordType, item.ordStatus, new Date(item.transactTime).toLocaleString()));
+                orderList.push(new _order_model__WEBPACK_IMPORTED_MODULE_5__["OrderExecution"](item.orderID, item.symbol, item.side, item.orderQty, item.price, item.stopPx, item.ordType, item.ordStatus, new Date(item.transactTime).toLocaleString()));
             }
             return orderList;
         }));
     };
-    BitmexService.prototype.ammendOrder = function () {
-        this.httpClient.put('/api/orders', {});
+    BitmexService.prototype.ammendOrder = function (order) {
+        return this.httpClient.put('/api/orders', order, { observe: 'response' });
+        //.subscribe((data: any) => { console.log(data); return data; })
     };
     BitmexService.prototype.createOrder = function (order) {
         this.httpClient.post('/api/orders', order)
@@ -1178,12 +1195,13 @@ var BitmexService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderExecution", function() { return OrderExecution; });
 var OrderExecution = /** @class */ (function () {
-    function OrderExecution(id, symbol, side, orderQty, price, ordType, ordStatus, timeIn) {
+    function OrderExecution(id, symbol, side, orderQty, price, stopPx, ordType, ordStatus, timeIn) {
         this.id = id;
         this.symbol = symbol;
         this.side = side;
         this.orderQty = orderQty;
         this.price = price;
+        this.stopPx = stopPx;
         this.ordType = ordType;
         this.ordStatus = ordStatus;
         this.timeIn = timeIn;
@@ -1260,6 +1278,71 @@ var HeaderComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_2__["AssetPairsService"]])
     ], HeaderComponent);
     return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/alert/alert.component.css":
+/*!**************************************************!*\
+  !*** ./src/app/shared/alert/alert.component.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".alert-box{\r\n  position: fixed;\r\n  top: 30vh;\r\n  left: 20vw;\r\n  width: 60vw;\r\n  padding: 16px;\r\n  z-index: 100;\r\n  background: red;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2FsZXJ0L2FsZXJ0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxlQUFlO0VBQ2YsU0FBUztFQUNULFVBQVU7RUFDVixXQUFXO0VBQ1gsYUFBYTtFQUNiLFlBQVk7RUFDWixlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2FsZXJ0L2FsZXJ0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYWxlcnQtYm94e1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICB0b3A6IDMwdmg7XHJcbiAgbGVmdDogMjB2dztcclxuICB3aWR0aDogNjB2dztcclxuICBwYWRkaW5nOiAxNnB4O1xyXG4gIHotaW5kZXg6IDEwMDtcclxuICBiYWNrZ3JvdW5kOiByZWQ7XHJcbn1cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/shared/alert/alert.component.html":
+/*!***************************************************!*\
+  !*** ./src/app/shared/alert/alert.component.html ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"alert-box\">\r\n  <p>{{ message }}</p>\r\n  <div class=\"alert-box-actions\">\r\n    <button class=\"btn btn-primary\" (click)=\"onClose()\">Close</button>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/shared/alert/alert.component.ts":
+/*!*************************************************!*\
+  !*** ./src/app/shared/alert/alert.component.ts ***!
+  \*************************************************/
+/*! exports provided: AlertComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertComponent", function() { return AlertComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AlertComponent = /** @class */ (function () {
+    function AlertComponent() {
+        this.close = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    AlertComponent.prototype.onClose = function () {
+        this.close.emit();
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], AlertComponent.prototype, "message", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], AlertComponent.prototype, "close", void 0);
+    AlertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-alert',
+            template: __webpack_require__(/*! ./alert.component.html */ "./src/app/shared/alert/alert.component.html"),
+            styles: [__webpack_require__(/*! ./alert.component.css */ "./src/app/shared/alert/alert.component.css")]
+        })
+    ], AlertComponent);
+    return AlertComponent;
 }());
 
 

@@ -18,6 +18,8 @@ export class BitmexComponent implements OnInit {
   profitLmtSelect: boolean = false;
   trailStopSelect: boolean = false;
   model = new OrderExecution();
+  error: string = null;
+  status: string = null;
   //orderList: OrderExecution[];
   columnDefs = [
     {headerName: 'Id', field: 'id', hide: true},
@@ -25,6 +27,7 @@ export class BitmexComponent implements OnInit {
     { headerName: 'Side', field: 'side', width: 75 },
     { headerName: 'Quantity', field: 'orderQty', width: 100 },
     { headerName: 'Price', field: 'price', width: 100, editable: true, filter: true },
+    { headerName: 'Stop Px', field: 'stopPx', width: 100, editable: true },
     { headerName: 'Order Type', field: 'ordType', width: 150 },
     {headerName: 'Status', field: 'ordStatus', width: 75},
     { headerName: 'Transact Time', field: 'timeIn', width: 150 }
@@ -48,8 +51,19 @@ export class BitmexComponent implements OnInit {
   }
 
   onCellValueChanged(params) {
-    if (params.oldValue != params.newValue && params.data.ordStatus == 'open') {
+    if (params.oldValue != params.newValue && params.data.ordStatus == 'New') {
+      this.bitmexService.ammendOrder(this.rowData.filter((order) => { return order.id == params.data.id; })[0])
+        .subscribe((message) => {
+          if (message.status == 200) {
+            console.log(message);
+          }
+        });
+    }
+  }
 
+  setStatusMessage(message: number) {
+    if (message == 200) {
+      
     }
   }
 
@@ -61,6 +75,10 @@ export class BitmexComponent implements OnInit {
   clearFormValues() {
     this.model.price = null;
     this.model.stopPx = null;
+  }
+
+  closeAlert() {
+    this.error = null;
   }
 
   changeOrderForm(formView: string) {

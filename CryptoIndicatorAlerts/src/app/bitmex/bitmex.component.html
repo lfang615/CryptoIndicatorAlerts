@@ -1,8 +1,8 @@
 
 
 <div class="row pb-2 pt-5 mt-5 mb-1">
-  <!--<button type="button" class="btn btn-success" (click)="testOrder()">Test Order!</button>-->
   <div class="col-xs-12 col-md-10">
+    <app-alert [message]="error" *ngIf="error" (onClose)="closeAlert()"></app-alert>
     <div class="btn-group" role="group">
       <button type="button"
               class="btn btn-primary"

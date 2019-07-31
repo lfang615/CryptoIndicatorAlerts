@@ -186,10 +186,15 @@ namespace CryptoIndicatorAlerts.Exchanges
       return Query("POST", "/order", param, true);
     }
 
-    public string EditOrder(string orderID, string orderQty, string price)
+    public string EditOrder(string orderID, string orderQty, string price, string stopPx)
     {
       var param = new Dictionary<string, string>();
       param["orderID"] = orderID;
+
+      if(stopPx != null)
+      {
+        param["stopPx"] = stopPx;
+      }
       if(price != null)
       {
         param["price"] = price;

@@ -24,22 +24,21 @@ export class BitmexService implements OnDestroy {
       observe: 'body',
       responseType: 'json'
     })
-    .pipe(map(
-      (response: any[]) => {
-        let orderList = [];
-        for (let item of response) {
-          orderList.push(new OrderExecution(item.orderID, item.symbol, item.side, item.orderQty, item.price,
-                                            item.ordType, item.ordStatus, new Date(item.transactTime).toLocaleString()));
-        }
+      .pipe(map(
+        (response: any[]) => {
+          let orderList = [];
+          for (let item of response) {
+            orderList.push(new OrderExecution(item.orderID, item.symbol, item.side, item.orderQty, item.price, item.stopPx,
+              item.ordType, item.ordStatus, new Date(item.transactTime).toLocaleString()));
+          }
 
-        return orderList;
-      }))
+          return orderList;
+        }))
   }
 
-  ammendOrder() {
-    this.httpClient.put('/api/orders', {
-
-    })
+  ammendOrder(order: OrderExecution) : Observable<any>{
+    return this.httpClient.put('/api/orders', order, { observe: 'response'});
+      //.subscribe((data: any) => { console.log(data); return data; })
   }
 
   createOrder(order: OrderExecution) {
