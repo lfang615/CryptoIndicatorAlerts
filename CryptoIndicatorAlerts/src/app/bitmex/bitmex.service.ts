@@ -29,7 +29,7 @@ export class BitmexService implements OnDestroy {
           let orderList = [];
           for (let item of response) {
             orderList.push(new OrderExecution(item.orderID, item.symbol, item.side, item.orderQty, item.price, item.stopPx,
-              item.ordType, item.ordStatus, new Date(item.transactTime).toLocaleString()));
+              item.ordType, item.ordStatus, item.execInst, new Date(item.transactTime).toLocaleString()));
           }
 
           return orderList;

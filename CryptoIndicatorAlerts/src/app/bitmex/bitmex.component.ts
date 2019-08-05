@@ -17,35 +17,56 @@ export class BitmexComponent implements OnInit {
   stopLmtSelect: boolean = false;
   profitLmtSelect: boolean = false;
   trailStopSelect: boolean = false;
+
+  activeOrders: boolean = true;
+  stopOrders: boolean = false;
+  filledOrders: boolean = false;
+  allOrders: boolean = false;
+
   model = new OrderExecution();
   error: string = null;
-  status: string = null;
-  //orderList: OrderExecution[];
+  status: number = null;
+  orderSide: string = null;
+  orderType = {
+    buy: 1,
+    sell: 2,
+    stopBuy: 3,
+    stopSell: 4
+  }
   columnDefs = [
-    {headerName: 'Id', field: 'id', hide: true},
+    { headerName: 'Id', field: 'id', hide: true },
     { headerName: 'Symbol', field: 'symbol', width: 75 },
     { headerName: 'Side', field: 'side', width: 75 },
-    { headerName: 'Quantity', field: 'orderQty', width: 100 },
-    { headerName: 'Price', field: 'price', width: 100, editable: true, filter: true },
+    { headerName: 'Quantity', field: 'orderQty', width: 100, editable: true },
+    { headerName: 'Price', field: 'price', width: 100, editable: true },
     { headerName: 'Stop Px', field: 'stopPx', width: 100, editable: true },
     { headerName: 'Order Type', field: 'ordType', width: 150 },
-    {headerName: 'Status', field: 'ordStatus', width: 75},
+    { headerName: 'Status', field: 'ordStatus', width: 75 },
     { headerName: 'Transact Time', field: 'timeIn', width: 150 }
   ];
+  rowSelection = 'single';
+  orderHistory: OrderExecution[];
   rowData: OrderExecution[];
- 
+  private gridApi: any;
+  private gridColumnApi: any;
+  selectedRow: any;
+
   constructor(private bitmexService: BitmexService,
-              private route: ActivatedRoute,
-              private router: Router) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
-    //this.bitmexService.orderList.subscribe((items) => {
-    //  this.orderList = items;
-    //});
 
+
+  }
+
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
     this.bitmexService.loadOrders()
       .subscribe((items) => {
-        this.rowData = items;
+        this.orderHistory = items;
+        this.rowData = this.orderHistory.filter((order) => { return order.ordStatus == 'New' })
       });
 
   }
@@ -54,22 +75,48 @@ export class BitmexComponent implements OnInit {
     if (params.oldValue != params.newValue && params.data.ordStatus == 'New') {
       this.bitmexService.ammendOrder(this.rowData.filter((order) => { return order.id == params.data.id; })[0])
         .subscribe((message) => {
-          if (message.status == 200) {
-            console.log(message);
-          }
+          this.setStatusMessage(message);
         });
     }
   }
 
-  setStatusMessage(message: number) {
-    if (message == 200) {
-      
+  updateGrid(orderId, message) {
+    this.orderHistory.forEach((order) => {
+      if (orderId == order.id) {
+
+      }
+    })
+  }
+
+
+
+  onSelectionChanged() {
+    this.selectedRow = this.gridApi.getSelectedRows();
+    console.log(this.selectedRow[0]);
+  }
+
+  setStatusMessage(message) {
+    if (message.status == 200) {
+      this.status = 200;
+      if (message.body.stopPx == null) {
+        this.error = message.body.side + ' order ammended to ' + message.body.price;
+      } else if (message.body.stopPx !== null) {
+        this.error = message.body.side + ' Stop ammended to ' + message.body.stopPx;
+      } else {
+        this.status = 400;
+        this.error = 'Order submission failed.';
+      }
     }
+
+  }
+
+  orderClick(side: string) {
+    this.model.side = side;
   }
 
   onSubmit() {
-    this.bitmexService.createOrder(this.model);
-    console.log(this.model.orderQty);
+    //  this.bitmexService.createOrder(this.model);
+    console.log(this.model);
   }
 
   clearFormValues() {
@@ -80,6 +127,31 @@ export class BitmexComponent implements OnInit {
   closeAlert() {
     this.error = null;
   }
+
+  showActiveOrders(filter: string) {
+    this.selectedRow = null;
+    this.rowData = this.orderHistory.filter((order) => { return order.ordStatus == 'New' })
+    this.filterGrid(filter);
+  }
+
+  showAllOrders(filter: string) {
+    this.selectedRow = null;
+    this.rowData = this.orderHistory;
+    this.filterGrid(filter);
+  }
+
+  showFilledOrders(filter: string) {
+    this.selectedRow = null;
+    this.rowData = this.orderHistory.filter((order) => { return order.ordStatus == 'Filled' && order.execInst == null });
+    this.filterGrid(filter);
+  }
+
+  showStopOrders(filter: string) {
+    this.selectedRow = null;
+    this.rowData = this.orderHistory.filter((order) => { return order.ordStatus == 'New' && order.stopPx !== null });
+    this.filterGrid(filter);
+  }
+
 
   changeOrderForm(formView: string) {
     this.clearFormValues();
@@ -136,7 +208,36 @@ export class BitmexComponent implements OnInit {
     }
   }
 
-  
+  filterGrid(filter: string) {
+    switch (filter) {
+      case 'active':
+        this.activeOrders = true;
+        this.stopOrders = false;
+        this.filledOrders = false;
+        this.allOrders = false;
+        break;
+      case 'stop':
+        this.activeOrders = false;
+        this.stopOrders = true;
+        this.filledOrders = false;
+        this.allOrders = false;
+        break;
+      case 'filled':
+        this.activeOrders = false;
+        this.stopOrders = false;
+        this.filledOrders = true;
+        this.allOrders = false;
+        break;
+      case 'all':
+        this.activeOrders = false;
+        this.stopOrders = false;
+        this.filledOrders = false;
+        this.allOrders = true;
+        break;
+    }
+  }
+
+
 }
 
 
