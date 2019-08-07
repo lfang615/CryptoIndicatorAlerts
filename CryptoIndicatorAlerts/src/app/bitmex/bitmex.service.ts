@@ -36,14 +36,21 @@ export class BitmexService implements OnDestroy {
         }))
   }
 
-  ammendOrder(order: OrderExecution) : Observable<any>{
-    return this.httpClient.put('/api/orders', order, { observe: 'response'});
-      //.subscribe((data: any) => { console.log(data); return data; })
+  ammendOrder(order: OrderExecution): Observable<any> {
+    return this.httpClient.put('/api/orders', order, { observe: 'response' });
+    //.subscribe((data: any) => { console.log(data); return data; })
   }
 
   createOrder(order: OrderExecution) {
     this.httpClient.post<OrderExecution>('/api/orders', order)
       .subscribe((data: any) => { return data; })
+  }
+
+  getBalance() {
+    return this.httpClient.get("/api/wallet", {
+      observe: 'body',
+      responseType: 'json'
+    });
   }
 
   ngOnDestroy() {

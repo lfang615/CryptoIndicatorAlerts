@@ -22,7 +22,7 @@ export class BitmexComponent implements OnInit {
   stopOrders: boolean = false;
   filledOrders: boolean = false;
   allOrders: boolean = false;
-
+  balance: string;
   model = new OrderExecution();
   error: string = null;
   status: number = null;
@@ -56,7 +56,8 @@ export class BitmexComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-
+    this.bitmexService.getBalance()
+      .subscribe((data) => { console.log(data); });
 
   }
 

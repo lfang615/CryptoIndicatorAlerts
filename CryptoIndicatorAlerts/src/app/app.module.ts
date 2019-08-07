@@ -18,6 +18,7 @@ import { AssetEditComponent } from './asset-pairs/asset-edit/asset-edit.componen
 import { BitmexComponent } from './bitmex/bitmex.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { AuthComponent } from './auth/auth.component';
 
 
 const appRoutes: Routes = [
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
   { path: 'detail/:id', component: AssetDetailComponent },
   { path: 'edit/:id', component: AssetEditComponent },
   { path: 'assetpairs', component: AssetPairsComponent },
-  { path: 'bitmex', component: BitmexComponent }
+  { path: 'bitmex', component: BitmexComponent },
+  { path: 'auth', component: AuthComponent}
   
 ];
 
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     AssetDetailComponent,
     AssetEditComponent,
     BitmexComponent,
-    AlertComponent
+    AlertComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

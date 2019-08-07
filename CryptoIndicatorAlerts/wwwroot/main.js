@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n      <router-outlet></router-outlet>\r\n    </div>\r\n    \r\n  </div>\r\n  \r\n</div>\r\n\r\n\r\n\r\n\r\n"
+module.exports = "<app-header></app-header>\r\n<div class=\"container\">\r\n  <div class=\"row ml-5 mt-6\">\r\n    <div class=\"col-md-12\">\r\n      <router-outlet></router-outlet>\r\n    </div>\r\n    \r\n  </div>\r\n  \r\n</div>\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -113,6 +113,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_alert_alert_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/alert/alert.component */ "./src/app/shared/alert/alert.component.ts");
 /* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ag-grid-angular */ "./node_modules/ag-grid-angular/main.js");
 /* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(ag_grid_angular__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _auth_auth_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./auth/auth.component */ "./src/app/auth/auth.component.ts");
+
 
 
 
@@ -139,7 +141,8 @@ var appRoutes = [
     { path: 'detail/:id', component: _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_15__["AssetDetailComponent"] },
     { path: 'edit/:id', component: _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_16__["AssetEditComponent"] },
     { path: 'assetpairs', component: _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__["AssetPairsComponent"] },
-    { path: 'bitmex', component: _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__["BitmexComponent"] }
+    { path: 'bitmex', component: _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__["BitmexComponent"] },
+    { path: 'auth', component: _auth_auth_component__WEBPACK_IMPORTED_MODULE_20__["AuthComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -156,7 +159,8 @@ var AppModule = /** @class */ (function () {
                 _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_15__["AssetDetailComponent"],
                 _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_16__["AssetEditComponent"],
                 _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__["BitmexComponent"],
-                _shared_alert_alert_component__WEBPACK_IMPORTED_MODULE_18__["AlertComponent"]
+                _shared_alert_alert_component__WEBPACK_IMPORTED_MODULE_18__["AlertComponent"],
+                _auth_auth_component__WEBPACK_IMPORTED_MODULE_20__["AuthComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -452,7 +456,7 @@ module.exports = "div.list-group{\r\n  max-height: 200px;\r\n  margin-bottom: 10
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n  <!--<div class=\"row\">\r\n    <ul class=\"nav nav-tabs\">\r\n      <li class=\"nav-item nav-link active\" [ngClass]=\"{'active': !viewSelected}\">\r\n        <a (click)=\"viewSelected = !viewSelected\">Select Assets</a>\r\n      </li>\r\n      <li class=\"nav-item nav-link\" [ngClass]=\"{'active': viewSelected }\">\r\n        <a (click)=\"viewSelected = !viewSelected\">View Assets</a>\r\n      </li>\r\n    </ul>\r\n  </div>-->\r\n\r\n  <div class=\"row mt-3\">\r\n    <div class=\"col-xs-12\" *ngIf=\"!viewSelected\">\r\n      <h2>BTC Pairs</h2>\r\n      <input [(ngModel)]=\"searchText\" class=\"form-control\" id=\"assetSearch\" type=\"text\" placeholder=\"Search..\" />\r\n      <div class=\"list-group\" id=\"assetList\">\r\n        <button type=\"button\"\r\n                class=\"list-group-item list-group-item-action\"\r\n                [ngClass]=\"{'list-group-item-primary': asset.IsSelected }\"\r\n                *ngFor=\"let i = index; let asset of assetList | filter: searchText\"\r\n                (click)=\"addToTrack(asset)\">\r\n          {{ asset.BaseName }}\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"viewSelected && personalList\">\r\n    <!--<div id=\"trackedList\">-->\r\n    <!--<div class=\"list-group\" *ngFor=\"let asset of personalList; let even = even; let odd = odd; let i = index\">-->\r\n    <div class=\"col-xs-12\">\r\n      <h2>Tracked Assets</h2> \r\n      <ul class=\"list-group\">\r\n        <li class=\"list-group-item list-group-item-action\" style=\"padding: 5px\"\r\n            *ngFor=\"let asset of (assetList | selectedFilter); let even = even; let odd = odd; let i = index\"\r\n            (click)=\"onSelectPersonal(asset); setIndex(i)\">\r\n          <div class=\"btn-group dropright\">\r\n            <button type=\"button\"\r\n                    class=\"btn btn-seconday dropdown-toggle\"\r\n                    data-toggle=\"dropdown\">\r\n              {{asset.BaseName}}\r\n            </button>\r\n            <div class=\"dropdown-menu\">\r\n              <a class=\"dropdown-item\" [routerLink]=\"['/detail', asset.Id]\">View</a>\r\n              <a class=\"dropdown-item\" [routerLink]=\"['/edit', asset.Id]\">Manage</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Remove</a>\r\n            </div>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+module.exports = "\r\n\r\n  <!--<div class=\"row\">\r\n    <ul class=\"nav nav-tabs\">\r\n      <li class=\"nav-item nav-link active\" [ngClass]=\"{'active': !viewSelected}\">\r\n        <a (click)=\"viewSelected = !viewSelected\">Select Assets</a>\r\n      </li>\r\n      <li class=\"nav-item nav-link\" [ngClass]=\"{'active': viewSelected }\">\r\n        <a (click)=\"viewSelected = !viewSelected\">View Assets</a>\r\n      </li>\r\n    </ul>\r\n  </div>-->\r\n<div class=\"row mt-3\">\r\n\r\n</div>\r\n  <div class=\"row mt-5\">\r\n    <div class=\"col-xs-12\" *ngIf=\"!viewSelected\">\r\n      <h2>BTC Pairs</h2>\r\n      <input [(ngModel)]=\"searchText\" class=\"form-control\" id=\"assetSearch\" type=\"text\" placeholder=\"Search..\" />\r\n      <div class=\"list-group\" id=\"assetList\">\r\n        <button type=\"button\"\r\n                class=\"list-group-item list-group-item-action\"\r\n                [ngClass]=\"{'list-group-item-primary': asset.IsSelected }\"\r\n                *ngFor=\"let i = index; let asset of assetList | filter: searchText\"\r\n                (click)=\"addToTrack(asset)\">\r\n          {{ asset.BaseName }}\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"viewSelected && personalList\">\r\n    <!--<div id=\"trackedList\">-->\r\n    <!--<div class=\"list-group\" *ngFor=\"let asset of personalList; let even = even; let odd = odd; let i = index\">-->\r\n    <div class=\"col-xs-12\">\r\n      <h2>Tracked Assets</h2> \r\n      <ul class=\"list-group\">\r\n        <li class=\"list-group-item list-group-item-action\" style=\"padding: 5px\"\r\n            *ngFor=\"let asset of (assetList | selectedFilter); let even = even; let odd = odd; let i = index\"\r\n            (click)=\"onSelectPersonal(asset); setIndex(i)\">\r\n          <div class=\"btn-group dropright\">\r\n            <button type=\"button\"\r\n                    class=\"btn btn-seconday dropdown-toggle\"\r\n                    data-toggle=\"dropdown\">\r\n              {{asset.BaseName}}\r\n            </button>\r\n            <div class=\"dropdown-menu\">\r\n              <a class=\"dropdown-item\" [routerLink]=\"['/detail', asset.Id]\">View</a>\r\n              <a class=\"dropdown-item\" [routerLink]=\"['/edit', asset.Id]\">Manage</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Remove</a>\r\n            </div>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -943,6 +947,42 @@ var WebsocketService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/auth/auth.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/auth/auth.component.ts ***!
+  \****************************************/
+/*! exports provided: AuthComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthComponent", function() { return AuthComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AuthComponent = /** @class */ (function () {
+    function AuthComponent() {
+        this.isLoginMode = true;
+    }
+    AuthComponent.prototype.onSwitchMode = function () {
+        this.isLoginMode = !this.isLoginMode;
+    };
+    AuthComponent.prototype.onSubmit = function (form) {
+    };
+    AuthComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-auth',
+            template: './auth.component.html'
+        })
+    ], AuthComponent);
+    return AuthComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/bitmex/bitmex.component.css":
 /*!*********************************************!*\
   !*** ./src/app/bitmex/bitmex.component.css ***!
@@ -950,7 +990,7 @@ var WebsocketService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2JpdG1leC9iaXRtZXguY29tcG9uZW50LmNzcyJ9 */"
+module.exports = ".col-md-9 button{\r\n  margin: 1px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYml0bWV4L2JpdG1leC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztBQUNiIiwiZmlsZSI6InNyYy9hcHAvYml0bWV4L2JpdG1leC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbC1tZC05IGJ1dHRvbntcclxuICBtYXJnaW46IDFweDtcclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -961,7 +1001,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<div class=\"row pb-2 pt-5 mt-5 mb-1\">\r\n  <div class=\"col-xs-12 col-md-10\">\r\n    <app-alert [message]=\"error\" *ngIf=\"error\" (onClose)=\"closeAlert()\"></app-alert>\r\n    <div class=\"btn-group\" role=\"group\">\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': mktOrderSelect }\"\r\n              (click)=\"changeOrderForm('market')\">\r\n        Market\r\n      </button>\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': lmtOrderSelect }\"\r\n              (click)=\"changeOrderForm('limit')\">\r\n        Limit\r\n      </button>\r\n      <div class=\"btn-group\" role=\"group\">\r\n        <button id=\"btnGroupDrop1\"\r\n                type=\"button\"\r\n                class=\"btn btn-primary dropdown-toggle\"\r\n                [ngClass]=\"{'active': stopMktSelect || stopLmtSelect || profitLmtSelect || trailStopSelect }\"\r\n                data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\"\r\n                aria-expanded=\"false\">\r\n          Stop\r\n        </button>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"btnGroupDrop1\">\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopMktSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stop')\">Stop Market</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stopLmt')\">Stop Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': profitLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('profitLmt')\">Take Profit Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': trailStopSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('trailStop')\">Trailing Stop</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row\" *ngIf=\"mktOrderSelect\" >\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"mktQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"mktQuantity\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyMkt\" class=\"btn btn-primary mr-2\">Buy Market</button>\r\n      <button type=\"submit\" id=\"btnSellMkt\" class=\"btn btn-primary\">Sell Market</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"lmtOrderSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"limQuantity\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.price\" name=\"price\" id=\"limPrice\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtBuy\" class=\"btn btn-primary mr-2\" >Buy / Long</button>\r\n      <button type=\"submit\" id=\"btnLmtSell\" class=\"btn btn-primary\">Sell / Short</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopMktSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\"/>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopPrice\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopPrice\" [(ngModel)]=\"model.stopPx\" name=\"stopPx\"/>\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtStopPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtStopPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtTriggerStop\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtTriggerStop\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyLmtStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellLmtStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"profitLmtSelect\">\r\n  <div class=\"col-xs-12 col-md-5\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitTrigger\">Trigger Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitTrigger\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtProfitBuy\" class=\"btn btn-primary mr-2\">Take Profit Buy</button>\r\n      <button type=\"submit\" id=\"btnLmtProfitSell\" class=\"btn btn-primary\">Take Profit Sell</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"trailStopSelect\">\r\n  <div class=\"col-xs-12 col-md-3\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailValue\">Trail Value</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailValue\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"row mt-5\">\r\n  <ag-grid-angular style=\"width: 700px; height: 500px;\"\r\n                   class=\"ag-theme-balham\"\r\n                   [pagination]=\"true\"\r\n                   [rowData]=\"rowData\"\r\n                   [columnDefs]=\"columnDefs\"\r\n                   (cellValueChanged)=\"onCellValueChanged($event)\">\r\n  </ag-grid-angular>\r\n  \r\n</div>\r\n"
+module.exports = "\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12\">\r\n    Balance: {{balance}}\r\n  </div>\r\n</div>\r\n<div class=\"row pt-5 mt-5 mb-1\">\r\n  <div class=\"col-xs-12\">\r\n    <app-alert [message]=\"error\" [status]=\"status\" *ngIf=\"error\" (close)=\"closeAlert()\"></app-alert>\r\n    <div class=\"btn-group\" role=\"group\">\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': mktOrderSelect }\"\r\n              (click)=\"changeOrderForm('market')\">\r\n        Market\r\n      </button>\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': lmtOrderSelect }\"\r\n              (click)=\"changeOrderForm('limit')\">\r\n        Limit\r\n      </button>\r\n      <div class=\"btn-group\" role=\"group\">\r\n        <button id=\"btnGroupDrop1\"\r\n                type=\"button\"\r\n                class=\"btn btn-primary dropdown-toggle\"\r\n                [ngClass]=\"{'active': stopMktSelect || stopLmtSelect || profitLmtSelect || trailStopSelect }\"\r\n                data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\"\r\n                aria-expanded=\"false\">\r\n          Stop\r\n        </button>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"btnGroupDrop1\">\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopMktSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stop')\">Stop Market</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stopLmt')\">Stop Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': profitLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('profitLmt')\">Take Profit Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': trailStopSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('trailStop')\">Trailing Stop</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row\" *ngIf=\"mktOrderSelect\" >\r\n  <div class=\"col-xs-12\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"mktQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"mktQuantity\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyMkt\" class=\"btn btn-primary mr-2\" (click)=\"orderClick('Buy')\">Buy Market</button>\r\n      <button type=\"submit\" id=\"btnSellMkt\" class=\"btn btn-primary\" (click)=\"orderClick('Sell')\">Sell Market</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"lmtOrderSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"limQuantity\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.price\" name=\"price\" id=\"limPrice\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtBuy\" class=\"btn btn-primary mr-2\" (click)=\"orderClick('Buy')\">Buy / Long</button>\r\n      <button type=\"submit\" id=\"btnLmtSell\" class=\"btn btn-primary\" (click)=\"orderClick('Sell')\">Sell / Short</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopMktSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\"/>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopPrice\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopPrice\" [(ngModel)]=\"model.stopPx\" name=\"stopPx\"/>\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopLmtSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtStopPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtStopPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtTriggerStop\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtTriggerStop\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyLmtStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellLmtStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"profitLmtSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitTrigger\">Trigger Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitTrigger\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtProfitBuy\" class=\"btn btn-primary mr-2\">Take Profit Buy</button>\r\n      <button type=\"submit\" id=\"btnLmtProfitSell\" class=\"btn btn-primary\">Take Profit Sell</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"trailStopSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailValue\">Trail Value</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailValue\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-10 d-none d-sm-block\">\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': activeOrders}\"\r\n                (click)=\"showActiveOrders('active')\">Active Orders</button>\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': stopOrders}\"\r\n                (click)=\"showStopOrders('stop')\">Stops</button>\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': filledOrders}\"\r\n                (click)=\"showFilledOrders('filled')\">Fills</button>\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': allOrders}\"\r\n                (click)=\"showAllOrders('all')\">Order History</button>\r\n      </div>\r\n      <div class=\"col-xs-4 d-block d-sm-none\">\r\n        <div class=\"dropdown\">\r\n          <button class=\"btn btn-primary btn-sm dropdown-toggle\" type=\"button\" id=\"filterGroupBtn\"\r\n                  data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n            Filter\r\n          </button>\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"filterGroupBtn\">\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': activeOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showActiveOrders('active')\">Active Orders</a>\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': stopOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showStopOrders('stop')\">Stops</a>\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': filledOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showFilledOrders('filled')\">Fills</a>\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': allOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showAllOrders('all')\">Order History</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-xs-2 mb-1\">\r\n        <button type=\"button\" class=\"btn btn-danger btn-sm\"\r\n                [ngStyle]=\"{'visibility': selectedRow && selectedRow[0].ordStatus == 'New' ? 'visible' : 'hidden' }\">Cancel</button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12\">\r\n        <ag-grid-angular style=\"width: 700px; height: 500px;\"\r\n                         class=\"ag-theme-balham\"\r\n                         [pagination]=\"true\"\r\n                         [rowData]=\"rowData\"\r\n                         [columnDefs]=\"columnDefs\"\r\n                         [rowSelection]=\"rowSelection\"\r\n                         (cellValueChanged)=\"onCellValueChanged($event)\"\r\n                         (selectionChanged)=\"onSelectionChanged($event)\"\r\n                         (gridReady)=\"onGridReady($event)\">\r\n        </ag-grid-angular>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  \r\n</div>\r\n"
 
 /***/ }),
 
@@ -996,9 +1036,14 @@ var BitmexComponent = /** @class */ (function () {
         this.stopLmtSelect = false;
         this.profitLmtSelect = false;
         this.trailStopSelect = false;
+        this.activeOrders = true;
+        this.stopOrders = false;
+        this.filledOrders = false;
+        this.allOrders = false;
         this.model = new _order_model__WEBPACK_IMPORTED_MODULE_3__["OrderExecution"]();
         this.error = null;
         this.status = null;
+        this.orderSide = null;
         this.orderType = {
             buy: 1,
             sell: 2,
@@ -1009,22 +1054,28 @@ var BitmexComponent = /** @class */ (function () {
             { headerName: 'Id', field: 'id', hide: true },
             { headerName: 'Symbol', field: 'symbol', width: 75 },
             { headerName: 'Side', field: 'side', width: 75 },
-            { headerName: 'Quantity', field: 'orderQty', width: 100 },
-            { headerName: 'Price', field: 'price', width: 100, editable: true, filter: true },
+            { headerName: 'Quantity', field: 'orderQty', width: 100, editable: true },
+            { headerName: 'Price', field: 'price', width: 100, editable: true },
             { headerName: 'Stop Px', field: 'stopPx', width: 100, editable: true },
             { headerName: 'Order Type', field: 'ordType', width: 150 },
             { headerName: 'Status', field: 'ordStatus', width: 75 },
             { headerName: 'Transact Time', field: 'timeIn', width: 150 }
         ];
+        this.rowSelection = 'single';
     }
     BitmexComponent.prototype.ngOnInit = function () {
-        //this.bitmexService.orderList.subscribe((items) => {
-        //  this.orderList = items;
-        //});
         var _this = this;
+        this.bitmexService.getBalance()
+            .subscribe(function (data) { return _this.balance = data["amount"]; });
+    };
+    BitmexComponent.prototype.onGridReady = function (params) {
+        var _this = this;
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
         this.bitmexService.loadOrders()
             .subscribe(function (items) {
-            _this.rowData = items;
+            _this.orderHistory = items;
+            _this.rowData = _this.orderHistory.filter(function (order) { return order.ordStatus == 'New'; });
         });
     };
     BitmexComponent.prototype.onCellValueChanged = function (params) {
@@ -1036,22 +1087,37 @@ var BitmexComponent = /** @class */ (function () {
             });
         }
     };
+    BitmexComponent.prototype.updateGrid = function (orderId, message) {
+        this.orderHistory.forEach(function (order) {
+            if (orderId == order.id) {
+            }
+        });
+    };
+    BitmexComponent.prototype.onSelectionChanged = function () {
+        this.selectedRow = this.gridApi.getSelectedRows();
+        console.log(this.selectedRow[0]);
+    };
     BitmexComponent.prototype.setStatusMessage = function (message) {
         if (message.status == 200) {
+            this.status = 200;
             if (message.body.stopPx == null) {
-                this.error = message.body.side + 'order ammended to ' + message.body.price;
+                this.error = message.body.side + ' order ammended to ' + message.body.price;
             }
             else if (message.body.stopPx !== null) {
-                this.error = message.body.side + 'Stop ammended to ' + message.body.stopPx;
+                this.error = message.body.side + ' Stop ammended to ' + message.body.stopPx;
             }
             else {
+                this.status = 400;
                 this.error = 'Order submission failed.';
             }
         }
     };
+    BitmexComponent.prototype.orderClick = function (side) {
+        this.model.side = side;
+    };
     BitmexComponent.prototype.onSubmit = function () {
-        this.bitmexService.createOrder(this.model);
-        //console.log(this.model.orderQty);
+        //  this.bitmexService.createOrder(this.model);
+        console.log(this.model);
     };
     BitmexComponent.prototype.clearFormValues = function () {
         this.model.price = null;
@@ -1059,6 +1125,26 @@ var BitmexComponent = /** @class */ (function () {
     };
     BitmexComponent.prototype.closeAlert = function () {
         this.error = null;
+    };
+    BitmexComponent.prototype.showActiveOrders = function (filter) {
+        this.selectedRow = null;
+        this.rowData = this.orderHistory.filter(function (order) { return order.ordStatus == 'New'; });
+        this.filterGrid(filter);
+    };
+    BitmexComponent.prototype.showAllOrders = function (filter) {
+        this.selectedRow = null;
+        this.rowData = this.orderHistory;
+        this.filterGrid(filter);
+    };
+    BitmexComponent.prototype.showFilledOrders = function (filter) {
+        this.selectedRow = null;
+        this.rowData = this.orderHistory.filter(function (order) { return order.ordStatus == 'Filled' && order.execInst == null; });
+        this.filterGrid(filter);
+    };
+    BitmexComponent.prototype.showStopOrders = function (filter) {
+        this.selectedRow = null;
+        this.rowData = this.orderHistory.filter(function (order) { return order.ordStatus == 'New' && order.stopPx !== null; });
+        this.filterGrid(filter);
     };
     BitmexComponent.prototype.changeOrderForm = function (formView) {
         this.clearFormValues();
@@ -1110,6 +1196,34 @@ var BitmexComponent = /** @class */ (function () {
                 this.stopLmtSelect = false;
                 this.profitLmtSelect = false;
                 this.trailStopSelect = true;
+                break;
+        }
+    };
+    BitmexComponent.prototype.filterGrid = function (filter) {
+        switch (filter) {
+            case 'active':
+                this.activeOrders = true;
+                this.stopOrders = false;
+                this.filledOrders = false;
+                this.allOrders = false;
+                break;
+            case 'stop':
+                this.activeOrders = false;
+                this.stopOrders = true;
+                this.filledOrders = false;
+                this.allOrders = false;
+                break;
+            case 'filled':
+                this.activeOrders = false;
+                this.stopOrders = false;
+                this.filledOrders = true;
+                this.allOrders = false;
+                break;
+            case 'all':
+                this.activeOrders = false;
+                this.stopOrders = false;
+                this.filledOrders = false;
+                this.allOrders = true;
                 break;
         }
     };
@@ -1175,7 +1289,7 @@ var BitmexService = /** @class */ (function () {
             var orderList = [];
             for (var _i = 0, response_1 = response; _i < response_1.length; _i++) {
                 var item = response_1[_i];
-                orderList.push(new _order_model__WEBPACK_IMPORTED_MODULE_5__["OrderExecution"](item.orderID, item.symbol, item.side, item.orderQty, item.price, item.stopPx, item.ordType, item.ordStatus, new Date(item.transactTime).toLocaleString()));
+                orderList.push(new _order_model__WEBPACK_IMPORTED_MODULE_5__["OrderExecution"](item.orderID, item.symbol, item.side, item.orderQty, item.price, item.stopPx, item.ordType, item.ordStatus, item.execInst, new Date(item.transactTime).toLocaleString()));
             }
             return orderList;
         }));
@@ -1187,6 +1301,12 @@ var BitmexService = /** @class */ (function () {
     BitmexService.prototype.createOrder = function (order) {
         this.httpClient.post('/api/orders', order)
             .subscribe(function (data) { return data; });
+    };
+    BitmexService.prototype.getBalance = function () {
+        return this.httpClient.get("/api/wallet", {
+            observe: 'body',
+            responseType: 'json'
+        });
     };
     BitmexService.prototype.ngOnDestroy = function () {
     };
@@ -1212,7 +1332,7 @@ var BitmexService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderExecution", function() { return OrderExecution; });
 var OrderExecution = /** @class */ (function () {
-    function OrderExecution(id, symbol, side, orderQty, price, stopPx, ordType, ordStatus, timeIn) {
+    function OrderExecution(id, symbol, side, orderQty, price, stopPx, ordType, ordStatus, execInst, timeIn) {
         this.id = id;
         this.symbol = symbol;
         this.side = side;
@@ -1221,6 +1341,7 @@ var OrderExecution = /** @class */ (function () {
         this.stopPx = stopPx;
         this.ordType = ordType;
         this.ordStatus = ordStatus;
+        this.execInst = execInst;
         this.timeIn = timeIn;
     }
     return OrderExecution;
@@ -1308,7 +1429,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".alert-box{\r\n  position: fixed;\r\n  top: 30vh;\r\n  left: 20vw;\r\n  width: 60vw;\r\n  padding: 16px;\r\n  z-index: 100;\r\n  background: red;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2FsZXJ0L2FsZXJ0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxlQUFlO0VBQ2YsU0FBUztFQUNULFVBQVU7RUFDVixXQUFXO0VBQ1gsYUFBYTtFQUNiLFlBQVk7RUFDWixlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2FsZXJ0L2FsZXJ0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYWxlcnQtYm94e1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICB0b3A6IDMwdmg7XHJcbiAgbGVmdDogMjB2dztcclxuICB3aWR0aDogNjB2dztcclxuICBwYWRkaW5nOiAxNnB4O1xyXG4gIHotaW5kZXg6IDEwMDtcclxuICBiYWNrZ3JvdW5kOiByZWQ7XHJcbn1cclxuIl19 */"
+module.exports = ".alert-box{\r\n  position: fixed;\r\n  top: 30vh;\r\n  left: 20vw;\r\n  width: 60vw;\r\n  padding: 16px;\r\n  z-index: 100;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2FsZXJ0L2FsZXJ0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxlQUFlO0VBQ2YsU0FBUztFQUNULFVBQVU7RUFDVixXQUFXO0VBQ1gsYUFBYTtFQUNiLFlBQVk7QUFDZCIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9hbGVydC9hbGVydC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmFsZXJ0LWJveHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgdG9wOiAzMHZoO1xyXG4gIGxlZnQ6IDIwdnc7XHJcbiAgd2lkdGg6IDYwdnc7XHJcbiAgcGFkZGluZzogMTZweDtcclxuICB6LWluZGV4OiAxMDA7XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -1319,7 +1440,7 @@ module.exports = ".alert-box{\r\n  position: fixed;\r\n  top: 30vh;\r\n  left: 2
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"alert-box\">\r\n  <p>{{ message }}</p>\r\n  <div class=\"alert-box-actions\">\r\n    <button class=\"btn btn-primary\" (click)=\"onClose()\">Close</button>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"alert-box font-weight-bold\"\r\n     [ngClass]=\"{'bg-success': status == 200, 'bg-danger': status == 400}\">\r\n  <p>{{ message }}</p>\r\n  <div class=\"alert-box-actions\">\r\n    <button class=\"btn btn-light\" (click)=\"onClose()\">Close</button>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1346,7 +1467,7 @@ var AlertComponent = /** @class */ (function () {
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
     ], AlertComponent.prototype, "status", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),

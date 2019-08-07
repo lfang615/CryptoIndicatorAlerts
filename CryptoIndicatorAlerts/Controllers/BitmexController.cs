@@ -67,5 +67,20 @@ namespace CryptoIndicatorAlerts.Controllers
       }
     }
 
+    [HttpGet("api/wallet")]
+    public IActionResult GetBalance()
+    {
+      Bitmex bitmex = new Bitmex(_bitmexAPIKey.Value.Key, _bitmexAPIKey.Value.Secret);
+
+      try
+      {
+        return Ok(bitmex.GetBalance());
+      }
+      catch(Exception ex)
+      {
+        return BadRequest();
+      }
+    }
+
   }
 }
