@@ -19,6 +19,8 @@ import { BitmexComponent } from './bitmex/bitmex.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './auth/auth.service';
 
 
 const appRoutes: Routes = [
@@ -27,7 +29,7 @@ const appRoutes: Routes = [
   { path: 'detail/:id', component: AssetDetailComponent },
   { path: 'edit/:id', component: AssetEditComponent },
   { path: 'assetpairs', component: AssetPairsComponent },
-  { path: 'bitmex', component: BitmexComponent },
+  { path: 'bitmex', component: BitmexComponent, canActivate: [AuthGuard]},
   { path: 'auth', component: AuthComponent}
   
 ];
@@ -54,7 +56,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AgGridModule.withComponents(null)
   ],
-  providers: [AssetPairsService, WebsocketService, BitmexService],
+  providers: [AssetPairsService, WebsocketService, BitmexService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
