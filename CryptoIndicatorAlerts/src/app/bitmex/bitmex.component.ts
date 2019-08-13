@@ -44,6 +44,17 @@ export class BitmexComponent implements OnInit {
     { headerName: 'Status', field: 'ordStatus', width: 75 },
     { headerName: 'Transact Time', field: 'timeIn', width: 150 }
   ];
+
+  columnDefs2 = [
+    { headerName: 'Symbol', field: 'currency', width: 75 },
+    { headerName: 'Quantity', field: 'openingQty', width: 100 },
+    { headerName: 'Avg Price', field: 'avgCostPrice', width: 100 },
+    { headerName: 'Liquidation Price', field: 'bankruptPrice', width: 100 },
+    { headerName: 'Break Even', field: 'breakEvenPrice', width: 100 },
+    { headerName: 'Unrealised PnL', field: 'unrealisedPnL', width: 200 }
+  ];
+  rowData2: any[];
+  gridApi2: any;
   rowSelection = 'single';
   orderHistory: OrderExecution[];
   rowData: OrderExecution[];
@@ -58,6 +69,7 @@ export class BitmexComponent implements OnInit {
   ngOnInit() {
     this.bitmexService.getBalance()
       .subscribe((data) => { console.log(data); });
+    this.bitmexService.getPositions();
 
   }
 
@@ -70,6 +82,14 @@ export class BitmexComponent implements OnInit {
         this.rowData = this.orderHistory.filter((order) => { return order.ordStatus == 'New' })
       });
 
+  }
+
+  onGridReady2(params) {
+    this.gridApi2 = params.api;
+    this.bitmexService.getPositions()
+      .subscribe((x: any[]) => {
+        this.rowData2 = x;
+      })
   }
 
   onCellValueChanged(params) {

@@ -4,7 +4,7 @@
     Balance: {{balance}}
   </div>
 </div>
-<div class="row pt-5 mt-5 mb-1">
+<div class="row pt-5 mt-1 mb-1">
   <div class="col-xs-12">
     <app-alert [message]="error" [status]="status" *ngIf="error" (close)="closeAlert()"></app-alert>
     <div class="btn-group" role="group">
@@ -52,7 +52,7 @@
     </div>
   </div>
 </div>
-<div class="row" *ngIf="mktOrderSelect" >
+<div class="row" *ngIf="mktOrderSelect">
   <div class="col-xs-12">
     <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
       <div class="form-group">
@@ -87,11 +87,11 @@
     <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
       <div class="form-group">
         <label for="mktStopQty">Quantity</label>
-        <input type="text" class="form-control" id="mktStopQty" [(ngModel)]="model.orderQty" name="orderQty"/>
+        <input type="text" class="form-control" id="mktStopQty" [(ngModel)]="model.orderQty" name="orderQty" />
       </div>
       <div class="form-group">
         <label for="mktStopPrice">Stop Price</label>
-        <input type="text" class="form-control" id="mktStopPrice" [(ngModel)]="model.stopPx" name="stopPx"/>
+        <input type="text" class="form-control" id="mktStopPrice" [(ngModel)]="model.stopPx" name="stopPx" />
       </div>
       <button type="submit" id="btnBuyStop" class="btn btn-primary mr-2">Set Buy Stop</button>
       <button type="submit" id="btnSellStop" class="btn btn-primary">Set Sell Stop</button>
@@ -166,19 +166,27 @@
         <button type="button"
                 class="btn btn-outline-primary btn-sm"
                 [ngClass]="{'active': activeOrders}"
-                (click)="showActiveOrders('active')">Active Orders</button>
+                (click)="showActiveOrders('active')">
+          Active Orders
+        </button>
         <button type="button"
                 class="btn btn-outline-primary btn-sm"
                 [ngClass]="{'active': stopOrders}"
-                (click)="showStopOrders('stop')">Stops</button>
+                (click)="showStopOrders('stop')">
+          Stops
+        </button>
         <button type="button"
                 class="btn btn-outline-primary btn-sm"
                 [ngClass]="{'active': filledOrders}"
-                (click)="showFilledOrders('filled')">Fills</button>
+                (click)="showFilledOrders('filled')">
+          Fills
+        </button>
         <button type="button"
                 class="btn btn-outline-primary btn-sm"
                 [ngClass]="{'active': allOrders}"
-                (click)="showAllOrders('all')">Order History</button>
+                (click)="showAllOrders('all')">
+          Order History
+        </button>
       </div>
       <div class="col-xs-4 d-block d-sm-none">
         <div class="dropdown">
@@ -208,12 +216,14 @@
       </div>
       <div class="col-xs-2 mb-1">
         <button type="button" class="btn btn-danger btn-sm"
-                [ngStyle]="{'visibility': selectedRow && selectedRow[0].ordStatus == 'New' ? 'visible' : 'hidden' }">Cancel</button>
+                [ngStyle]="{'visibility': selectedRow && selectedRow[0].ordStatus == 'New' ? 'visible' : 'hidden' }">
+          Cancel
+        </button>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <ag-grid-angular style="width: 700px; height: 500px;"
+        <ag-grid-angular style="width: 700px; height: 250px;"
                          class="ag-theme-balham"
                          [pagination]="true"
                          [rowData]="rowData"
@@ -225,21 +235,28 @@
         </ag-grid-angular>
       </div>
     </div>
-    <!--<div class="row mt-1">
+    <div class="row mt-1">
+      <div class="col-xs-12 col-sm-10">
+        <button type="button"
+                class="btn btn-outline-primary btn-sm active">
+          Active Orders
+        </button>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-xs-12">
-        <ag-grid-angular style="width: 700px; height: 500px;"
+       
+        <ag-grid-angular style="width: 700px; height: 200px;"
                          class="ag-theme-balham"
                          [pagination]="true"
-                         [rowData]="rowData"
-                         [columnDefs]="columnDefs"
-                         [rowSelection]="rowSelection"
-                         (cellValueChanged)="onCellValueChanged($event)"
-                         (selectionChanged)="onSelectionChanged($event)"
-                         (gridReady)="onGridReady($event)">
+                         [rowData]="rowData2"
+                         [columnDefs]="columnDefs2"
+                         (gridReady)="onGridReady2($event)">
         </ag-grid-angular>
       </div>
-    </div>-->
+    </div>
 
   </div>
-  
+
 </div>
+

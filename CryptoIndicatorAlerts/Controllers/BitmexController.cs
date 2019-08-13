@@ -47,7 +47,7 @@ namespace CryptoIndicatorAlerts.Controllers
       }
       catch(Exception ex)
       {
-        return BadRequest();
+        return BadRequest(ex.Message);
       }
        
     }
@@ -63,7 +63,7 @@ namespace CryptoIndicatorAlerts.Controllers
       }
       catch (Exception ex)
       {
-        return BadRequest();
+        return BadRequest(ex.Message);
       }
     }
 
@@ -78,9 +78,24 @@ namespace CryptoIndicatorAlerts.Controllers
       }
       catch(Exception ex)
       {
-        return BadRequest();
+        return BadRequest(ex.Message);
       }
     }
 
+    [HttpGet("api/positions")]
+    public IActionResult GetPositions()
+    {
+      Bitmex bitmex = new Bitmex(_bitmexAPIKey.Value.Key, _bitmexAPIKey.Value.Secret);
+
+      try
+      {
+        string positions = bitmex.GetPositions();
+        return Ok(positions);
+      }
+      catch(Exception ex)
+      {
+        return BadRequest(ex.Message);
+      }
+    }
   }
 }

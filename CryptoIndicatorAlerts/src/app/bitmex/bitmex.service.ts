@@ -53,6 +53,14 @@ export class BitmexService implements OnDestroy {
     });
   }
 
+  getPositions() {
+    return this.httpClient.get("/api/positions", {
+      observe: 'body',
+      responseType: 'json'
+    });
+    
+  }
+
   ngOnDestroy() {
 
   }

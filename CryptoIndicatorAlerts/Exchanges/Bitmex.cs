@@ -175,6 +175,13 @@ namespace CryptoIndicatorAlerts.Exchanges
       return Query("GET", "/user/wallet", param, true);
     }
 
+    public string GetPositions()
+    {
+      var param = new Dictionary<string, string>();
+      param["symbol"] = "XBTUSD";
+      return Query("GET", "/position", param, true);
+    }
+
     public string PostOrders(string side, string ordType, string ordQuantity, string price, string stopPrice)
     {
       var param = new Dictionary<string, string>();
