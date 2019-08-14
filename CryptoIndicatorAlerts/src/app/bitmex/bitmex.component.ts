@@ -101,6 +101,19 @@ export class BitmexComponent implements OnInit {
     }
   }
 
+  onCancelOrder() {
+    this.bitmexService.cancelOrder(this.selectedRow['id'])
+      .subscribe((message: any) => {
+        if (message.status == 200) {
+          this.status = 200;
+          this.error = 'Order was successfully canceled';
+        } else {
+          this.status = 400;
+          this.error = 'Order failed to cancel.';
+        }
+      });
+  }
+
   updateGrid(orderId, message) {
     this.orderHistory.forEach((order) => {
       if (orderId == order.id) {
@@ -108,8 +121,6 @@ export class BitmexComponent implements OnInit {
       }
     })
   }
-
-
 
   onSelectionChanged() {
     this.selectedRow = this.gridApi.getSelectedRows();

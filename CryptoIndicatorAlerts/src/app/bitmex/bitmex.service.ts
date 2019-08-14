@@ -1,5 +1,5 @@
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
-import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { OrderExecution } from './order.model';
@@ -59,6 +59,11 @@ export class BitmexService implements OnDestroy {
       responseType: 'json'
     });
     
+  }
+
+  cancelOrder(orderId: string) {
+    let params = new HttpParams().set("orderId", orderId);
+    return this.httpClient.put('/api/orders', { params, observe: 'response' });
   }
 
   ngOnDestroy() {

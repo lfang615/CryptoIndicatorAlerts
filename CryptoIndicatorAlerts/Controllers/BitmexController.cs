@@ -67,6 +67,21 @@ namespace CryptoIndicatorAlerts.Controllers
       }
     }
 
+    [HttpDelete("api/orders/{orderId}")]
+    public IActionResult CancelOrder(string orderId)
+    {
+      Bitmex bitmex = new Bitmex(_bitmexAPIKey.Value.Key, _bitmexAPIKey.Value.Secret);
+
+      try
+      {
+        return Ok(bitmex.DeleteOrders(orderId));
+      }
+      catch(Exception ex)
+      {
+        return BadRequest(ex.Message);
+      }
+    }
+
     [HttpGet("api/wallet")]
     public IActionResult GetBalance()
     {
