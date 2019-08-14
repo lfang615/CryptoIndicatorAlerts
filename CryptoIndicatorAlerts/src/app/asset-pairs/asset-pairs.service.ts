@@ -17,7 +17,7 @@ export class AssetPairsService implements OnDestroy {
   constructor(private httpClient: HttpClient) {
     this.dataStore = [];
     this._assetList = <BehaviorSubject<AssetPair[]>>new BehaviorSubject([]);
-    this.loadAll();
+    //this.loadAll();
   }
 
   get aseetList() {
@@ -28,10 +28,10 @@ export class AssetPairsService implements OnDestroy {
       observe: 'body',
       responseType: 'json'
     })
-      //.subscribe((data: AssetPair[]) => {
-      //  this.dataStore = data;
-      //  this._assetList.next(Object.assign([], this.dataStore));
-      //})
+      .subscribe((data: AssetPair[]) => {
+        this.dataStore = data;
+        this._assetList.next(Object.assign([], this.dataStore));
+      })
       //.pipe(map(
       //  (response: any[]) => {
       //    const assetList = [];

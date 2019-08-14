@@ -6,6 +6,10 @@
   
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item"
+          routerLink="auth"
+          routerLinkActive="active">
+      </li>
       <li class="nav-item">
         <a class="nav-link"
            routerLink="assetpairs"
@@ -28,6 +32,14 @@
                 (click)="onSave()"
                 [ngStyle]="{'visibility': saveVisible ? 'visible' : 'hidden'}"
                 type="button">Save</button>
+      </li>
+    </ul>
+    <ul class="navbar-nav" *ngIf="isLoggedIn">
+      <li class="nav-item">
+      <li class="nav-item float-right">
+        <a class="nav-link pull-right"
+           [routerLink]=""
+           (click)="onLogout()">Logout</a>
       </li>
     </ul>
   </div>

@@ -1,5 +1,6 @@
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
+import { Subject } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -7,6 +8,8 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService implements OnDestroy {
   invalidLogin: boolean = null;
+  isLoggedIn = new Subject<boolean>();
+
   constructor(private httpClient: HttpClient,
     private router: Router) {
 
@@ -20,6 +23,11 @@ export class AuthService implements OnDestroy {
       })
     });
    
+  }
+
+  logout() {
+    localStorage.removeItem('jwt');
+    this.isLoggedIn.next(false);
   }
 
   ngOnDestroy() {
