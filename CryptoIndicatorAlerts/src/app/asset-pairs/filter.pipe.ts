@@ -4,12 +4,14 @@ import { AssetPair } from './asset-pair.model';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-  transform(items: any[], searchText: string): any[] {
+
+  transform(items: AssetPair[], searchText: string): any[] {
     if(!items) return [];
     if (!searchText) return items;
-searchText = searchText.toLowerCase();
+    searchText = searchText.toLowerCase();
     return items.filter( it => {
-      return it.baseName.toLowerCase().includes(searchText);
+      return it.BaseName.toLowerCase().includes(searchText);
     });
-   }
+  }
+
 }
