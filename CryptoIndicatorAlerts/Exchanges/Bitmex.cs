@@ -170,7 +170,7 @@ namespace CryptoIndicatorAlerts.Exchanges
     public string GetBalance()
     {
       var param = new Dictionary<string, string>();
-      param["currency"] = "XBT";
+      param["currency"] = "XBt";
 
       return Query("GET", "/user/wallet", param, true);
     }

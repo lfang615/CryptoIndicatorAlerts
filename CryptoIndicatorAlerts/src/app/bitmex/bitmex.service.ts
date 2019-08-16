@@ -42,8 +42,7 @@ export class BitmexService implements OnDestroy {
   }
 
   createOrder(order: OrderExecution) {
-    this.httpClient.post<OrderExecution>('/api/orders', order)
-      .subscribe((data: any) => { return data; })
+    return this.httpClient.post<OrderExecution>('/api/orders', order);
   }
 
   getBalance() {

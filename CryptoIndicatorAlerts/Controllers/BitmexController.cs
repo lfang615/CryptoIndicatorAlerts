@@ -89,7 +89,9 @@ namespace CryptoIndicatorAlerts.Controllers
 
       try
       {
-        return Ok(bitmex.GetBalance());
+        string balance = bitmex.GetBalance();
+
+        return Ok(balance);
       }
       catch(Exception ex)
       {

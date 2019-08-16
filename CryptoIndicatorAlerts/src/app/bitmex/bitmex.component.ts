@@ -68,7 +68,7 @@ export class BitmexComponent implements OnInit {
 
   ngOnInit() {
     this.bitmexService.getBalance()
-      .subscribe((data) => { console.log(data); });
+      .subscribe((data) => { this.balance = (Number(data['amount']) * .00000001).toString(); });
     this.bitmexService.getPositions();
 
   }
@@ -96,7 +96,7 @@ export class BitmexComponent implements OnInit {
     if (params.oldValue != params.newValue && params.data.ordStatus == 'New') {
       this.bitmexService.ammendOrder(this.rowData.filter((order) => { return order.id == params.data.id; })[0])
         .subscribe((message) => {
-          this.setStatusMessage(message);
+          this.setAmmendOrderStatus(message);
         });
     }
   }
@@ -127,7 +127,11 @@ export class BitmexComponent implements OnInit {
     console.log(this.selectedRow[0]);
   }
 
-  setStatusMessage(message) {
+  setSubmitOrderStatus(message) {
+    console.log(message);
+  }
+
+  setAmmendOrderStatus(message) {
     if (message.status == 200) {
       this.status = 200;
       if (message.body.stopPx == null) {
@@ -147,8 +151,10 @@ export class BitmexComponent implements OnInit {
   }
 
   onSubmit() {
-    //  this.bitmexService.createOrder(this.model);
-    console.log(this.model);
+    this.bitmexService.createOrder(this.model)
+      .subscribe((message) => {
+        this.setSubmitOrderStatus(message);
+      });
   }
 
   clearFormValues() {
