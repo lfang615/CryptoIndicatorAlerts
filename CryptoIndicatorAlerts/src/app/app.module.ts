@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AssetPairsComponent } from './asset-pairs/asset-pairs.component';
 import { AssetListComponent } from './asset-pairs/asset-list/asset-list.component';
@@ -54,9 +55,16 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    AgGridModule.withComponents(null)
+    AgGridModule.withComponents(null),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('jwt');
+        }
+      }
+    })
   ],
-  providers: [AssetPairsService, WebsocketService, BitmexService, AuthService],
+  providers: [AssetPairsService, WebsocketService, BitmexService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

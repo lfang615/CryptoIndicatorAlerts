@@ -9,7 +9,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class AuthComponent {
   isLoginMode = true;
-  invalidLogin: boolean = null;
+  invalidLogin: boolean = false;
 
   constructor(private authService: AuthService,
               private router: Router) {
@@ -31,4 +31,6 @@ export class AuthComponent {
         this.invalidLogin = true;
       })
   }
+
+  
 }

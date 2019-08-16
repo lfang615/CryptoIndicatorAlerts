@@ -1,5 +1,5 @@
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
-import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { OrderExecution } from './order.model';
@@ -42,8 +42,7 @@ export class BitmexService implements OnDestroy {
   }
 
   createOrder(order: OrderExecution) {
-    this.httpClient.post<OrderExecution>('/api/orders', order)
-      .subscribe((data: any) => { return data; })
+    return this.httpClient.post<OrderExecution>('/api/orders', order);
   }
 
   getBalance() {
@@ -51,6 +50,19 @@ export class BitmexService implements OnDestroy {
       observe: 'body',
       responseType: 'json'
     });
+  }
+
+  getPositions() {
+    return this.httpClient.get("/api/positions", {
+      observe: 'body',
+      responseType: 'json'
+    });
+    
+  }
+
+  cancelOrder(orderId: string) {
+    let params = new HttpParams().set("orderId", orderId);
+    return this.httpClient.put('/api/orders', { params, observe: 'response' });
   }
 
   ngOnDestroy() {

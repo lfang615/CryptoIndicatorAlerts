@@ -170,9 +170,16 @@ namespace CryptoIndicatorAlerts.Exchanges
     public string GetBalance()
     {
       var param = new Dictionary<string, string>();
-      param["currency"] = "XBT";
+      param["currency"] = "XBt";
 
       return Query("GET", "/user/wallet", param, true);
+    }
+
+    public string GetPositions()
+    {
+      var param = new Dictionary<string, string>();
+      param["symbol"] = "XBTUSD";
+      return Query("GET", "/position", param, true);
     }
 
     public string PostOrders(string side, string ordType, string ordQuantity, string price, string stopPrice)
@@ -215,10 +222,10 @@ namespace CryptoIndicatorAlerts.Exchanges
       return Query("PUT", "/order", param, true);
     }
 
-    public string DeleteOrders()
+    public string DeleteOrders(string orderID)
     {
       var param = new Dictionary<string, string>();
-      param["orderID"] = "de709f12-2f24-9a36-b047-ab0ff090f0bb";
+      param["orderID"] = orderID;
       param["text"] = "cancel order by ID";
       return Query("DELETE", "/order", param, true, true);
     }

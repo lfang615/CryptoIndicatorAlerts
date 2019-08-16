@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div class=\"container\">\r\n  <div class=\"row ml-5 mt-6\">\r\n    <div class=\"col-md-12\">\r\n      <router-outlet></router-outlet>\r\n    </div>\r\n    \r\n  </div>\r\n  \r\n</div>\r\n\r\n\r\n\r\n\r\n"
+module.exports = "<app-header></app-header>\r\n<div class=\"container\">\r\n  <div class=\"row pt-5\">\r\n    <div class=\"col-md-12\">\r\n      <router-outlet></router-outlet>\r\n    </div>\r\n    \r\n  </div>\r\n  \r\n</div>\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -99,23 +99,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./asset-pairs/asset-pairs.component */ "./src/app/asset-pairs/asset-pairs.component.ts");
-/* harmony import */ var _asset_pairs_asset_list_asset_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./asset-pairs/asset-list/asset-list.component */ "./src/app/asset-pairs/asset-list/asset-list.component.ts");
-/* harmony import */ var _core_header_header_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./core/header/header.component */ "./src/app/core/header/header.component.ts");
-/* harmony import */ var _asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./asset-pairs/asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
-/* harmony import */ var _asset_pairs_websocket_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./asset-pairs/websocket.service */ "./src/app/asset-pairs/websocket.service.ts");
-/* harmony import */ var _bitmex_bitmex_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./bitmex/bitmex.service */ "./src/app/bitmex/bitmex.service.ts");
-/* harmony import */ var _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./asset-pairs/filter.pipe */ "./src/app/asset-pairs/filter.pipe.ts");
-/* harmony import */ var _asset_pairs_selected_filter_pipe__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./asset-pairs/selected-filter.pipe */ "./src/app/asset-pairs/selected-filter.pipe.ts");
-/* harmony import */ var _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./asset-pairs/asset-detail/asset-detail.component */ "./src/app/asset-pairs/asset-detail/asset-detail.component.ts");
-/* harmony import */ var _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./asset-pairs/asset-edit/asset-edit.component */ "./src/app/asset-pairs/asset-edit/asset-edit.component.ts");
-/* harmony import */ var _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./bitmex/bitmex.component */ "./src/app/bitmex/bitmex.component.ts");
-/* harmony import */ var _shared_alert_alert_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/alert/alert.component */ "./src/app/shared/alert/alert.component.ts");
-/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ag-grid-angular */ "./node_modules/ag-grid-angular/main.js");
-/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(ag_grid_angular__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _auth_auth_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./auth/auth.component */ "./src/app/auth/auth.component.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
-/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
+/* harmony import */ var _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./asset-pairs/asset-pairs.component */ "./src/app/asset-pairs/asset-pairs.component.ts");
+/* harmony import */ var _asset_pairs_asset_list_asset_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./asset-pairs/asset-list/asset-list.component */ "./src/app/asset-pairs/asset-list/asset-list.component.ts");
+/* harmony import */ var _core_header_header_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./core/header/header.component */ "./src/app/core/header/header.component.ts");
+/* harmony import */ var _asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./asset-pairs/asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
+/* harmony import */ var _asset_pairs_websocket_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./asset-pairs/websocket.service */ "./src/app/asset-pairs/websocket.service.ts");
+/* harmony import */ var _bitmex_bitmex_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./bitmex/bitmex.service */ "./src/app/bitmex/bitmex.service.ts");
+/* harmony import */ var _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./asset-pairs/filter.pipe */ "./src/app/asset-pairs/filter.pipe.ts");
+/* harmony import */ var _asset_pairs_selected_filter_pipe__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./asset-pairs/selected-filter.pipe */ "./src/app/asset-pairs/selected-filter.pipe.ts");
+/* harmony import */ var _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./asset-pairs/asset-detail/asset-detail.component */ "./src/app/asset-pairs/asset-detail/asset-detail.component.ts");
+/* harmony import */ var _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./asset-pairs/asset-edit/asset-edit.component */ "./src/app/asset-pairs/asset-edit/asset-edit.component.ts");
+/* harmony import */ var _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./bitmex/bitmex.component */ "./src/app/bitmex/bitmex.component.ts");
+/* harmony import */ var _shared_alert_alert_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./shared/alert/alert.component */ "./src/app/shared/alert/alert.component.ts");
+/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ag-grid-angular */ "./node_modules/ag-grid-angular/main.js");
+/* harmony import */ var ag_grid_angular__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(ag_grid_angular__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _auth_auth_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./auth/auth.component */ "./src/app/auth/auth.component.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
+
 
 
 
@@ -141,12 +143,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var appRoutes = [
     { path: '', redirectTo: '/assetpairs', pathMatch: 'full' },
-    { path: 'assetpairs/view', component: _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__["AssetPairsComponent"] },
-    { path: 'detail/:id', component: _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_15__["AssetDetailComponent"] },
-    { path: 'edit/:id', component: _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_16__["AssetEditComponent"] },
-    { path: 'assetpairs', component: _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__["AssetPairsComponent"] },
-    { path: 'bitmex', component: _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__["BitmexComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]] },
-    { path: 'auth', component: _auth_auth_component__WEBPACK_IMPORTED_MODULE_20__["AuthComponent"] }
+    { path: 'assetpairs/view', component: _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_8__["AssetPairsComponent"] },
+    { path: 'detail/:id', component: _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_16__["AssetDetailComponent"] },
+    { path: 'edit/:id', component: _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_17__["AssetEditComponent"] },
+    { path: 'assetpairs', component: _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_8__["AssetPairsComponent"] },
+    { path: 'bitmex', component: _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_18__["BitmexComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
+    { path: 'auth', component: _auth_auth_component__WEBPACK_IMPORTED_MODULE_21__["AuthComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -155,16 +157,16 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_7__["AssetPairsComponent"],
-                _asset_pairs_asset_list_asset_list_component__WEBPACK_IMPORTED_MODULE_8__["AssetListComponent"],
-                _core_header_header_component__WEBPACK_IMPORTED_MODULE_9__["HeaderComponent"],
-                _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_13__["FilterPipe"],
-                _asset_pairs_selected_filter_pipe__WEBPACK_IMPORTED_MODULE_14__["SelectedFilterPipe"],
-                _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_15__["AssetDetailComponent"],
-                _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_16__["AssetEditComponent"],
-                _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_17__["BitmexComponent"],
-                _shared_alert_alert_component__WEBPACK_IMPORTED_MODULE_18__["AlertComponent"],
-                _auth_auth_component__WEBPACK_IMPORTED_MODULE_20__["AuthComponent"]
+                _asset_pairs_asset_pairs_component__WEBPACK_IMPORTED_MODULE_8__["AssetPairsComponent"],
+                _asset_pairs_asset_list_asset_list_component__WEBPACK_IMPORTED_MODULE_9__["AssetListComponent"],
+                _core_header_header_component__WEBPACK_IMPORTED_MODULE_10__["HeaderComponent"],
+                _asset_pairs_filter_pipe__WEBPACK_IMPORTED_MODULE_14__["FilterPipe"],
+                _asset_pairs_selected_filter_pipe__WEBPACK_IMPORTED_MODULE_15__["SelectedFilterPipe"],
+                _asset_pairs_asset_detail_asset_detail_component__WEBPACK_IMPORTED_MODULE_16__["AssetDetailComponent"],
+                _asset_pairs_asset_edit_asset_edit_component__WEBPACK_IMPORTED_MODULE_17__["AssetEditComponent"],
+                _bitmex_bitmex_component__WEBPACK_IMPORTED_MODULE_18__["BitmexComponent"],
+                _shared_alert_alert_component__WEBPACK_IMPORTED_MODULE_19__["AlertComponent"],
+                _auth_auth_component__WEBPACK_IMPORTED_MODULE_21__["AuthComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -172,9 +174,16 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(appRoutes),
-                ag_grid_angular__WEBPACK_IMPORTED_MODULE_19__["AgGridModule"].withComponents(null)
+                ag_grid_angular__WEBPACK_IMPORTED_MODULE_20__["AgGridModule"].withComponents(null),
+                _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_7__["JwtModule"].forRoot({
+                    config: {
+                        tokenGetter: function () {
+                            return localStorage.getItem('jwt');
+                        }
+                    }
+                })
             ],
-            providers: [_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_10__["AssetPairsService"], _asset_pairs_websocket_service__WEBPACK_IMPORTED_MODULE_11__["WebsocketService"], _bitmex_bitmex_service__WEBPACK_IMPORTED_MODULE_12__["BitmexService"], _auth_auth_service__WEBPACK_IMPORTED_MODULE_22__["AuthService"]],
+            providers: [_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_11__["AssetPairsService"], _asset_pairs_websocket_service__WEBPACK_IMPORTED_MODULE_12__["WebsocketService"], _bitmex_bitmex_service__WEBPACK_IMPORTED_MODULE_13__["BitmexService"], _auth_auth_service__WEBPACK_IMPORTED_MODULE_23__["AuthService"], _auth_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
@@ -647,7 +656,7 @@ var AssetPairsService = /** @class */ (function () {
         this.selectionChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         this.dataStore = [];
         this._assetList = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
-        this.loadAll();
+        //this.loadAll();
     }
     Object.defineProperty(AssetPairsService.prototype, "aseetList", {
         get: function () {
@@ -657,14 +666,15 @@ var AssetPairsService = /** @class */ (function () {
         configurable: true
     });
     AssetPairsService.prototype.loadAll = function () {
+        var _this = this;
         this.httpClient.get('/api/binancepairs', {
             observe: 'body',
             responseType: 'json'
+        })
+            .subscribe(function (data) {
+            _this.dataStore = data;
+            _this._assetList.next(Object.assign([], _this.dataStore));
         });
-        //.subscribe((data: AssetPair[]) => {
-        //  this.dataStore = data;
-        //  this._assetList.next(Object.assign([], this.dataStore));
-        //})
         //.pipe(map(
         //  (response: any[]) => {
         //    const assetList = [];
@@ -958,7 +968,7 @@ var WebsocketService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<!--<div class=\"row\">\r\n  <!--<div class=\"col-xs-12\">\r\n    <div class=\"alert\" [ngClass]=\"{'alert-primary': !invalidLogin, 'alert-danger': invalidLogin }\">\r\n      {{invalidLogin ? 'Login Failed' : 'Login Successful' }}\r\n    </div>\r\n  </div>-->\r\n<!--</div>-->\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12 col-md-6 col-md-offset-3\">\r\n    <form #authForm=\"ngForm\" (ngSubmit)=\"onSubmit(authForm)\">\r\n      <div class=\"form-group\">\r\n        <label for=\"email\">E-Mail</label>\r\n        <input type=\"email\"\r\n               id=\"email\"\r\n               class=\"form-control\"\r\n               ngModel\r\n               name=\"email\"\r\n               required\r\n               email />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"password\">Password</label>\r\n        <input type=\"password\"\r\n               id=\"password\"\r\n               class=\"form-control\"\r\n               ngModel\r\n               name=\"password\"\r\n               required />\r\n      </div>\r\n      <div>\r\n        <button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"!authForm.valid\">\r\n          {{ isLoginMode ? 'Login' : 'Register' }}\r\n        </button> |\r\n        <button class=\"btn btn-primary\" type=\"button\" (click)=\"onSwitchMode()\">\r\n          Switch to {{ isLoginMode ? 'Register' : 'Login' }}\r\n        </button>\r\n      </div>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12 col-md-5 ml-auto mr-auto\">\r\n    <div class=\"alert\"\r\n         [ngClass]=\"{'alert-success': !invalidLogin, 'alert-danger': invalidLogin }\"\r\n         [ngStyle]=\"{'visibility': invalidLogin ? 'visible' : 'hidden'}\">\r\n      {{invalidLogin ? 'Login Failed' : 'Login Successful' }}\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12 col-md-5 ml-auto mr-auto\">\r\n    <form #authForm=\"ngForm\" (ngSubmit)=\"onSubmit(authForm)\" class=\"border border-primary p-5\">\r\n      <div class=\"form-group\">\r\n        <label for=\"email\">E-Mail</label>\r\n        <input type=\"email\"\r\n               id=\"email\"\r\n               class=\"form-control\"\r\n               ngModel\r\n               name=\"email\"\r\n               required\r\n               email />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"password\">Password</label>\r\n        <input type=\"password\"\r\n               id=\"password\"\r\n               class=\"form-control\"\r\n               ngModel\r\n               name=\"password\"\r\n               required />\r\n      </div>\r\n      <div>\r\n        <button class=\"btn btn-primary\" type=\"submit\" [disabled]=\"!authForm.valid\">\r\n          {{ isLoginMode ? 'Login' : 'Register' }}\r\n        </button> |\r\n        <button class=\"btn btn-primary\" type=\"button\" (click)=\"onSwitchMode()\">\r\n          Switch to {{ isLoginMode ? 'Register' : 'Login' }}\r\n        </button>\r\n      </div>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -985,7 +995,7 @@ var AuthComponent = /** @class */ (function () {
         this.authService = authService;
         this.router = router;
         this.isLoginMode = true;
-        this.invalidLogin = null;
+        this.invalidLogin = false;
     }
     AuthComponent.prototype.onSwitchMode = function () {
         this.isLoginMode = !this.isLoginMode;
@@ -1047,8 +1057,10 @@ var AuthGuard = /** @class */ (function () {
     AuthGuard.prototype.canActivate = function () {
         var token = localStorage.getItem("jwt");
         if (token && !this.jwtHelper.isTokenExpired(token)) {
+            this.authService.isLoggedIn.next(true);
             return true;
         }
+        this.authService.isLoggedIn.next(false);
         this.router.navigate(["auth"]);
         return false;
     };
@@ -1078,7 +1090,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
@@ -1088,6 +1102,7 @@ var AuthService = /** @class */ (function () {
         this.httpClient = httpClient;
         this.router = router;
         this.invalidLogin = null;
+        this.isLoggedIn = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
     }
     AuthService.prototype.login = function (form) {
         var credentials = JSON.stringify(form.value);
@@ -1097,12 +1112,16 @@ var AuthService = /** @class */ (function () {
             })
         });
     };
+    AuthService.prototype.logout = function () {
+        localStorage.removeItem('jwt');
+        this.isLoggedIn.next(false);
+    };
     AuthService.prototype.ngOnDestroy = function () {
     };
     AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], AuthService);
     return AuthService;
 }());
@@ -1129,7 +1148,7 @@ module.exports = ".col-md-9 button{\r\n  margin: 1px;\r\n}\r\n\r\n/*# sourceMapp
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12\">\r\n    Balance: {{balance}}\r\n  </div>\r\n</div>\r\n<div class=\"row pt-5 mt-5 mb-1\">\r\n  <div class=\"col-xs-12\">\r\n    <app-alert [message]=\"error\" [status]=\"status\" *ngIf=\"error\" (close)=\"closeAlert()\"></app-alert>\r\n    <div class=\"btn-group\" role=\"group\">\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': mktOrderSelect }\"\r\n              (click)=\"changeOrderForm('market')\">\r\n        Market\r\n      </button>\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': lmtOrderSelect }\"\r\n              (click)=\"changeOrderForm('limit')\">\r\n        Limit\r\n      </button>\r\n      <div class=\"btn-group\" role=\"group\">\r\n        <button id=\"btnGroupDrop1\"\r\n                type=\"button\"\r\n                class=\"btn btn-primary dropdown-toggle\"\r\n                [ngClass]=\"{'active': stopMktSelect || stopLmtSelect || profitLmtSelect || trailStopSelect }\"\r\n                data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\"\r\n                aria-expanded=\"false\">\r\n          Stop\r\n        </button>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"btnGroupDrop1\">\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopMktSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stop')\">Stop Market</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stopLmt')\">Stop Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': profitLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('profitLmt')\">Take Profit Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': trailStopSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('trailStop')\">Trailing Stop</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row\" *ngIf=\"mktOrderSelect\" >\r\n  <div class=\"col-xs-12\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"mktQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"mktQuantity\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyMkt\" class=\"btn btn-primary mr-2\" (click)=\"orderClick('Buy')\">Buy Market</button>\r\n      <button type=\"submit\" id=\"btnSellMkt\" class=\"btn btn-primary\" (click)=\"orderClick('Sell')\">Sell Market</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"lmtOrderSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"limQuantity\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.price\" name=\"price\" id=\"limPrice\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtBuy\" class=\"btn btn-primary mr-2\" (click)=\"orderClick('Buy')\">Buy / Long</button>\r\n      <button type=\"submit\" id=\"btnLmtSell\" class=\"btn btn-primary\" (click)=\"orderClick('Sell')\">Sell / Short</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopMktSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\"/>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopPrice\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopPrice\" [(ngModel)]=\"model.stopPx\" name=\"stopPx\"/>\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopLmtSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtStopPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtStopPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtTriggerStop\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtTriggerStop\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyLmtStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellLmtStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"profitLmtSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitTrigger\">Trigger Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitTrigger\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtProfitBuy\" class=\"btn btn-primary mr-2\">Take Profit Buy</button>\r\n      <button type=\"submit\" id=\"btnLmtProfitSell\" class=\"btn btn-primary\">Take Profit Sell</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"trailStopSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailValue\">Trail Value</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailValue\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-10 d-none d-sm-block\">\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': activeOrders}\"\r\n                (click)=\"showActiveOrders('active')\">Active Orders</button>\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': stopOrders}\"\r\n                (click)=\"showStopOrders('stop')\">Stops</button>\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': filledOrders}\"\r\n                (click)=\"showFilledOrders('filled')\">Fills</button>\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': allOrders}\"\r\n                (click)=\"showAllOrders('all')\">Order History</button>\r\n      </div>\r\n      <div class=\"col-xs-4 d-block d-sm-none\">\r\n        <div class=\"dropdown\">\r\n          <button class=\"btn btn-primary btn-sm dropdown-toggle\" type=\"button\" id=\"filterGroupBtn\"\r\n                  data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n            Filter\r\n          </button>\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"filterGroupBtn\">\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': activeOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showActiveOrders('active')\">Active Orders</a>\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': stopOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showStopOrders('stop')\">Stops</a>\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': filledOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showFilledOrders('filled')\">Fills</a>\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': allOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showAllOrders('all')\">Order History</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-xs-2 mb-1\">\r\n        <button type=\"button\" class=\"btn btn-danger btn-sm\"\r\n                [ngStyle]=\"{'visibility': selectedRow && selectedRow[0].ordStatus == 'New' ? 'visible' : 'hidden' }\">Cancel</button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12\">\r\n        <ag-grid-angular style=\"width: 700px; height: 500px;\"\r\n                         class=\"ag-theme-balham\"\r\n                         [pagination]=\"true\"\r\n                         [rowData]=\"rowData\"\r\n                         [columnDefs]=\"columnDefs\"\r\n                         [rowSelection]=\"rowSelection\"\r\n                         (cellValueChanged)=\"onCellValueChanged($event)\"\r\n                         (selectionChanged)=\"onSelectionChanged($event)\"\r\n                         (gridReady)=\"onGridReady($event)\">\r\n        </ag-grid-angular>\r\n      </div>\r\n    </div>\r\n    <!--<div class=\"row mt-1\">\r\n      <div class=\"col-xs-12\">\r\n        <ag-grid-angular style=\"width: 700px; height: 500px;\"\r\n                         class=\"ag-theme-balham\"\r\n                         [pagination]=\"true\"\r\n                         [rowData]=\"rowData\"\r\n                         [columnDefs]=\"columnDefs\"\r\n                         [rowSelection]=\"rowSelection\"\r\n                         (cellValueChanged)=\"onCellValueChanged($event)\"\r\n                         (selectionChanged)=\"onSelectionChanged($event)\"\r\n                         (gridReady)=\"onGridReady($event)\">\r\n        </ag-grid-angular>\r\n      </div>\r\n    </div>-->\r\n\r\n  </div>\r\n  \r\n</div>\r\n"
+module.exports = "\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12\">\r\n    <span class=\"font-weight-bold\">Balance:</span> {{balance}}\r\n  </div>\r\n</div>\r\n<div class=\"row pt-5 mt-1 mb-1\">\r\n  <div class=\"col-xs-12\">\r\n    <app-alert [message]=\"error\" [status]=\"status\" *ngIf=\"error\" (close)=\"closeAlert()\"></app-alert>\r\n    <div class=\"btn-group\" role=\"group\">\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': mktOrderSelect }\"\r\n              (click)=\"changeOrderForm('market')\">\r\n        Market\r\n      </button>\r\n      <button type=\"button\"\r\n              class=\"btn btn-primary\"\r\n              [ngClass]=\"{'active': lmtOrderSelect }\"\r\n              (click)=\"changeOrderForm('limit')\">\r\n        Limit\r\n      </button>\r\n      <div class=\"btn-group\" role=\"group\">\r\n        <button id=\"btnGroupDrop1\"\r\n                type=\"button\"\r\n                class=\"btn btn-primary dropdown-toggle\"\r\n                [ngClass]=\"{'active': stopMktSelect || stopLmtSelect || profitLmtSelect || trailStopSelect }\"\r\n                data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\"\r\n                aria-expanded=\"false\">\r\n          Stop\r\n        </button>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"btnGroupDrop1\">\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopMktSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stop')\">Stop Market</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': stopLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('stopLmt')\">Stop Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': profitLmtSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('profitLmt')\">Take Profit Limit</a>\r\n          <a class=\"dropdown-item\"\r\n             [ngClass]=\"{'active': trailStopSelect}\"\r\n             [routerLink]=\"\"\r\n             (click)=\"changeOrderForm('trailStop')\">Trailing Stop</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"row\" *ngIf=\"mktOrderSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"mktQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"mktQuantity\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyMkt\" class=\"btn btn-primary mr-2\" (click)=\"orderClick('Buy')\">Buy Market</button>\r\n      <button type=\"submit\" id=\"btnSellMkt\" class=\"btn btn-primary\" (click)=\"orderClick('Sell')\">Sell Market</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"lmtOrderSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtQuantity\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" id=\"limQuantity\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"model.price\" name=\"price\" id=\"limPrice\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtBuy\" class=\"btn btn-primary mr-2\" (click)=\"orderClick('Buy')\">Buy / Long</button>\r\n      <button type=\"submit\" id=\"btnLmtSell\" class=\"btn btn-primary\" (click)=\"orderClick('Sell')\">Sell / Short</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopMktSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form (ngSubmit)=\"onSubmit()\" #orderForm=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" [(ngModel)]=\"model.orderQty\" name=\"orderQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopPrice\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopPrice\" [(ngModel)]=\"model.stopPx\" name=\"stopPx\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"stopLmtSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"mktStopQty\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"mktStopQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtStopPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtStopPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"lmtTriggerStop\">Stop Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lmtTriggerStop\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnBuyLmtStop\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnSellLmtStop\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"profitLmtSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitLmtPrice\">Limit Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitLmtPrice\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"profitTrigger\">Trigger Price</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"profitTrigger\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnLmtProfitBuy\" class=\"btn btn-primary mr-2\">Take Profit Buy</button>\r\n      <button type=\"submit\" id=\"btnLmtProfitSell\" class=\"btn btn-primary\">Take Profit Sell</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\" *ngIf=\"trailStopSelect\">\r\n  <div class=\"col-xs-12\">\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailQty\">Quantity</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailQty\" />\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"trailValue\">Trail Value</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"trailValue\" />\r\n      </div>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary mr-2\">Set Buy Stop</button>\r\n      <button type=\"submit\" id=\"btnTrail\" class=\"btn btn-primary\">Set Sell Stop</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-xs-12\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-10 d-none d-sm-block\">\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': activeOrders}\"\r\n                (click)=\"showActiveOrders('active')\">\r\n          Active Orders\r\n        </button>\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': stopOrders}\"\r\n                (click)=\"showStopOrders('stop')\">\r\n          Stops\r\n        </button>\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': filledOrders}\"\r\n                (click)=\"showFilledOrders('filled')\">\r\n          Fills\r\n        </button>\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm\"\r\n                [ngClass]=\"{'active': allOrders}\"\r\n                (click)=\"showAllOrders('all')\">\r\n          Order History\r\n        </button>\r\n      </div>\r\n      <div class=\"col-xs-4 d-block d-sm-none\">\r\n        <div class=\"dropdown\">\r\n          <button class=\"btn btn-primary btn-sm dropdown-toggle\" type=\"button\" id=\"filterGroupBtn\"\r\n                  data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n            Filter\r\n          </button>\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"filterGroupBtn\">\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': activeOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showActiveOrders('active')\">Active Orders</a>\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': stopOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showStopOrders('stop')\">Stops</a>\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': filledOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showFilledOrders('filled')\">Fills</a>\r\n            <a class=\"dropdown-item\"\r\n               [ngClass]=\"{'active': allOrders}\"\r\n               [routerLink]=\"\"\r\n               (click)=\"showAllOrders('all')\">Order History</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-xs-2 mb-1\">\r\n        <button type=\"button\" class=\"btn btn-danger btn-sm\"\r\n                [ngStyle]=\"{'visibility': selectedRow && selectedRow[0].ordStatus == 'New' ? 'visible' : 'hidden' }\"\r\n                (click)=\"onCancelOrder\">\r\n          Cancel\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12\">\r\n        <ag-grid-angular style=\"width: 700px; height: 250px;\"\r\n                         class=\"ag-theme-balham\"\r\n                         [pagination]=\"true\"\r\n                         [rowData]=\"rowData\"\r\n                         [columnDefs]=\"columnDefs\"\r\n                         [rowSelection]=\"rowSelection\"\r\n                         (cellValueChanged)=\"onCellValueChanged($event)\"\r\n                         (selectionChanged)=\"onSelectionChanged($event)\"\r\n                         (gridReady)=\"onGridReady($event)\">\r\n        </ag-grid-angular>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-1\">\r\n      <div class=\"col-xs-12 col-sm-10\">\r\n        <button type=\"button\"\r\n                class=\"btn btn-outline-primary btn-sm active\">\r\n          Open Positions\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-12\">\r\n       \r\n        <ag-grid-angular style=\"width: 700px; height: 200px;\"\r\n                         class=\"ag-theme-balham\"\r\n                         [pagination]=\"true\"\r\n                         [rowData]=\"rowData2\"\r\n                         [columnDefs]=\"columnDefs2\"\r\n                         (gridReady)=\"onGridReady2($event)\">\r\n        </ag-grid-angular>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1189,11 +1208,21 @@ var BitmexComponent = /** @class */ (function () {
             { headerName: 'Status', field: 'ordStatus', width: 75 },
             { headerName: 'Transact Time', field: 'timeIn', width: 150 }
         ];
+        this.columnDefs2 = [
+            { headerName: 'Symbol', field: 'currency', width: 75 },
+            { headerName: 'Quantity', field: 'openingQty', width: 100 },
+            { headerName: 'Avg Price', field: 'avgCostPrice', width: 100 },
+            { headerName: 'Liquidation Price', field: 'bankruptPrice', width: 100 },
+            { headerName: 'Break Even', field: 'breakEvenPrice', width: 100 },
+            { headerName: 'Unrealised PnL', field: 'unrealisedPnL', width: 200 }
+        ];
         this.rowSelection = 'single';
     }
     BitmexComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.bitmexService.getBalance()
-            .subscribe(function (data) { console.log(data); });
+            .subscribe(function (data) { _this.balance = (Number(data['amount']) * .00000001).toString(); });
+        this.bitmexService.getPositions();
     };
     BitmexComponent.prototype.onGridReady = function (params) {
         var _this = this;
@@ -1205,6 +1234,14 @@ var BitmexComponent = /** @class */ (function () {
             _this.rowData = _this.orderHistory.filter(function (order) { return order.ordStatus == 'New'; });
         });
     };
+    BitmexComponent.prototype.onGridReady2 = function (params) {
+        var _this = this;
+        this.gridApi2 = params.api;
+        this.bitmexService.getPositions()
+            .subscribe(function (x) {
+            _this.rowData2 = x;
+        });
+    };
     BitmexComponent.prototype.onCellValueChanged = function (params) {
         var _this = this;
         if (params.oldValue != params.newValue && params.data.ordStatus == 'New') {
@@ -1213,6 +1250,20 @@ var BitmexComponent = /** @class */ (function () {
                 _this.setStatusMessage(message);
             });
         }
+    };
+    BitmexComponent.prototype.onCancelOrder = function () {
+        var _this = this;
+        this.bitmexService.cancelOrder(this.selectedRow['id'])
+            .subscribe(function (message) {
+            if (message.status == 200) {
+                _this.status = 200;
+                _this.error = 'Order was successfully canceled';
+            }
+            else {
+                _this.status = 400;
+                _this.error = 'Order failed to cancel.';
+            }
+        });
     };
     BitmexComponent.prototype.updateGrid = function (orderId, message) {
         this.orderHistory.forEach(function (order) {
@@ -1435,6 +1486,16 @@ var BitmexService = /** @class */ (function () {
             responseType: 'json'
         });
     };
+    BitmexService.prototype.getPositions = function () {
+        return this.httpClient.get("/api/positions", {
+            observe: 'body',
+            responseType: 'json'
+        });
+    };
+    BitmexService.prototype.cancelOrder = function (orderId) {
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set("orderId", orderId);
+        return this.httpClient.put('/api/orders', { params: params, observe: 'response' });
+    };
     BitmexService.prototype.ngOnDestroy = function () {
     };
     BitmexService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1496,7 +1557,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar fixed-top navbar-expand-md navbar-dark bg-dark\">\r\n  <span class=\"navbar-brand mb-0 h1\">Indicator Alerts</span>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n  \r\n  <div class=\"collapse navbar-collapse\" id=\"navbarText\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"assetpairs\"\r\n           [queryParams]=\"{view: '0'}\"\r\n           routerLinkActive=\"active\">Select Assets</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"assetpairs\"\r\n           [queryParams]=\"{view: '1'}\"\r\n           routerLinkActive=\"active\">View Assets</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"bitmex\"\r\n           routerLinkActive=\"active\">Trade</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <button class=\"btn btn-success\"\r\n                (click)=\"onSave()\"\r\n                [ngStyle]=\"{'visibility': saveVisible ? 'visible' : 'hidden'}\"\r\n                type=\"button\">Save</button>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  \r\n\r\n</nav>\r\n\r\n\r\n\r\n\r\n\r\n"
+module.exports = "<nav class=\"navbar fixed-top navbar-expand-md navbar-dark bg-dark\">\r\n  <span class=\"navbar-brand mb-0 h1\">Indicator Alerts</span>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n  \r\n  <div class=\"collapse navbar-collapse\" id=\"navbarText\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\"\r\n          routerLink=\"auth\"\r\n          routerLinkActive=\"active\">\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"assetpairs\"\r\n           [queryParams]=\"{view: '0'}\"\r\n           routerLinkActive=\"active\">Select Assets</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"assetpairs\"\r\n           [queryParams]=\"{view: '1'}\"\r\n           routerLinkActive=\"active\">View Assets</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\"\r\n           routerLink=\"bitmex\"\r\n           routerLinkActive=\"active\">Trade</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <button class=\"btn btn-success\"\r\n                (click)=\"onSave()\"\r\n                [ngStyle]=\"{'visibility': saveVisible ? 'visible' : 'hidden'}\"\r\n                type=\"button\">Save</button>\r\n      </li>\r\n    </ul>\r\n    <ul class=\"navbar-nav\">\r\n      <li class=\"nav-item\">\r\n      <li class=\"nav-item float-right\">\r\n        <a class=\"nav-link pull-right\"\r\n           [routerLink]=\"\"\r\n           (click)=\"onLogout()\">{{(!isLoggedIn) ? 'Login' : 'Logout'}}</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n\r\n  \r\n\r\n</nav>\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -1512,17 +1573,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/asset-pairs/asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/asset-pairs/asset-pairs.service */ "./src/app/asset-pairs/asset-pairs.service.ts");
+/* harmony import */ var src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/auth/auth.service */ "./src/app/auth/auth.service.ts");
+
+
 
 
 
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent(assetPairsService) {
+    function HeaderComponent(assetPairsService, authservice, router) {
         this.assetPairsService = assetPairsService;
+        this.authservice = authservice;
+        this.router = router;
         this.saveVisible = false;
+        this.isLoggedIn = false;
     }
     HeaderComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.authservice.isLoggedIn.subscribe(function (authenticated) {
+            _this.isLoggedIn = authenticated;
+        });
         this.assetPairsService.selectionChange
             .subscribe(function (response) {
             _this.saveVisible = true;
@@ -1534,13 +1605,25 @@ var HeaderComponent = /** @class */ (function () {
             console.log(response);
         });
     };
+    HeaderComponent.prototype.onLogout = function () {
+        if (this.isLoggedIn) {
+            this.authservice.logout();
+            this.isLoggedIn = false;
+            this.router.navigate(['auth']);
+        }
+        else {
+            this.router.navigate(['auth']);
+        }
+    };
     HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-header',
             template: __webpack_require__(/*! ./header.component.html */ "./src/app/core/header/header.component.html"),
             styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/core/header/header.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_2__["AssetPairsService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_asset_pairs_asset_pairs_service__WEBPACK_IMPORTED_MODULE_3__["AssetPairsService"],
+            src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());

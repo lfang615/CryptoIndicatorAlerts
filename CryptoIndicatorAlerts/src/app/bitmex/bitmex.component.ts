@@ -44,6 +44,17 @@ export class BitmexComponent implements OnInit {
     { headerName: 'Status', field: 'ordStatus', width: 75 },
     { headerName: 'Transact Time', field: 'timeIn', width: 150 }
   ];
+
+  columnDefs2 = [
+    { headerName: 'Symbol', field: 'currency', width: 75 },
+    { headerName: 'Quantity', field: 'openingQty', width: 100 },
+    { headerName: 'Avg Price', field: 'avgCostPrice', width: 100 },
+    { headerName: 'Liquidation Price', field: 'bankruptPrice', width: 100 },
+    { headerName: 'Break Even', field: 'breakEvenPrice', width: 100 },
+    { headerName: 'Unrealised PnL', field: 'unrealisedPnL', width: 200 }
+  ];
+  rowData2: any[];
+  gridApi2: any;
   rowSelection = 'single';
   orderHistory: OrderExecution[];
   rowData: OrderExecution[];
@@ -57,7 +68,8 @@ export class BitmexComponent implements OnInit {
 
   ngOnInit() {
     this.bitmexService.getBalance()
-      .subscribe((data) => { console.log(data); });
+      .subscribe((data) => { this.balance = (Number(data['amount']) * .00000001).toString(); });
+    this.bitmexService.getPositions();
 
   }
 
@@ -72,13 +84,34 @@ export class BitmexComponent implements OnInit {
 
   }
 
+  onGridReady2(params) {
+    this.gridApi2 = params.api;
+    this.bitmexService.getPositions()
+      .subscribe((x: any[]) => {
+        this.rowData2 = x;
+      })
+  }
+
   onCellValueChanged(params) {
     if (params.oldValue != params.newValue && params.data.ordStatus == 'New') {
       this.bitmexService.ammendOrder(this.rowData.filter((order) => { return order.id == params.data.id; })[0])
         .subscribe((message) => {
-          this.setStatusMessage(message);
+          this.setAmmendOrderStatus(message);
         });
     }
+  }
+
+  onCancelOrder() {
+    this.bitmexService.cancelOrder(this.selectedRow['id'])
+      .subscribe((message: any) => {
+        if (message.status == 200) {
+          this.status = 200;
+          this.error = 'Order was successfully canceled';
+        } else {
+          this.status = 400;
+          this.error = 'Order failed to cancel.';
+        }
+      });
   }
 
   updateGrid(orderId, message) {
@@ -89,14 +122,16 @@ export class BitmexComponent implements OnInit {
     })
   }
 
-
-
   onSelectionChanged() {
     this.selectedRow = this.gridApi.getSelectedRows();
     console.log(this.selectedRow[0]);
   }
 
-  setStatusMessage(message) {
+  setSubmitOrderStatus(message) {
+    console.log(message);
+  }
+
+  setAmmendOrderStatus(message) {
     if (message.status == 200) {
       this.status = 200;
       if (message.body.stopPx == null) {
@@ -116,8 +151,10 @@ export class BitmexComponent implements OnInit {
   }
 
   onSubmit() {
-    //  this.bitmexService.createOrder(this.model);
-    console.log(this.model);
+    this.bitmexService.createOrder(this.model)
+      .subscribe((message) => {
+        this.setSubmitOrderStatus(message);
+      });
   }
 
   clearFormValues() {
