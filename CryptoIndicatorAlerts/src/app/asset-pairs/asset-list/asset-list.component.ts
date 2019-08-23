@@ -21,6 +21,9 @@ export class AssetListComponent implements OnInit {
   viewSelected = false;
   btnSelected = false;
   showSave = false;
+  //columnDefs = [
+  //  {headerName: '', field: '', width: 75, hide: true}
+  //]
 
   constructor(private assetPairsService: AssetPairsService,
               private route: ActivatedRoute,
@@ -63,6 +66,12 @@ export class AssetListComponent implements OnInit {
       this.assetPairsService.onChange(asset);
     } 
     
+  }
+
+  removeFromTracking(asset) {
+    this.personalList.forEach((value, index, arr) => {
+
+    });
   }
 
   isSelected(item: AssetPair) {
