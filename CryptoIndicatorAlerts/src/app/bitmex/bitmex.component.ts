@@ -96,9 +96,9 @@ export class BitmexComponent implements OnInit {
     if (params.oldValue != params.newValue && params.data.ordStatus == 'New') {
       this.bitmexService.ammendOrder(this.rowData.filter((order) => { return order.id == params.data.id; })[0])
         .subscribe((message) => {
-          this.setAmmendOrderStatus(message);
+          this.setAmmendOrderStatus(message, params);
         });
-    }
+    } 
   }
 
   onCancelOrder() {
@@ -131,14 +131,17 @@ export class BitmexComponent implements OnInit {
     console.log(message);
   }
 
-  setAmmendOrderStatus(message) {
+  setAmmendOrderStatus(message, params) {
     if (message.status == 200) {
       this.status = 200;
-      if (message.body.stopPx == null) {
-        this.error = message.body.side + ' order ammended to ' + message.body.price;
-      } else if (message.body.stopPx !== null) {
+      if (message.body.stopPx == null && params.colDef['field'] == 'price') {
+        this.error = 'Limit ' + message.body.side + ' price ammended to ' + message.body.price;
+      } else if (params.colDef['field'] == 'stopPx') {
         this.error = message.body.side + ' Stop ammended to ' + message.body.stopPx;
-      } else {
+      } else if (params.colDef['field'] == 'orderQty') {
+        this.error = 'Limit' + message.body.side + 'quantity ammended to ' + message.body.orderQty;
+      }
+      else {
         this.status = 400;
         this.error = 'Order submission failed.';
       }
