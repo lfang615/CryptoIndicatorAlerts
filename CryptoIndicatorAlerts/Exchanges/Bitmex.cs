@@ -186,7 +186,7 @@ namespace CryptoIndicatorAlerts.Exchanges
     {
       var param = new Dictionary<string, string>();
       param["symbol"] = "XBTUSD";
-      //param["side"] = "Buy";
+      param["side"] = side;
       param["orderQty"] = ordQuantity;
       if(price != null)
       {

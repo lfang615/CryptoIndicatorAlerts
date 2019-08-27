@@ -93,8 +93,8 @@
         <label for="mktStopPrice">Stop Price</label>
         <input type="text" class="form-control" id="mktStopPrice" [(ngModel)]="model.stopPx" name="stopPx" />
       </div>
-      <button type="submit" id="btnBuyStop" class="btn btn-primary mr-2">Set Buy Stop</button>
-      <button type="submit" id="btnSellStop" class="btn btn-primary">Set Sell Stop</button>
+      <button type="submit" id="btnBuyStop" class="btn btn-primary mr-2" (click)="orderClick('Buy')">Set Buy Stop</button>
+      <button type="submit" id="btnSellStop" class="btn btn-primary" (click)="orderClick('Sell')">Set Sell Stop</button>
     </form>
   </div>
 </div>

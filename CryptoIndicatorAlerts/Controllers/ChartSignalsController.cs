@@ -328,12 +328,7 @@ namespace CryptoIndicatorAlerts
     {
       foreach (var pair in items)
       {
-        if (pair.IsSelected == true)
-        {
-          AssetPair assetPair = _assetPairRepo.FindByCondition(x => x.Id == pair.Id).FirstOrDefault();
-          assetPair.IsSelected = true;
-          _assetPairRepo.Update(assetPair);
-        }
+        _assetPairRepo.Update(pair);
       }
 
       _assetPairRepo.Save();

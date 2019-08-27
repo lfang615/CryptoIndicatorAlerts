@@ -80,7 +80,7 @@ export class AssetListComponent implements OnInit {
   }
 
   onRemove() {
-    this.personalList.splice(this.itemPosition, 1);
+    //this.personalList.splice(this.itemPosition, 1);
     this.assetPairsService.onChange(this.selectedAsset);
   }
 
@@ -100,7 +100,9 @@ export class AssetListComponent implements OnInit {
     this.assetPairsService.saveItems()
       .subscribe(
       (response) => {
-        console.log(response);
+        if (response['status'] == 200) {
+          this.showSave = !this.showSave;
+        }
       });
   }
 

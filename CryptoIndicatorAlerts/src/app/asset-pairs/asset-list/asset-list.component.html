@@ -11,7 +11,12 @@
     </ul>
   </div>-->
 <div class="row mt-3">
-
+  <button class="btn btn-success"
+          (click)="onSave()"
+          [ngStyle]="{'visibility': showSave ? 'visible' : 'hidden'}"
+          type="button">
+    Save
+  </button>
 </div>
   <div class="row mt-5">
     <div class="col-xs-12" *ngIf="!viewSelected">
@@ -63,7 +68,7 @@
             <div class="dropdown-menu">
               <a class="dropdown-item" [routerLink]="['/detail', asset.Id]">View</a>
               <a class="dropdown-item" [routerLink]="['/edit', asset.Id]">Manage</a>
-              <a class="dropdown-item" [routerLink]=""
+              <a class="dropdown-item" href="javascript:void(0);"
                                        (click)="onRemove()">Remove</a>
             </div>
           </div>
