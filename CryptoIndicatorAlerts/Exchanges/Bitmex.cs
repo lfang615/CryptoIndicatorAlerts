@@ -188,6 +188,7 @@ namespace CryptoIndicatorAlerts.Exchanges
       param["symbol"] = "XBTUSD";
       param["side"] = side;
       param["orderQty"] = ordQuantity;
+
       if(price != null)
       {
         param["price"] = price;
