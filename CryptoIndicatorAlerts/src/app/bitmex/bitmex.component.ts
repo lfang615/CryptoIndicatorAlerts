@@ -102,7 +102,7 @@ export class BitmexComponent implements OnInit {
   }
 
   onCancelOrder() {
-    this.bitmexService.cancelOrder(this.selectedRow['id'])
+    this.bitmexService.cancelOrder(this.selectedRow[0]['id'])
       .subscribe((message: any) => {
         if (message.status == 200) {
           this.status = 200;
@@ -128,7 +128,23 @@ export class BitmexComponent implements OnInit {
   }
 
   setSubmitOrderStatus(message) {
-    console.log(message);
+    
+    if (message.status == 200) {
+      this.status = 200;
+      if (message.body.stopPx == null && message.body.ordType == 'Limit') {
+        this.error = 'Limit ' + message.body.side + ' order of '
+          + message.body.orderQty + ' contracts for ' + message.body.price + ' has posted.';
+      } else if (message.body.stopPx == null && message.body.ordType !== 'Limit') {
+        this.error = message.body.side + ' ' + message.body.orderQty + ' contracts for ' + message.body.price + ' executed.';
+      } else if (message.body.stopPx != null) {
+        this.error = 'Market stop ' + message.body.side + ' ' + message.body.orderQty + ' contract for ' + message.body.price
+          + ' executed.';
+      }
+      else {
+        this.status = 400;
+        this.error = 'Order submission failed.';
+      }
+    }
   }
 
   setAmmendOrderStatus(message, params) {

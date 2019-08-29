@@ -61,8 +61,9 @@ export class BitmexService implements OnDestroy {
   }
 
   cancelOrder(orderId: string) {
-    let params = new HttpParams().set("orderId", orderId);
-    return this.httpClient.put('/api/orders', { params, observe: 'response' });
+    //let params = new HttpParams().set("orderId", orderId);
+    //let params = {'orderId': orderId}
+    return this.httpClient.delete('/api/orders/' + orderId, { observe: 'response' });
   }
 
   ngOnDestroy() {

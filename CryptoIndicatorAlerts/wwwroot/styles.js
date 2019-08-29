@@ -598,8 +598,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\aznin\source\repos\CryptoIndicatorAlerts\CryptoIndicatorAlerts\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
-module.exports = __webpack_require__(/*! C:\Users\aznin\source\repos\CryptoIndicatorAlerts\CryptoIndicatorAlerts\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! C:\Users\lfang\source\repos\CryptoIndicatorAlerts\CryptoIndicatorAlerts\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+module.exports = __webpack_require__(/*! C:\Users\lfang\source\repos\CryptoIndicatorAlerts\CryptoIndicatorAlerts\src\styles.css */"./src/styles.css");
 
 
 /***/ })

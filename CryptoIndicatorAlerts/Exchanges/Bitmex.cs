@@ -186,8 +186,8 @@ namespace CryptoIndicatorAlerts.Exchanges
     {
       var param = new Dictionary<string, string>();
       param["symbol"] = "XBTUSD";
-      param["side"] = side;
-      param["orderQty"] = ordQuantity;
+      //param["side"] = side;
+      param["orderQty"] = (side == "Sell") ? (Convert.ToDouble(ordQuantity) * -1).ToString() : ordQuantity;
 
       if(price != null)
       {
@@ -228,7 +228,7 @@ namespace CryptoIndicatorAlerts.Exchanges
       var param = new Dictionary<string, string>();
       param["orderID"] = orderID;
       param["text"] = "cancel order by ID";
-      return Query("DELETE", "/order", param, true, true);
+      return Query("DELETE", "/order", param, true);
     }
 
     private byte[] hmacsha256(byte[] keyByte, byte[] messageBytes)
